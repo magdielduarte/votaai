@@ -11,8 +11,9 @@
     "gulp-imagemin": "^0.6.1",
     "gulp-concat": "^2.3.4",
     "gulp-sass": "^0.7.2",
-    "gulp-uglify": "^1.0.1"
+    "gulp-uglify": "^1.0.1",
+    "gulp-jade": "^0.8.0"
   },
   "author": "Diel Duarte",
-  "license":"MIT"
+  "license": "MIT"
 }

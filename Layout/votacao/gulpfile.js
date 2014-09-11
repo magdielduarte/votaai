@@ -4,12 +4,14 @@ imagemin  = require('gulp-imagemin'),
 concat    = require('gulp-concat'),
 rename    = require('gulp-rename'),
 sass      = require('gulp-sass'),
-uglify    = require('gulp-uglify');
+uglify    = require('gulp-uglify'),
+jade      = require('gulp-jade');
 
 
 
 var pathsDev = {
-  html: ['./dev/*.html'],
+  jade: ['./dev/*.jade'],
+  JadeWatch: ['./dev/*.jade', './dev/includes_jade/*.jade'],
   styles: ['./dev/assets/scss/*.scss'],
   scripts: ['./dev/assets/js/*.js'],
   image: ['./dev/assets/img/*.*']
@@ -50,14 +52,23 @@ gulp.task('concat-min-js', function() {
       .pipe(gulp.dest('./build/assets/js/'));
 });
 
+//task for compile jada for html
+gulp.task('jade', function() {
+  gulp.src(pathsDev.jade)
+    .pipe(jade({pretty: true}))
+    .pipe(gulp.dest('./build/'))
+});
+
 
 gulp.task('watch',function(){
     gulp.watch(pathsDev.scripts, ['concat-min-js']);
+    gulp.watch(pathsDev.JadeWatch, ['jade']);
     gulp.watch(pathsDev.styles, ['concat-min-sass-css']);
 });
 
+
 // Taks default gulp! 
-gulp.task('default', ['imagemin', 'concat-min-sass-css', 'concat-min-js', 'watch'], function(){});
+gulp.task('default', ['imagemin', 'jade', 'concat-min-sass-css', 'concat-min-js', 'watch'], function(){ });
 
 
 
