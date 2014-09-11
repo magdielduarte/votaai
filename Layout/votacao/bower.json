@@ -1,0 +1,25 @@
+{
+  "name": "Votaai",
+  "version": "1.0.0.0",
+  "authors": [
+    "Diel Duarte"
+  ],
+  "description": "trabalho interdisciplinar 2° semestre  - layout votação externo, depencias front end.",
+  "main": "build/index.html",
+  "keywords": [
+    "votaai"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "normalize.css": "~3.0.1"
+  }
+}
