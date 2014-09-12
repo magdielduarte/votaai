@@ -1,0 +1,6 @@
+A:\MapWards\votaai\Votaai\Votaai\bin\Votaai.dll.config
+A:\MapWards\votaai\Votaai\Votaai\bin\Votaai.dll
+A:\MapWards\votaai\Votaai\Votaai\bin\Votaai.pdb
+A:\MapWards\votaai\Votaai\Votaai\obj\Release\Votaai.csprojResolveAssemblyReference.cache
+A:\MapWards\votaai\Votaai\Votaai\obj\Release\Votaai.dll
+A:\MapWards\votaai\Votaai\Votaai\obj\Release\Votaai.pdb
