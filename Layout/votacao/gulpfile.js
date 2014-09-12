@@ -13,6 +13,12 @@ var pathsDev = {
   jade: ['./dev/*.jade'],
   JadeWatch: ['./dev/*.jade', './dev/includes_jade/*.jade'],
   styles: ['./dev/assets/scss/*.scss'],
+  SassWatch : [
+                './dev/assets/scss/*.scss', 
+                './dev/assets/scss/partials/*.scss', 
+                './dev/assets/scss/includes/*.scss', 
+                './dev/assets/scss/mixins/*.scss'
+              ],
   scripts: ['./dev/assets/js/*.js'],
   image: ['./dev/assets/img/*.*']
 
@@ -63,7 +69,7 @@ gulp.task('jade', function() {
 gulp.task('watch',function(){
     gulp.watch(pathsDev.scripts, ['concat-min-js']);
     gulp.watch(pathsDev.JadeWatch, ['jade']);
-    gulp.watch(pathsDev.styles, ['concat-min-sass-css']);
+    gulp.watch(pathsDev.SassWatch, ['concat-min-sass-css']);
 });
 
 

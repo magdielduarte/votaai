@@ -1,0 +1,6 @@
+.menu {
+	height: 100px;
+	width: 100%;
+	@include box-shadow(0px, 5px, 10px, #888);
+}
+

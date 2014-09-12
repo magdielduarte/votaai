@@ -1,0 +1,6 @@
+/*box shawdow mixin*/
+@mixin box-shadow ($s1, $s2, $s3, $color) {
+	-moz-box-shadow:     $s1 $s2 $s3 $color;
+    -webkit-box-shadow:  $s1 $s2 $s3 $color;
+  		   box-shadow:   $s1 $s2 $s3 $color;
+}
