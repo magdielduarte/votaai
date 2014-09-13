@@ -252,8 +252,6 @@ textarea {
 
 .main {
 	padding-bottom: 2em;
-	
-	border-bottom: 1px solid #000;
 }
 
 
@@ -625,7 +623,6 @@ ul.messages_layout li .message_wrap .info .time {
 ul.messages_layout li .message_wrap .text {
 	float: left;
 	width: 100%;
-	border-top: 1px solid #cfcfcf;
 	padding-top: 5px
 }
 
