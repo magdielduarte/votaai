@@ -1,0 +1,19 @@
+.cadastrar, .votar { 
+	@extend %absolute;
+	width: 50%;
+	height: 100%;
+	font-family: 'bariol';
+	font-size: 35px;
+	padding-top: 9%;
+	@extend %text-center;
+	
+	&:hover { opacity: 0.9; cursor: pointer; } 
+	
+	i { font-size: 180px; }
+
+}
+
+.cadastrar { background-color: #F01648; }
+
+.votar { background-color: #00ba8b; margin-left: 50%; }
+

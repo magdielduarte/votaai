@@ -1,4 +1,43 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	height: 100%;
 	overflow: hidden;
 }
+
+/*
+* Media queries 
+* Max width = 400px for mobile devices,
+* and max width 1024 for desktops.
+*/
+@media all and( max-width : 400px ) {
+		
+	body {
+		height: auto;
+		overflow-x: hidden;
+	}
+
+	.cadastrar, .votar {
+		width: 100%;
+		height: 250px;
+		position: inherit;
+		padding-top: 9%;
+		i { font-size:140px; }
+	}
+
+	.votar { margin-left: 0; }
+}
+
+
+@media all and( max-width : 1024px ) {
+		
+	.cadastrar, .votar {
+		padding-top: 20%;
+	}
+
+}
+
+

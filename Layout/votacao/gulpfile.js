@@ -20,13 +20,15 @@ var pathsDev = {
                 './dev/assets/scss/mixins/*.scss'
               ],
   scripts: ['./dev/assets/js/*.js'],
-  image: ['./dev/assets/img/*.*']
+  image: ['./dev/assets/img/*.*'],
+  fonts: ['./dev/assets/fonts/*.*']
 
 };
 
 
 var pathsBuild = {
-  styles: ['./build/assets/css/*.css']
+  styles: ['./build/assets/css/*.css'],
+  fonts: ['/.build/assets/fonts/']
 };
 
 
@@ -65,6 +67,12 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('./build/'))
 });
 
+//task for copy files 
+gulp.task('copy', function(){
+  gulp.src(pathsDev.fonts)
+    .pipe(gulp.dest('./build/assets/fonts/'));
+});
+
 
 gulp.task('watch',function(){
     gulp.watch(pathsDev.scripts, ['concat-min-js']);
@@ -74,7 +82,7 @@ gulp.task('watch',function(){
 
 
 // Taks default gulp! 
-gulp.task('default', ['imagemin', 'jade', 'concat-min-sass-css', 'concat-min-js', 'watch'], function(){ });
+gulp.task('default', ['imagemin', 'jade', 'concat-min-sass-css', 'concat-min-js', 'copy', 'watch'], function(){ });
 
 
 

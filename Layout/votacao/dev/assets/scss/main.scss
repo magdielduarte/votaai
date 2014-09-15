@@ -1,9 +1,20 @@
+/*INCLUDE FONTS*/
+@import "partials/fonts.scss"; 
+
 /*INCLUDE MIXINS*/
 @import "mixins/mixins.scss";
 
+/*INCLUDE PLACEHOLDERS*/
+@import "placeholders/placeholders.scss";
+
+
+
 /* INCLUDE PARTIALS */
 @import "partials/menu.scss";
+@import "partials/index.scss";
 
-/*INCLUDE MEDIA*/
+/*INCLUDE MEDIA*/    
 @import "partials/media.scss";
+
+
 

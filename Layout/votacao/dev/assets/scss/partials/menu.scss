@@ -1,6 +1,13 @@
 .menu {
 	height: 100px;
 	width: 100%;
+	@extend %text-center;
 	@include box-shadow(0px, 5px, 10px, #888);
+
+	img {
+		width: 230px;
+		margin-top: 10px;
+	} 
 }
+
 
