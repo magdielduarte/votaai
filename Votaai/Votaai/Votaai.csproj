@@ -13,12 +13,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Votaai</RootNamespace>
     <AssemblyName>Votaai</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,30 +40,102 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cadastros.aspx" />
+    <Content Include="css\base-admin-responsive.css" />
+    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome-ie7.css" />
+    <Content Include="css\font-awesome-ie7.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\pages\dashboard.css" />
+    <Content Include="css\pages\faq.css" />
+    <Content Include="css\pages\plans.css" />
+    <Content Include="css\pages\reports.css" />
+    <Content Include="css\pages\signin.css" />
+    <Content Include="css\style.css" />
+    <Content Include="font\fontawesome-webfont.svg" />
+    <Content Include="img\body-bg.png" />
+    <Content Include="img\glyphicons-halflings-white.html" />
+    <Content Include="img\glyphicons-halflings.html" />
+    <Content Include="img\icons-sa7c41345d9.png" />
+    <Content Include="img\message_avatar1.png" />
+    <Content Include="img\message_avatar2.png" />
+    <Content Include="img\signin\check.png" />
+    <Content Include="img\signin\fb_btn.png" />
+    <Content Include="img\signin\password.png" />
+    <Content Include="img\signin\twitter_btn.png" />
+    <Content Include="img\signin\user.png" />
+    <Content Include="Index.aspx" />
+    <Content Include="js\base.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\chart.min.js" />
+    <Content Include="js\charts\area.js" />
+    <Content Include="js\charts\bar.js" />
+    <Content Include="js\charts\donut.js" />
+    <Content Include="js\charts\line.js" />
+    <Content Include="js\charts\pie.js" />
+    <Content Include="js\excanvas.min.js" />
+    <Content Include="js\faq.js" />
+    <Content Include="js\full-calendar\fullcalendar.css" />
+    <Content Include="js\full-calendar\fullcalendar.min.js" />
+    <Content Include="js\guidely\guidely-number.png" />
+    <Content Include="js\guidely\guidely.css" />
+    <Content Include="js\guidely\guidely.min.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="js\signin.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadastros.aspx.cs">
+      <DependentUpon>Cadastros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros.aspx.designer.cs">
+      <DependentUpon>Cadastros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="font\fontawesome-webfont.eot" />
+    <Content Include="font\fontawesome-webfont.svgz" />
+    <Content Include="font\fontawesome-webfont.ttf" />
+    <Content Include="font\fontawesome-webfont.woff" />
+    <Content Include="font\fontawesome-webfontd41d.eot" />
+    <Content Include="font\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -70,6 +143,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
