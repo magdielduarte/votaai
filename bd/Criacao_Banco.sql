@@ -54,6 +54,7 @@ CREATE TABLE candidato (
   candidatoid INT  NOT NULL identity,
   nome VARCHAR(200) NOT NULL,
   numero VARCHAR(5) NOT NULL,
+  vice TEXT,
   cargo VARCHAR(100) NOT NULL,
   foto TEXT NOT NULL,
   partidoid INT  NOT NULL,
