@@ -31,6 +31,8 @@ CREATE TABLE eleitor(
   idade INT  NOT NULL,
   sexo CHAR NOT NULL,
   estado VARCHAR(60) NOT NULL,
+  zonaeleitoral varchar(5) not null,
+  secao varchar(6) not null,
   votou int NOT NULL,
   PRIMARY KEY (eleitorid))
 
@@ -70,6 +72,8 @@ CREATE TABLE voto (
   estadoeleitor VARCHAR(2) NOT NULL,
   idadeeleitor INT NOT NULL,
   sexoeleitor CHAR NOT NULL,
+  zonaeleitor varchar(5) not null,
+  secaoeleitor varchar(6) not null,
   candidatoid INT  NOT NULL,
   PRIMARY KEY (votoid),
   --INDEX fk_voto_candidato1_idx (candidatoid ASC),
