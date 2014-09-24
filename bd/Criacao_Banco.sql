@@ -10,7 +10,7 @@
 -- -----------------------------------------------------
 --CREATE SCHEMA [Votaai] DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 CREATE DATABASE [Votaai] ON  PRIMARY 
-( NAME = N'Votaai', FILENAME = N'C:\Arquivos de Programas\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\Votaai.mdf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'Votaai', FILENAME = N'C:\Arquivos de Programas\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\Votaai.mdf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB)
  LOG ON 
 ( NAME = N'Votaai_1', FILENAME = N'C:\Arquivos de Programas\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\Votaai_1.ldf' , SIZE = 25600KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
