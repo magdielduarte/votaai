@@ -1,8 +1,11 @@
+a {
+	color: black;
+}
+
 .cadastrar, .votar { 
 	@extend %absolute;
 	width: 50%;
 	height: 100%;
-	font-family: 'bariol';
 	font-size: 35px;
 	padding-top: 9%;
 	@extend %text-center;

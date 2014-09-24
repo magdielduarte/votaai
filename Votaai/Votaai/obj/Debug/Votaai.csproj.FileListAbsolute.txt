@@ -4,3 +4,8 @@ A:\MapWards\votaai\Votaai\Votaai\bin\Votaai.pdb
 A:\MapWards\votaai\Votaai\Votaai\obj\Debug\Votaai.csprojResolveAssemblyReference.cache
 A:\MapWards\votaai\Votaai\Votaai\obj\Debug\Votaai.dll
 A:\MapWards\votaai\Votaai\Votaai\obj\Debug\Votaai.pdb
+C:\wamp\www\faculdade\votaai\Votaai\Votaai\bin\Votaai.dll
+C:\wamp\www\faculdade\votaai\Votaai\Votaai\bin\Votaai.pdb
+C:\wamp\www\faculdade\votaai\Votaai\Votaai\obj\Debug\Votaai.csprojResolveAssemblyReference.cache
+C:\wamp\www\faculdade\votaai\Votaai\Votaai\obj\Debug\Votaai.dll
+C:\wamp\www\faculdade\votaai\Votaai\Votaai\obj\Debug\Votaai.pdb

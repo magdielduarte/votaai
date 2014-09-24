@@ -2,12 +2,12 @@ doctype html
 html(lang="en")
   include ./includes_jade/head.jade
 body
-  .menu
-    img(src="assets/img/logo.png", alt="Logomarca vota aí")
+  include ./includes_jade/menu.jade
   .cadastrar
     i(class="fa fa-plus-circle")
     h2.title Cadastrar
-  .votar
-    i(class="fa fa-users")
-    h2.title Votar
+  a(href="section_1.html")
+    .votar
+      i(class="fa fa-users")
+      h2.title Votar
 
