@@ -110,7 +110,14 @@
 								<div class="tab-pane active" id="Formpartido">
 									<form id="edit-profile" class="form-horizontal">
 										<fieldset>
-											
+											<div class="control-group">
+                                                <label class="control-label" for="username">Sigla</label>
+                                                <div class="controls">
+                                                    <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" />
+                                                    <a href="#" class="btn btn-sucess"><i class="icon-search"></i> pesquisar</a>
+                                                </div>
+											</div>
+
 											<div class="control-group">											
 												<label class="control-label" for="username">CNPJ</label>
 												<div class="controls">
