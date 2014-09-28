@@ -1,6 +1,9 @@
 /*INCLUDE FONTS*/
 @import "partials/fonts.scss"; 
 
+/*INCLUDE COLORS*/
+@import "partials/colors.scss";
+
 /*INCLUDE MIXINS*/
 @import "mixins/mixins.scss";
 
@@ -12,10 +15,12 @@
 /* INCLUDE PARTIALS */
 @import "partials/menu.scss";
 @import "partials/index.scss";
-@import "partials/section1.scss";
+@import "partials/section_titulo.scss";
+@import "partials/section_candidato.scss";
+
 
 /*INCLUDE MEDIA*/    
-@import "partials/media.scss";
+@import "partials/media.scss";   
 
 
 

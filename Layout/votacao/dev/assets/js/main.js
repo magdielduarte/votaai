@@ -1,7 +1,7 @@
-var i = 10;
-if (i === 10) { alert('olamanolo'); } 
-var j = 10;
-if (j === 10) {	alert('caraca mlk que dia que isso sou foda !'); }
-
-
-
+setTimeout(function(){
+	var arrowsfb = document.getElementsByClassName('fp-controlArrow');
+	for (var i = 0; i < arrowsfb.length; i++) {
+		arrowsfb[i].style.display = 'none';
+	}
+},10);
+ 
