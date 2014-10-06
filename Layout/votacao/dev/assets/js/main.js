@@ -18,3 +18,24 @@ var linkVotar = document.getElementById('linkVotar');
 linkVotar.onclick = function() {
 	$.fn.fullpage.moveTo(2);
 };
+
+
+/*
+	link para cadastro do eleitor
+*/
+
+var linkCadastrar = document.getElementById('linkCadastrar');
+linkCadastrar.onclick = function() {
+	$.fn.fullpage.moveTo(3);
+};
+
+
+/*
+	Link para voltar ao início
+*/
+var linkInicio = document.getElementById('linkInicio');
+linkInicio.onclick = function() {
+	$.fn.fullpage.moveTo(1);
+};
+
+

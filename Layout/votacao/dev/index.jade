@@ -6,8 +6,9 @@ body
     .section  	
       include ./includes_jade/menu.jade
       .cadastrar
-        i(class="fa fa-plus-circle")
-        h2.title Cadastrar
+        a(href="#" id="linkCadastrar")
+          i(class="fa fa-plus-circle")
+          h2.title Cadastrar
       .votar
         a(href="#" id="linkVotar")  
           i(class="fa fa-users")
@@ -17,4 +18,11 @@ body
         include ./section_titulo.jade
       .slide
         include ./section_candidato.jade
+      .slide
+        include ./section_perfil.jade
+      .slide
+        include ./section_success.jade 
+    .section
+      .slide.slidecadastro.spaceleftauxi
+        include ./section_cadastro.jade
   include ./includes_jade/scripts.jade 

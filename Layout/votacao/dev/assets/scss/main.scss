@@ -10,6 +10,8 @@
 /*INCLUDE PLACEHOLDERS*/
 @import "placeholders/placeholders.scss";
 
+@import "partials/alternatives.scss";  
+
 
 
 /* INCLUDE PARTIALS */
@@ -17,9 +19,13 @@
 @import "partials/index.scss";
 @import "partials/section_titulo.scss";
 @import "partials/section_candidato.scss";
+@import "partials/section_perfil.scss";
+@import "partials/section_success.scss";
+@import "partials/section_cadastro.scss";   
 
 
-/*INCLUDE MEDIA*/    
+
+/*INCLUDE MEDIA*/      
 @import "partials/media.scss";   
 
 

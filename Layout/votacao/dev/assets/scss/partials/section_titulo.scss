@@ -4,16 +4,28 @@
 	
 	.title { font-size:40px; }
 
-	.inputeleicao { 
+	.inputeleicao, .selecteleicao { 
 		margin-top: 10px;
-		height: 100px;
 		border:none;
 		border-bottom: 1px solid #000;
 		outline: none;
-		font-size: 80px;
 		background-color: $background-input-inputeleicao;
+	}
 
+	.inputeleicao { 
+		height: 100px;
+		font-size: 80px;
 	 }
+
+	.selecteleicao { 
+		height: 48px;
+		font-size: 45px;
+	}
+
+	.inputeleicaomin {
+		font-size: 45px;
+		height: 47px;
+	}
 
 	 .tituloeleitor { width: 58%; }
 

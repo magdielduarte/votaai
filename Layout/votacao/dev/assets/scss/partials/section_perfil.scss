@@ -1,0 +1,36 @@
+
+.box-perfil { 
+	padding-top: 50px; 
+	text-align:center;
+	
+	img { border-radius: 50%; }
+
+	h2 { 
+		margin-top: 10px;
+		margin-left: 30px;
+		font-size: 39px; 
+	}
+}
+
+.cancela, .correto {
+	font-size:40px;
+	display: inline-block;
+	width: 200px;
+	height:50px;
+	margin-top: 65px;
+	cursor: pointer;
+}
+
+.cancela { 
+	background-color: #c0392b; 
+	margin-right: 10px; 
+	
+	&:hover{ background-color: #e74c3c; }
+}
+.correto { 
+	background-color: #27ae60; 
+	margin-left: 10px;
+
+	&:hover{ background-color: #2ecc71; }
+}
+
