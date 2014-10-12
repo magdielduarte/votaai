@@ -9,3 +9,7 @@ C:\wamp\www\faculdade\votaai\Votaai\Votaai\bin\Votaai.pdb
 C:\wamp\www\faculdade\votaai\Votaai\Votaai\obj\Debug\Votaai.csprojResolveAssemblyReference.cache
 C:\wamp\www\faculdade\votaai\Votaai\Votaai\obj\Debug\Votaai.dll
 C:\wamp\www\faculdade\votaai\Votaai\Votaai\obj\Debug\Votaai.pdb
+A:\MapWards\votaai\votaai\Votaai\bin\ClassesBanco.dll
+A:\MapWards\votaai\votaai\Votaai\bin\ClassesBanco.pdb
+A:\MapWards\votaai\votaai\Votaai\bin\ClassesConexao.dll
+A:\MapWards\votaai\votaai\Votaai\bin\ClassesConexao.pdb

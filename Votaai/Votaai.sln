@@ -1,7 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votaai", "Votaai\Votaai.csproj", "{632AFE41-FCAF-4759-82B0-354B97965207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesBanco", "ClassesBanco\ClassesBanco.csproj", "{F09171F2-216C-4D2A-9B69-D765FD873996}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesConexao", "ClassesConexao\ClassesConexao.csproj", "{57672D5B-F245-4E14-B79B-809B1E158D6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +19,14 @@ Global
 		{632AFE41-FCAF-4759-82B0-354B97965207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632AFE41-FCAF-4759-82B0-354B97965207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632AFE41-FCAF-4759-82B0-354B97965207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09171F2-216C-4D2A-9B69-D765FD873996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F09171F2-216C-4D2A-9B69-D765FD873996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F09171F2-216C-4D2A-9B69-D765FD873996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09171F2-216C-4D2A-9B69-D765FD873996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57672D5B-F245-4E14-B79B-809B1E158D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57672D5B-F245-4E14-B79B-809B1E158D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57672D5B-F245-4E14-B79B-809B1E158D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57672D5B-F245-4E14-B79B-809B1E158D6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
