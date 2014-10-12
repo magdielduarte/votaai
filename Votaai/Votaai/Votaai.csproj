@@ -148,6 +148,10 @@
       <Project>{f09171f2-216c-4d2a-9b69-d765fd873996}</Project>
       <Name>ClassesBanco</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClassesConexao\ClassesConexao.csproj">
+      <Project>{57672d5b-f245-4e14-b79b-809b1e158d6f}</Project>
+      <Name>ClassesConexao</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
