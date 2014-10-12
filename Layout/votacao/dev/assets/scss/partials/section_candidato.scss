@@ -4,4 +4,26 @@
 	.cargo { font-size: 100px; }
 
 	.numerocandidato { width: 10%; }
+
+	.inputestadual { width: 30%; } 
+
+	.inputfederal { width: 25%; }
+	
+	.inputsenador { width: 18%; }
+
+	::-webkit-input-placeholder {
+	   color: #000;
+	 }
+
+	:-moz-placeholder {
+	   color: #000;
+	 }
+
+	::-moz-placeholder {
+	   color: #000;  
+	 }
+
+	:-ms-input-placeholder {  
+	   color: #000;  
+	 }
 } 

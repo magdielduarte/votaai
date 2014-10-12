@@ -3,26 +3,40 @@ html(lang="en")
   include ./includes_jade/head.jade
 body
   #fullpage
-    .section  	
+    .section      
       include ./includes_jade/menu.jade
       .cadastrar
         a(href="#" id="linkCadastrar")
           i(class="fa fa-plus-circle")
-          h2.title Cadastrar
+          h2.title Cadastrar  
       .votar
         a(href="#" id="linkVotar")  
           i(class="fa fa-users")
           h2.title Votar
-    .section
+    .section 
       .slide
         include ./section_titulo.jade
       .slide
-        include ./section_candidato.jade
+        include ./section_deputadoestadual.jade
+      .slide
+        include ./section_perfil.jade
+      .slide
+        include ./section_deputadofederal.jade
+      .slide
+        include ./section_perfil.jade
+      .slide
+        include ./section_senador.jade
+      .slide
+        include ./section_perfil.jade
+      .slide
+        include ./section_governador.jade
+      .slide
+        include ./section_perfil.jade
+      .slide
+        include ./section_presidente.jade
       .slide
         include ./section_perfil.jade
       .slide
         include ./section_success.jade 
-    .section
-      .slide.slidecadastro.spaceleftauxi
-        include ./section_cadastro.jade
+
   include ./includes_jade/scripts.jade 
