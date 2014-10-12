@@ -1,0 +1,4 @@
+A:\MapWards\votaai\Votaai\ClassesConexao\bin\Debug\ClassesConexao.dll
+A:\MapWards\votaai\Votaai\ClassesConexao\bin\Debug\ClassesConexao.pdb
+A:\MapWards\votaai\Votaai\ClassesConexao\obj\Debug\ClassesConexao.dll
+A:\MapWards\votaai\Votaai\ClassesConexao\obj\Debug\ClassesConexao.pdb
