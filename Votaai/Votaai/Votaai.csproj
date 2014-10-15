@@ -103,6 +103,9 @@
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\signin.js" />
     <Content Include="Login.aspx" />
+    <Content Include="UserControl\Candidato.ascx" />
+    <Content Include="UserControl\Partido.ascx" />
+    <Content Include="UserControl\Usuario.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +131,27 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControl\Candidato.ascx.cs">
+      <DependentUpon>Candidato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Candidato.ascx.designer.cs">
+      <DependentUpon>Candidato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Partido.ascx.cs">
+      <DependentUpon>Partido.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Partido.ascx.designer.cs">
+      <DependentUpon>Partido.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Usuario.ascx.cs">
+      <DependentUpon>Usuario.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Usuario.ascx.designer.cs">
+      <DependentUpon>Usuario.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="font\fontawesome-webfont.eot" />
@@ -153,6 +177,7 @@
       <Name>ClassesConexao</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

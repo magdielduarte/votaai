@@ -5,3 +5,10 @@ A:\MapWards\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb
 A:\MapWards\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache
 A:\MapWards\votaai\Votaai\ClassesBanco\bin\Debug\ClassesConexao.dll
 A:\MapWards\votaai\Votaai\ClassesBanco\bin\Debug\ClassesConexao.pdb
+A:\FreeLancer\Votaai\ClassesBanco\bin\Debug\ClassesBanco.dll
+A:\FreeLancer\Votaai\ClassesBanco\bin\Debug\ClassesBanco.pdb
+A:\FreeLancer\Votaai\ClassesBanco\bin\Debug\ClassesConexao.dll
+A:\FreeLancer\Votaai\ClassesBanco\bin\Debug\ClassesConexao.pdb
+A:\FreeLancer\Votaai\ClassesBanco\obj\Debug\ClassesBanco.dll
+A:\FreeLancer\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb
+A:\FreeLancer\Votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache

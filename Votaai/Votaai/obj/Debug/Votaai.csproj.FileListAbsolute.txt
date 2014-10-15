@@ -13,3 +13,13 @@ A:\MapWards\votaai\votaai\Votaai\bin\ClassesBanco.dll
 A:\MapWards\votaai\votaai\Votaai\bin\ClassesBanco.pdb
 A:\MapWards\votaai\votaai\Votaai\bin\ClassesConexao.dll
 A:\MapWards\votaai\votaai\Votaai\bin\ClassesConexao.pdb
+A:\FreeLancer\Votaai\Votaai\bin\Votaai.dll.config
+A:\FreeLancer\Votaai\Votaai\bin\Votaai.dll
+A:\FreeLancer\Votaai\Votaai\bin\Votaai.pdb
+A:\FreeLancer\Votaai\Votaai\bin\ClassesBanco.dll
+A:\FreeLancer\Votaai\Votaai\bin\ClassesConexao.dll
+A:\FreeLancer\Votaai\Votaai\bin\ClassesBanco.pdb
+A:\FreeLancer\Votaai\Votaai\bin\ClassesConexao.pdb
+A:\FreeLancer\Votaai\Votaai\obj\Debug\Votaai.csprojResolveAssemblyReference.cache
+A:\FreeLancer\Votaai\Votaai\obj\Debug\Votaai.dll
+A:\FreeLancer\Votaai\Votaai\obj\Debug\Votaai.pdb

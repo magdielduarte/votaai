@@ -1,5 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastros.aspx.cs" Inherits="Votaai.Cadastros" %>
 
+<%@ Register Src="~/UserControl/Candidato.ascx" TagPrefix="uc1" TagName="Candidato" %>
+<%@ Register Src="~/UserControl/Partido.ascx" TagPrefix="uc1" TagName="Partido" %>
+<%@ Register Src="~/UserControl/Usuario.ascx" TagPrefix="uc1" TagName="Usuario" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +23,6 @@
 
     <link href="css/style.css" rel="stylesheet">
 
-
-
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,307 +31,110 @@
 </head>
 
 <body>
-
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="Index.aspx">Vota Aí - Dashboard </a>
-                <div class="nav-collapse">
-                    <ul class="nav pull-right">
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-cog"></i>Configurações<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">Sobre</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i>tulio de paula<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">Logout</a></li>
-                            </ul>
-                        </li>
+    <form runat="server">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="Index.aspx">Vota Aí - Dashboard </a>
+                    <div class="nav-collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                class="icon-cog"></i>Configurações<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:;">Sobre</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                class="icon-user"></i>tulio de paula<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:;">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /navbar-inner -->
+        </div>
+        <!-- /navbar -->
+        <div class="subnavbar">
+            <div class="subnavbar-inner">
+                <div class="container">
+                    <ul class="mainnav">
+                        <li><a href="Index.aspx"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
+                        <li class="active"><a href="cadastros.html"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
                     </ul>
                 </div>
-                <!--/.nav-collapse -->
+                <!-- /container -->
             </div>
-            <!-- /container -->
+            <!-- /subnavbar-inner -->
         </div>
-        <!-- /navbar-inner -->
-    </div>
-    <!-- /navbar -->
-    <div class="subnavbar">
-        <div class="subnavbar-inner">
-            <div class="container">
-                <ul class="mainnav">
-                    <li><a href="Index.aspx"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
-                    <li class="active"><a href="cadastros.html"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
-                </ul>
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /subnavbar-inner -->
-    </div>
+
+        <div class="main">
+
+            <div class="main-inner">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="span12">
+
+                            <div class="widget ">
+
+                                <div class="widget-header">
+                                    <i class="icon-plus-sign"></i>
+                                    <h3>Cadastros Gerais</h3>
+                                </div>
+                                <!-- /widget-header -->
+
+                                <div class="widget-content">
 
 
 
+                                    <div class="tabbable">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#Formpartido" data-toggle="tab">Cadastrar Partido</a>
+                                            </li>
+                                            <li><a href="#Formcandidato" data-toggle="tab">Cadastrar Candidato</a></li>
+                                            <li><a href="#Formusuario" data-toggle="tab">Cadastrar Usuário</a></li>
+                                        </ul>
 
+                                        <br>
 
-
-
-    <div class="main">
-
-        <div class="main-inner">
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="span12">
-
-                        <div class="widget ">
-
-                            <div class="widget-header">
-                                <i class="icon-plus-sign"></i>
-                                <h3>Cadastros Gerais</h3>
-                            </div>
-                            <!-- /widget-header -->
-
-                            <div class="widget-content">
-
-
-
-                                <div class="tabbable">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a href="#Formpartido" data-toggle="tab">Cadastrar Partido</a>
-                                        </li>
-                                        <li><a href="#Formcandidato" data-toggle="tab">Cadastrar Candidato</a></li>
-                                        <li><a href="#Formusuario" data-toggle="tab">Cadastrar Usuário</a></li>
-                                    </ul>
-
-                                    <br>
-
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="Formpartido">
-                                            <form id="edit-profile" class="form-horizontal">
-                                                <fieldset>
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="username">Sigla</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" />
-                                                            <a href="#" class="btn btn-sucess"><i class="icon-search"></i>pesquisar</a>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="username">CNPJ</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4" id="cpnj" name="cnpj" placeholder="99.999.999/9999-99">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="firstname">Nome</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4" id="nome" name="nome" placeholder="digite o nome completo do partido">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="lastname">Sigla</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4" id="sigla" placeholder="Digite a sigla do partido">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="email">Prefixo</label>
-                                                        <div class="controls">
-                                                            <input type="number" class="span4" id="prefixo" placeholder="digite o prefixo do partid. Ex: 13">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="form-actions">
-                                                        <button type="submit" class="btn btn-success">Cadastrar</button>
-                                                        <button class="btn">Cancelar</button>
-                                                    </div>
-                                                    <!-- /form-actions -->
-                                                </fieldset>
-                                            </form>
-                                        </div>
-
-                                        <div class="tab-pane" id="Formcandidato">
-                                            <form id="edit-profile" class="form-horizontal">
-                                                <fieldset>
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="username">Nome</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4" id="nomecandidato" name="nome" placeholder="Digite o nome do candidato">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="email">Número</label>
-                                                        <div class="controls">
-                                                            <input type="number" class="span4" id="numero" placeholder="Digite o numero do candidato">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="cargo">Cargo</label>
-                                                        <div class="controls">
-                                                            <select name="" id="selectcargo" class="span4">
-                                                                <option value=""> </option>
-                                                                <option value="1">Presidente</option>
-                                                                <option value="2">Senador</option>
-                                                                <option value="3">Governador</option>
-                                                            </select>
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-                                                    <div class="control-group" id="vice" style="display: none;">
-                                                        <label class="control-label" for="cargo">Vice</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4" id="vice" placeholder="digite o nome do vice">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                     <div class="control-group" id="suplente" style="display: none;">
-                                                        <label class="control-label" for="suplente1">1° suplemente</label>
-                                                        <div class="controls" style="margin-bottom:20px;">
-                                                            <input type="text" class="span4" id="Text1" placeholder="digite o nome do 1° suplente">
-                                                        </div>
-                                                        <label class="control-label" for="suplente2">2° suplemente</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4" id="Text2" placeholder="digite o nome do 2° suplente">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="email">Foto</label>
-                                                        <div class="controls">
-                                                            <input type="file" class="span4" id="img">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="email">Partido</label>
-                                                        <div class="controls">
-                                                            <select name="" id="" class="span4">
-                                                                <option value="">PSDB</option>
-                                                                <option value="">PT</option>
-                                                            </select>
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="form-actions">
-                                                        <button type="submit" class="btn btn-success">Cadastrar</button>
-                                                        <button class="btn">Cancelar</button>
-                                                    </div>
-                                                    <!-- /form-actions -->
-
-                                                </fieldset>
-                                            </form>
-                                        </div>
-
-                                        <div class="tab-pane" id="Formusuario">
-                                            <form id="edit-profile" class="form-horizontal">
-                                                <fieldset>
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="username">Login</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="span4" id="login" name="login" placeholder="Login">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="email">Senha</label>
-                                                        <div class="controls">
-                                                            <input type="password" class="span4" id="senha" placeholder="Senha">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="email">Repita a senha</label>
-                                                        <div class="controls">
-                                                            <input type="password" class="span4" id="senharepitida" name="senharepitida" placeholder="Repita a senha">
-                                                        </div>
-                                                        <!-- /controls -->
-                                                    </div>
-                                                    <!-- /control-group -->
-
-                                                    <div class="form-actions">
-                                                        <button type="submit" class="btn btn-success">Cadastrar</button>
-                                                        <button class="btn">Cancelar</button>
-                                                    </div>
-                                                    <!-- /form-actions -->
-
-                                                </fieldset>
-                                            </form>
+                                        <div class="tab-content">
+                                            <uc1:Candidato runat="server" ID="Candidato" />
+                                            <uc1:Partido runat="server" ID="Partido" />
+                                            <uc1:Usuario runat="server" ID="Usuario" />
                                         </div>
 
                                     </div>
 
-
                                 </div>
-
-
-
-
+                                <!-- /widget-content -->
 
                             </div>
-                            <!-- /widget-content -->
-
+                            <!-- /widget -->
                         </div>
-                        <!-- /widget -->
-                    </div>
-                    <!-- /span8 -->
+                        <!-- /span8 -->
 
+
+                    </div>
+                    <!-- /row -->
 
                 </div>
-                <!-- /row -->
+                <!-- /container -->
 
             </div>
-            <!-- /container -->
+            <!-- /main-inner -->
 
         </div>
-        <!-- /main-inner -->
-
-    </div>
-    <!-- /main -->
-
-
-
-
+        <!-- /main -->
+    </form>
     <script src="js/jquery-1.7.2.min.js"></script>
 
     <script src="js/bootstrap.js"></script>

@@ -11,5 +11,32 @@ namespace Votaai {
     
     
     public partial class Cadastros {
+        
+        /// <summary>
+        /// Candidato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Votaai.UserControl.Candidato Candidato;
+        
+        /// <summary>
+        /// Partido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Votaai.UserControl.Partido Partido;
+        
+        /// <summary>
+        /// Usuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Votaai.UserControl.Usuario Usuario;
     }
 }
