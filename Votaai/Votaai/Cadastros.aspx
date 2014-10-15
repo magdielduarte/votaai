@@ -65,7 +65,7 @@
                 <div class="container">
                     <ul class="mainnav">
                         <li><a href="Index.aspx"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
-                        <li class="active"><a href="cadastros.html"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
+                        <li class="active"><a href="Cadastros.aspx"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
                     </ul>
                 </div>
                 <!-- /container -->
