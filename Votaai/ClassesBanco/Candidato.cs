@@ -33,7 +33,16 @@ namespace ClassesBanco
                 SQL.AppendLine("VALUES");
                 SQL.AppendLine(string.Format("('{0}'", this.nome));
                 SQL.AppendLine(string.Format("{0}", this.numero));
-                SQL.AppendLine(string.Format("'{0}'", this.vice));
+                if (this.vice == null)
+                {
+                    SQL.AppendLine(string.Format("NULL"));
+
+                }
+                else
+                {
+                    SQL.AppendLine(string.Format("'{0}'", this.vice));
+
+                }
                 SQL.AppendLine(string.Format("'{0}'", this.cargo));
                 SQL.AppendLine(string.Format("'{0}'", this.foto));
                 SQL.AppendLine(string.Format("{0})", this.partidoid));
