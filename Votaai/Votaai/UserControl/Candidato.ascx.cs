@@ -16,6 +16,37 @@ namespace Votaai.UserControl
 
         protected void BtnCadCand_Click(object sender, EventArgs e)
         {
+            ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
+            cand.nome = nomecandidato.Value.ToString();
+            cand.numero = int.Parse(numero.Text);
+            cand.cargo = this.selectcargo.Value;
+
+            ValidarFoto(ref cand);
+            ValidarVice(ref cand);
+
+            cand.partidoid = int.Parse(this.selectpartido.Value);
+            
+        }
+
+        private void ValidarVice(ref ClassesBanco.Candidato cand)
+        {
+            if (cand.cargo == "Presidente" || cand.cargo == "Governador")
+            {
+                cand.vice = txtvice.Value;
+            }
+            else if (cand.cargo == "Senador")
+            {
+                cand.vice = this.txtsuplente1.Value + ";" + this.txtsuplente2.Value;
+            }
+            else
+            {
+                cand.vice = null;
+            }
+        }
+
+
+        private void ValidarFoto(ref ClassesBanco.Candidato cand)
+        {
 
         }
 

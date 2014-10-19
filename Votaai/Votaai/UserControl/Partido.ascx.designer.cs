@@ -13,6 +13,42 @@ namespace Votaai.UserControl {
     public partial class Partido {
         
         /// <summary>
+        /// cpnjpartido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cpnjpartido;
+        
+        /// <summary>
+        /// nomepartido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nomepartido;
+        
+        /// <summary>
+        /// siglapartido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText siglapartido;
+        
+        /// <summary>
+        /// prefixopartido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox prefixopartido;
+        
+        /// <summary>
         /// BtnCadPart control.
         /// </summary>
         /// <remarks>

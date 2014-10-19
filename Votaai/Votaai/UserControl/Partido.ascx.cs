@@ -21,7 +21,11 @@ namespace Votaai.UserControl
 
         protected void BtnCadPart_Click(object sender, EventArgs e)
         {
-
+            ClassesBanco.Partido part = new ClassesBanco.Partido();
+            part.cnpj = this.cpnjpartido.Value;
+            part.nome = this.nomepartido.Value;
+            part.sigla = this.siglapartido.Value;
+            part.prefixo = int.Parse(this.prefixopartido.Text);
         }
     }
 }

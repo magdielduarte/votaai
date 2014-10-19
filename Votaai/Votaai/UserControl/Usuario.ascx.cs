@@ -16,6 +16,26 @@ namespace Votaai.UserControl
 
         protected void BtnCadUsu_Click(object sender, EventArgs e)
         {
+            ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
+            usu.login = this.userlogin.Value;
+
+            ValidarSenha(ref usu);
+
+        }
+
+        private void ValidarSenha(ref ClassesBanco.Usuario usu)
+        {
+
+
+            if (this.usersenha.Value.ToString().GetHashCode() != this.usersenharepitida.Value.ToString().GetHashCode())
+            {
+                //Lançar exceção de senha diferente
+
+            }
+            else
+            {
+                usu.senha = this.usersenha.Value.ToString().GetHashCode();
+            }
 
         }
 

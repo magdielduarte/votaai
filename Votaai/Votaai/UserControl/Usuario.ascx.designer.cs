@@ -13,6 +13,33 @@ namespace Votaai.UserControl {
     public partial class Usuario {
         
         /// <summary>
+        /// userlogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userlogin;
+        
+        /// <summary>
+        /// usersenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword usersenha;
+        
+        /// <summary>
+        /// usersenharepitida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword usersenharepitida;
+        
+        /// <summary>
         /// BtnCadUsu control.
         /// </summary>
         /// <remarks>

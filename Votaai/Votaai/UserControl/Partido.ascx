@@ -14,7 +14,8 @@
             <div class="control-group">
                 <label class="control-label" for="username">CNPJ</label>
                 <div class="controls">
-                    <input type="text" class="span4" id="cpnj" name="cnpj" placeholder="99.999.999/9999-99">
+                    <input type="text" class="span4" id="cpnjpartido" name="cnpj" runat="server" placeholder="99.999.999/9999-99">
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cnpj" ErrorMessage="Cnpj Inválido!" ValidationExpression="/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/"></asp:RegularExpressionValidator>
                 </div>
                 <!-- /controls -->
             </div>
@@ -24,7 +25,7 @@
             <div class="control-group">
                 <label class="control-label" for="firstname">Nome</label>
                 <div class="controls">
-                    <input type="text" class="span4" id="nome" name="nome" placeholder="Digite o nome completo do partido">
+                    <input type="text" class="span4" id="nomepartido" runat="server" name="nome" placeholder="Digite o nome completo do partido">
                 </div>
                 <!-- /controls -->
             </div>
@@ -34,7 +35,7 @@
             <div class="control-group">
                 <label class="control-label" for="lastname">Sigla</label>
                 <div class="controls">
-                    <input type="text" class="span4" id="sigla" placeholder="Digite a sigla do partido">
+                    <input type="text" class="span4" id="siglapartido" runat="server" placeholder="Digite a sigla do partido">
                 </div>
                 <!-- /controls -->
             </div>
@@ -44,7 +45,9 @@
             <div class="control-group">
                 <label class="control-label" for="email">Prefixo</label>
                 <div class="controls">
-                    <input type="number" class="span4" id="prefixo" placeholder="Digite o prefixo do partid. Ex: 13">
+                    <%--                    <input type="number" class="span4" id="prefixopartido" runat="server" placeholder="Digite o prefixo do partid. Ex: 13">--%>
+                    <asp:TextBox runat="server" type="number" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
+
                 </div>
                 <!-- /controls -->
             </div>

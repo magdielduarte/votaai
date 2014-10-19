@@ -7,7 +7,7 @@
             <div class="control-group">
                 <label class="control-label" for="username">Login</label>
                 <div class="controls">
-                    <input type="text" class="span4" id="login" name="login" placeholder="Login">
+                    <input type="text" class="span4" id="userlogin" runat="server" name="login" placeholder="Login">
                 </div>
                 <!-- /controls -->
             </div>
@@ -16,7 +16,7 @@
             <div class="control-group">
                 <label class="control-label" for="email">Senha</label>
                 <div class="controls">
-                    <input type="password" class="span4" id="senha" placeholder="Senha">
+                    <input type="password" runat="server" class="span4" id="usersenha" placeholder="Senha">
                 </div>
                 <!-- /controls -->
             </div>
@@ -25,7 +25,7 @@
             <div class="control-group">
                 <label class="control-label" for="email">Repita a senha</label>
                 <div class="controls">
-                    <input type="password" class="span4" id="senharepitida" name="senharepitida" placeholder="Repita a senha">
+                    <input type="password" class="span4" runat="server" id="usersenharepitida" name="senharepitida" placeholder="Repita a senha">
                 </div>
                 <!-- /controls -->
             </div>
