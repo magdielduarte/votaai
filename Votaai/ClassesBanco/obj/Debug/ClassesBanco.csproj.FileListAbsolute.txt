@@ -10,3 +10,4 @@ C:\Projetos\votaai\Votaai\ClassesBanco\bin\ClassesConexao.dll
 C:\Projetos\votaai\Votaai\ClassesBanco\bin\ClassesConexao.pdb
 C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.dll
 C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb
+A:\MapWards\votaai\votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache

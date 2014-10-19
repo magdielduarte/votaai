@@ -3,20 +3,22 @@
 <div class="tab-pane active" id="Formpartido">
     <div id="edit-profile" class="form-horizontal">
         <fieldset>
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                    <div class="control-group">
+                        <label class="control-label" for="username">Sigla</label>
+                        <div class="controls">
+                            <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" runat="server" />
+                            <input type="hidden" runat="server" id="hiddenpartido" />
+                            <%--<button class="btn btn-sucess" id="><i class="icon-search"></i>pesquisar</button>--%>
 
-            <div class="control-group">
-                <label class="control-label" for="username">Sigla</label>
-                <div class="controls">
-                    <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" runat="server" />
-                    <input type="hidden" runat="server" id="hiddenpartido" />
-                    <%--<button class="btn btn-sucess" id="><i class="icon-search"></i>pesquisar</button>--%>
-                    <asp:UpdatePanel runat="server">
-                        <ContentTemplate>
                             <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="Unnamed2_Click" />
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
-            </div>
+
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
 

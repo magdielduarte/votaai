@@ -3,15 +3,18 @@
 <div class="tab-pane" id="Formcandidato">
     <div id="edit-profile" class="form-horizontal">
         <fieldset>
-            <label class="control-label" for="username">Número</label>
-            <div class="controls">
-                <input type="text" class="span4 " style="width: 150px" id="pesnumero" name="pesnumero" runat="server" />
-                <asp:UpdatePanel runat="server">
-                    <ContentTemplate>
-                        <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="BtnPesquisar_Click" />
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                    <div class="control-group">
+
+                        <label class="control-label" for="username">Número</label>
+                        <div class="controls">
+                            <input type="text" class="span4 " style="width: 150px" id="pesnumero" name="pesnumero" runat="server" />
+                            <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="BtnPesquisar_Click" />
+                        </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
 
