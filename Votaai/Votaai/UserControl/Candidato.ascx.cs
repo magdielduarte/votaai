@@ -60,11 +60,11 @@ namespace Votaai.UserControl
         {
             if (this.hiddencand.Value == "")
             {
-                cand.ExecutarMetodo('I');
+                cand.ExecutarMetodo('I', cand);
             }
             else
             {
-                cand.ExecutarMetodo('A');
+                cand.ExecutarMetodo('A', cand);
             }
         }
     }

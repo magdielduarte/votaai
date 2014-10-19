@@ -31,16 +31,15 @@ namespace Votaai.UserControl
         }
         #endregion
 
-
         private void ValidaOperacao(ref ClassesBanco.Usuario usu)
         {
             if (this.idhidden.Value == "")
             {
-                usu.ExecutarMetodo('I');
+                usu.ExecutarMetodo('I', usu);
             }
             else
             {
-                usu.ExecutarMetodo('A');
+                usu.ExecutarMetodo('A', usu);
             }
         }
 
