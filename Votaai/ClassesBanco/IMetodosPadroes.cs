@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using ClassesConexao;
+
+
 namespace ClassesBanco
 {
+    /// <summary>
+    /// Interface utilizada para padronizar métodos comuns de CRUD
+    /// </summary>
     interface IMetodosPadroes
     {
-         bool Inserir(ref Conexao objConexao);
-         bool Alterar(ref Conexao objConexao);
-         bool Excluir(ref Conexao objConexao);
+
+
+         void Inserir();
+         void Alterar();
+         void Excluir();
+         DataSet Busca();
     }
 }

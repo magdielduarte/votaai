@@ -17,7 +17,7 @@ namespace ClassesBanco
         public int partidoid { get; set; }
 
 
-        bool IMetodosPadroes.Inserir(ref ClassesConexao.Conexao objConexao)
+        void IMetodosPadroes.Inserir()
         {
             StringBuilder SQL;
             try

@@ -12,3 +12,6 @@ A:\FreeLancer\Votaai\ClassesBanco\bin\Debug\ClassesConexao.pdb
 A:\FreeLancer\Votaai\ClassesBanco\obj\Debug\ClassesBanco.dll
 A:\FreeLancer\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb
 A:\FreeLancer\Votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache
+C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache
+C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.dll
+C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb

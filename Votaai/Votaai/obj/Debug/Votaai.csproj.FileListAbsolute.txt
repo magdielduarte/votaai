@@ -23,3 +23,6 @@ A:\FreeLancer\Votaai\Votaai\bin\ClassesConexao.pdb
 A:\FreeLancer\Votaai\Votaai\obj\Debug\Votaai.csprojResolveAssemblyReference.cache
 A:\FreeLancer\Votaai\Votaai\obj\Debug\Votaai.dll
 A:\FreeLancer\Votaai\Votaai\obj\Debug\Votaai.pdb
+C:\Projetos\votaai\Votaai\Votaai\obj\Debug\Votaai.csprojResolveAssemblyReference.cache
+C:\Projetos\votaai\Votaai\Votaai\obj\Debug\Votaai.dll
+C:\Projetos\votaai\Votaai\Votaai\obj\Debug\Votaai.pdb
