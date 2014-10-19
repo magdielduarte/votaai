@@ -140,29 +140,7 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/base.js"></script>
 
-    <script>
-        var select = document.getElementById('selectcargo'),
-             vice = document.getElementById('vice'),
-             suplente = document.getElementById('suplente');
-
-        function none() {
-            vice.style.display = 'none';
-            suplente.style.display = 'none';
-        }
-
-        none();
-
-        select.onchange = function () {
-            if (select.value == '1' || select.value == '3') {
-                none();
-                vice.style.display = 'block';
-            }
-            else {
-                none();
-                suplente.style.display = 'block';
-            }
-        };
-    </script>
+   
 </body>
 
 </html>

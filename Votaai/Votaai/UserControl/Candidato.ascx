@@ -89,3 +89,33 @@
     </div>
 </div>
 
+<script>
+    window.onload = function () {
+        var select = document.getElementById('Candidato_selectcargo'),
+             vice = document.getElementById('vice'),
+             suplente = document.getElementById('suplente');
+
+        function none() {
+            vice.style.display = 'none';
+            suplente.style.display = 'none';
+        }
+
+        none();
+
+        select.onchange = function () {
+
+            if (select.value == '1' || select.value == '3') {
+                none();
+                vice.style.display = 'block';
+            }
+            else if (select.value == '2') {
+                none();
+                suplente.style.display = 'block';
+            }
+            else {
+                none();
+            }
+        };
+    };
+</script>
+
