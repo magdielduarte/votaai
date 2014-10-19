@@ -10,27 +10,15 @@ namespace Votaai.UserControl
 {
     public partial class Candidato : System.Web.UI.UserControl
     {
+        #region Ações Tela
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            CarregaComboPartido();
+            if (!IsPostBack)
+            {
+                CarregaComboPartido();
+            }
 
-        }
-
-        private void CarregaComboPartido()
-        {
-            ClassesBanco.Partido part = new ClassesBanco.Partido();
-            DataSet dados = part.BuscarDados(part);
-
-            MontaComboPartido(dados);
-        }
-
-        private void MontaComboPartido(DataSet dados)
-        {
-
-            this.selectpartido.DataSource = dados;
-            this.selectpartido.DataTextField = "sigla";
-            this.selectpartido.DataValueField = "partidoid";
-            this.selectpartido.DataBind();
         }
 
         protected void BtnCadCand_Click(object sender, EventArgs e)
@@ -47,6 +35,67 @@ namespace Votaai.UserControl
 
             ValidaOperacao(ref cand);
         }
+
+        protected void BtnCanCand_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void selectpartido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (selectpartido.DataSource==null)
+            {
+                selectpartido.DataSource = Session["DadosCombo"];
+                
+            }
+            DataSet valoratual = (DataSet)selectpartido.DataSource;
+            
+            if (this.selectpartido.SelectedIndex > 0)
+            {
+                DataRow[] row = valoratual.Tables[0].Select(string.Format("partidoid={0}", this.selectpartido.SelectedValue));
+                this.numero.Text = row[0].ItemArray[4].ToString();
+
+            }
+            else
+            {
+                this.numero.Text = "";
+            }
+        }
+        #endregion
+
+        #region Montagem de Combo
+
+        private void CarregaComboPartido()
+        {
+            ClassesBanco.Partido part = new ClassesBanco.Partido();
+            DataSet dados = part.BuscarDados(part);
+
+            MontaComboPartido(dados);
+        }
+
+        private void MontaComboPartido(DataSet dados)
+        {
+            DataRow row = dados.Tables[0].NewRow();
+
+            row[0] = 0;
+            row[4] = "";
+            dados.Tables[0].Rows.InsertAt(row, 0);
+
+            this.selectpartido.DataSource = dados;
+            this.selectpartido.DataTextField = "sigla";
+            this.selectpartido.DataValueField = "partidoid";
+            this.selectpartido.DataBind();
+            Session["DadosCombo"] = dados;
+        }
+        #endregion
+
+        #region Validações para Cadastro
 
         private void ValidarVice(ref ClassesBanco.Candidato cand)
         {
@@ -72,11 +121,6 @@ namespace Votaai.UserControl
             cand.foto = fullpath;
         }
 
-        protected void BtnCanCand_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ValidaOperacao(ref ClassesBanco.Candidato cand)
         {
             if (this.hiddencand.Value == "")
@@ -88,17 +132,7 @@ namespace Votaai.UserControl
                 cand.ExecutarMetodo('A', cand);
             }
         }
+        #endregion
 
-        protected void BtnPesquisar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void selectpartido_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataSet valoratual = (DataSet)selectpartido.DataSource;
-            DataRow[] row = valoratual.Tables[0].Select(string.Format("partidoid={0}", this.selectpartido.SelectedValue));
-            this.numero.Text = row[0].ItemArray[4].ToString();
-        }
     }
 }
