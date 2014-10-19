@@ -3,64 +3,73 @@
 <div class="tab-pane active" id="Formpartido">
     <div id="edit-profile" class="form-horizontal">
         <fieldset>
+
             <div class="control-group">
                 <label class="control-label" for="username">Sigla</label>
                 <div class="controls">
-                    <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" runat="server"/>
+                    <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" runat="server" />
                     <input type="hidden" runat="server" id="hiddenpartido" />
                     <%--<button class="btn btn-sucess" id="><i class="icon-search"></i>pesquisar</button>--%>
-                    <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="Unnamed2_Click" />
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="Unnamed2_Click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
             </div>
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
 
-            <div class="control-group">
-                <label class="control-label" for="username">CNPJ</label>
-                <div class="controls">
-                    <input type="text" class="span4" id="cpnjpartido" name="cnpj" runat="server" placeholder="99.999.999/9999-99">
-                       <%--TODO: Revisar essa desgraça de regex do capeta--%>
-<%--                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cpnjpartido" ErrorMessage="Cnpj Inválido!" ValidationExpression="^( \d{2}?\d{3}?\d{3}?\d{4}?\d{2})$"></asp:RegularExpressionValidator>--%>
-                </div>
-                <!-- /controls -->
-            </div>
-            <!-- /control-group -->
-
-
-            <div class="control-group">
-                <label class="control-label" for="firstname">Nome</label>
-                <div class="controls">
-                    <input type="text" class="span4" id="nomepartido" runat="server" name="nome" placeholder="Digite o nome completo do partido">
-                </div>
-                <!-- /controls -->
-            </div>
-            <!-- /control-group -->
+                    <div class="control-group">
+                        <label class="control-label" for="username">CNPJ</label>
+                        <div class="controls">
+                            <input type="text" class="span4" id="cpnjpartido" name="cnpj" runat="server" placeholder="99.999.999/9999-99">
+                            <%--TODO: Revisar essa desgraça de regex do capeta--%>
+                            <%--                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cpnjpartido" ErrorMessage="Cnpj Inválido!" ValidationExpression="^( \d{2}?\d{3}?\d{3}?\d{4}?\d{2})$"></asp:RegularExpressionValidator>--%>
+                        </div>
+                        <!-- /controls -->
+                    </div>
+                    <!-- /control-group -->
 
 
-            <div class="control-group">
-                <label class="control-label" for="lastname">Sigla</label>
-                <div class="controls">
-                    <input type="text" class="span4" id="siglapartido" runat="server" placeholder="Digite a sigla do partido">
-                </div>
-                <!-- /controls -->
-            </div>
-            <!-- /control-group -->
+                    <div class="control-group">
+                        <label class="control-label" for="firstname">Nome</label>
+                        <div class="controls">
+                            <input type="text" class="span4" id="nomepartido" runat="server" name="nome" placeholder="Digite o nome completo do partido">
+                        </div>
+                        <!-- /controls -->
+                    </div>
+                    <!-- /control-group -->
 
 
-            <div class="control-group">
-                <label class="control-label" for="email">Prefixo</label>
-                <div class="controls">
-                    <%--                    <input type="number" class="span4" id="prefixopartido" runat="server" placeholder="Digite o prefixo do partid. Ex: 13">--%>
-                    <asp:TextBox runat="server" type="number" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
+                    <div class="control-group">
+                        <label class="control-label" for="lastname">Sigla</label>
+                        <div class="controls">
+                            <input type="text" class="span4" id="siglapartido" runat="server" placeholder="Digite a sigla do partido">
+                        </div>
+                        <!-- /controls -->
+                    </div>
+                    <!-- /control-group -->
 
-                </div>
-                <!-- /controls -->
-            </div>
-            <!-- /control-group -->
 
-            <div class="form-actions">
+                    <div class="control-group">
+                        <label class="control-label" for="email">Prefixo</label>
+                        <div class="controls">
+                            <%--                    <input type="number" class="span4" id="prefixopartido" runat="server" placeholder="Digite o prefixo do partid. Ex: 13">--%>
+                            <asp:TextBox runat="server" type="number" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
 
-                <asp:Button runat="server" ID="BtnCadPart" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadPart_Click" />
-                <asp:Button runat="server" ID="BtnCanPart" CssClass="btn" Text="Cancelar" OnClick="BtnCanPart_Click"></asp:Button>
-            </div>
+                        </div>
+                        <!-- /controls -->
+                    </div>
+                    <!-- /control-group -->
+
+                    <div class="form-actions">
+
+                        <asp:Button runat="server" ID="BtnCadPart" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadPart_Click" />
+                        <asp:Button runat="server" ID="BtnCanPart" CssClass="btn" Text="Cancelar" OnClick="BtnCanPart_Click"></asp:Button>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
             <!-- /form-actions -->
         </fieldset>
     </div>

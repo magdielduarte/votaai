@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -48,6 +49,13 @@ namespace Votaai.UserControl
             {
                 ClassesBanco.Partido part = new ClassesBanco.Partido();
                 part.sigla = this.pessigla.Value;
+
+                DataSet dados = part.BuscarDados(part);
+
+                this.cpnjpartido.Value   = dados.Tables[0].Rows[0]["cnpj"].ToString();
+                this.nomepartido.Value   = dados.Tables[0].Rows[0]["nome"].ToString();
+                this.siglapartido.Value  = dados.Tables[0].Rows[0]["sigla"].ToString();
+                this.prefixopartido.Text = dados.Tables[0].Rows[0]["prefixo"].ToString();
             }
             catch (Exception ex)
             { 
