@@ -111,9 +111,9 @@ namespace ClassesBanco
                 SQL.AppendLine("WHERE (1 = 1)");
 
                 if (this.cnpj != null)
-                    SQL.AppendLine(string.Format(" AND cnpj = {0}", this.cnpj));
+                    SQL.AppendLine(string.Format(" AND cnpj = '{0}'", this.cnpj));
                 if (this.nome != null)
-                    SQL.AppendLine(string.Format(" AND nome = {0}", this.nome));
+                    SQL.AppendLine(string.Format(" AND nome = '{0}'", this.nome));
                 if (this.prefixo != 0)
                     SQL.AppendLine(string.Format(" AND prefixo = {0}", this.prefixo));
                 if (this.sigla != null)

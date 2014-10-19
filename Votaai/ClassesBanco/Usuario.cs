@@ -24,7 +24,7 @@ namespace ClassesBanco
         void IMetodosPadroes.Inserir()
         {
             StringBuilder SQL;
-               
+
             try
             {
                 SQL = new StringBuilder();
@@ -112,6 +112,15 @@ namespace ClassesBanco
                     conexao = new Conexao();
 
                 SQL.AppendLine("SELECT * FROM usuario");
+                SQL.AppendLine("WHERE (1=1)");
+                if (this.login != null)
+                {
+                    SQL.AppendLine(string.Format(" AND login = '{0}' ", this.login));
+                }
+                if (this.usuarioid != 0 && this.usuarioid != null)
+                {
+                    SQL.AppendLine(string.Format(" AND usuarioid = {0}", this.usuarioid));
+                }
             }
             catch (Exception ex)
             {
