@@ -45,10 +45,13 @@ namespace Votaai.UserControl
             }
         }
 
-
+        
         private void ValidarFoto(ref ClassesBanco.Candidato cand)
         {
-
+            string filepath = Server.MapPath("~/ImagensCandidatos/");
+            string fullpath = filepath + FileFotoCand.FileName;
+            this.FileFotoCand.SaveAs(fullpath);
+            cand.foto = fullpath;
         }
 
         protected void BtnCanCand_Click(object sender, EventArgs e)

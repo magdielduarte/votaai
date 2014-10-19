@@ -78,7 +78,8 @@
                     <div class="control-group">
                         <label class="control-label" for="email">Foto</label>
                         <div class="controls">
-                            <input type="file" class="span4" id="img">
+<%--                            <input type="file" runat="server" class="span4" id="img">--%>
+                            <asp:FileUpload runat="server" ID="FileFotoCand" CssClass="span4"></asp:FileUpload>
                         </div>
                         <!-- /controls -->
                     </div>
