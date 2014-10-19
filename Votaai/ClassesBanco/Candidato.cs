@@ -183,9 +183,9 @@ namespace ClassesBanco
         /// Retorna o DataSet da busca
         /// </summary>
         /// <returns>o dataset</returns>
-        public DataSet BuscarDados()
+        public DataSet BuscarDados(Candidato cand)
         {
-            IMetodosPadroes metodos = new Candidato();
+            IMetodosPadroes metodos = cand;
 
             if (conexao == null)
                 conexao = new Conexao();
