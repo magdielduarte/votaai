@@ -34,14 +34,14 @@ namespace Votaai.UserControl
 
         private void ValidaOperacao(ref ClassesBanco.Usuario usu)
         {
-            //if (this.idhidden.Value == "")
-            //{
-            //    usu.ExecutarMetodo('I');
-            //}
-            //else
-            //{
-            //    usu.ExecutarMetodo('A');
-            //}
+            if (this.idhidden.Value == "")
+            {
+                usu.ExecutarMetodo('I');
+            }
+            else
+            {
+                usu.ExecutarMetodo('A');
+            }
         }
 
         private void ValidarSenha(ref ClassesBanco.Usuario usu)

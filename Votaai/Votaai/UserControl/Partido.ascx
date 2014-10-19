@@ -16,7 +16,7 @@
                 <label class="control-label" for="username">CNPJ</label>
                 <div class="controls">
                     <input type="text" class="span4" id="cpnjpartido" name="cnpj" runat="server" placeholder="99.999.999/9999-99">
-                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cnpj" ErrorMessage="Cnpj Inválido!" ValidationExpression="/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cpnjpartido" ErrorMessage="Cnpj Inválido!" ValidationExpression="/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/"></asp:RegularExpressionValidator>
                 </div>
                 <!-- /controls -->
             </div>

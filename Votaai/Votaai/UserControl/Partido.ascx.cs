@@ -32,7 +32,7 @@ namespace Votaai.UserControl
 
         private void ValidaOperacao(ref ClassesBanco.Partido part)
         {
-            //if (this.hiddenpartido.Value == "")
+            //if (this.hiddenpartido.Value == "")|
             //{
             //    part.ExecutarMetodo('I');
             //}

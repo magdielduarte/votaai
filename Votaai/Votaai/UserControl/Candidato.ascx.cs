@@ -58,14 +58,14 @@ namespace Votaai.UserControl
 
         private void ValidaOperacao(ref ClassesBanco.Candidato cand)
         {
-            //if (this.hiddencand.Value == "")
-            //{
-            //    cand.ExecutarMetodo('I');
-            //}
-            //else
-            //{
-            //    cand.ExecutarMetodo('A');
-            //}
+            if (this.hiddencand.Value == "")
+            {
+                cand.ExecutarMetodo('I');
+            }
+            else
+            {
+                cand.ExecutarMetodo('A');
+            }
         }
     }
 }
