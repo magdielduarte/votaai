@@ -59,6 +59,11 @@ namespace Votaai.UserControl
 
         }
 
+        protected void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
