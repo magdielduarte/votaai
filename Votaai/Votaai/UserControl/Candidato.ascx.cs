@@ -27,7 +27,7 @@ namespace Votaai.UserControl
         private void MontaComboPartido(DataSet dados)
         {
             this.selectpartido.DataSource = dados;
-            this.selectpartido.DataTextField = "nome";
+            this.selectpartido.DataTextField = "sigla";
             this.selectpartido.DataValueField = "partidoid";
             this.selectpartido.DataBind();
         }
@@ -49,11 +49,11 @@ namespace Votaai.UserControl
 
         private void ValidarVice(ref ClassesBanco.Candidato cand)
         {
-            if (cand.cargo == "Presidente" || cand.cargo == "Governador")
+            if (cand.cargo == "1" || cand.cargo == "3")
             {
                 cand.vice = txtvice.Value;
             }
-            else if (cand.cargo == "Senador")
+            else if (cand.cargo == "2")
             {
                 cand.vice = this.txtsuplente1.Value + ";" + this.txtsuplente2.Value;
             }
