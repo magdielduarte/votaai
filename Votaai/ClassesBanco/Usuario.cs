@@ -37,7 +37,7 @@ namespace ClassesBanco
 
                 SQL.AppendLine("VALUES");
                 SQL.AppendLine(string.Format("('{0}'", this.login));
-                SQL.AppendLine(string.Format("'{0}')", this.senha));
+                SQL.AppendLine(string.Format(",'{0}')", this.senha));
 
                 conexao.ExecutaComando(SQL.ToString());
             }
