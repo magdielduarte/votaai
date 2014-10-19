@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace Votaai.UserControl
 {
@@ -11,7 +12,24 @@ namespace Votaai.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CarregaComboPartido();
 
+        }
+
+        private void CarregaComboPartido()
+        {
+            ClassesBanco.Partido part = new ClassesBanco.Partido();
+            DataSet dados = part.BuscarDados(part);
+
+            MontaComboPartido(dados);
+        }
+
+        private void MontaComboPartido(DataSet dados)
+        {
+            this.selectpartido.DataSource = dados;
+            this.selectpartido.DataTextField = "nome";
+            this.selectpartido.DataValueField = "partidoid";
+            this.selectpartido.DataBind();
         }
 
         protected void BtnCadCand_Click(object sender, EventArgs e)
@@ -45,7 +63,6 @@ namespace Votaai.UserControl
             }
         }
 
-        
         private void ValidarFoto(ref ClassesBanco.Candidato cand)
         {
             string filepath = Server.MapPath("~/ImagensCandidatos/");
