@@ -126,10 +126,10 @@ namespace ClassesBanco
         /// I - Inserir, E - Excluir, A - Alterar
         /// </summary>
         /// <param name="option">Opção passada pelo usuário</param>
-        public void ExecutarMetodo(char option)
+        public void ExecutarMetodo(char option, Usuario user)
         {
             //Usuário implementa a interface de metodos padrões
-            IMetodosPadroes metodos = new Usuario();
+            IMetodosPadroes metodos = user;
 
             switch (option)
             {
