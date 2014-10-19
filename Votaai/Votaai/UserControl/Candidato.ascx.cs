@@ -67,5 +67,10 @@ namespace Votaai.UserControl
                 cand.ExecutarMetodo('A', cand);
             }
         }
+
+        protected void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
