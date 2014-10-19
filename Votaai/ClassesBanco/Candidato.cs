@@ -135,13 +135,13 @@ namespace ClassesBanco
 
                 sql.AppendLine("WHERE (1 = 1)");
 
-                if (this.candidatoid != null)
+                if (this.candidatoid != 0)
                     sql.AppendLine(string.Format("AND candidatoid = {0}", this.candidatoid));
                 if (this.cargo != null)
                     sql.AppendLine(string.Format("AND cargo = {0}", this.cargo));
                 if (this.nome != null)
                     sql.AppendLine(string.Format("AND nome = {0}", this.nome));
-                if (this.partidoid != null)
+                if (this.partidoid != 0)
                     sql.AppendLine(string.Format("AND partidoid = {0}", this.partidoid));
 
             }
