@@ -49,6 +49,15 @@ namespace Votaai.UserControl {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddencand;
         
         /// <summary>
+        /// selectpartido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList selectpartido;
+        
+        /// <summary>
         /// numero control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace Votaai.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FileFotoCand;
-        
-        /// <summary>
-        /// selectpartido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectpartido;
         
         /// <summary>
         /// BtnCadCand control.

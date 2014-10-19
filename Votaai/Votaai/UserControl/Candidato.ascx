@@ -31,6 +31,18 @@
                     <!-- /control-group -->
 
                     <div class="control-group">
+                        <label class="control-label" for="email">Partido</label>
+                        <div class="controls">
+
+                            <asp:DropDownList runat="server" ID="selectpartido" AutoPostBack="true" CssClass="span4" OnSelectedIndexChanged="selectpartido_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </div>
+                        <!-- /controls -->
+                    </div>
+                    <!-- /control-group -->
+
+
+                    <div class="control-group">
                         <label class="control-label" for="email">Número</label>
                         <div class="controls">
                             <%--                    <input type="number" runat="server" class="span4" id="numero" placeholder="Digite o numero do candidato">--%>
@@ -51,6 +63,7 @@
                                 <option value="4">Deputado Federal</option>
                                 <option value="5">Deputado Estadual</option>
                             </select>
+
                         </div>
                         <!-- /controls -->
                     </div>
@@ -78,22 +91,14 @@
                     <div class="control-group">
                         <label class="control-label" for="email">Foto</label>
                         <div class="controls">
-<%--                            <input type="file" runat="server" class="span4" id="img">--%>
+                            <%--                            <input type="file" runat="server" class="span4" id="img">--%>
                             <asp:FileUpload runat="server" ID="FileFotoCand" CssClass="span4"></asp:FileUpload>
                         </div>
                         <!-- /controls -->
                     </div>
                     <!-- /control-group -->
 
-                    <div class="control-group">
-                        <label class="control-label" for="email">Partido</label>
-                        <div class="controls">
-                            <select name="" runat="server" id="selectpartido" class="span4">
-                            </select>
-                        </div>
-                        <!-- /controls -->
-                    </div>
-                    <!-- /control-group -->
+
                 </ContentTemplate>
             </asp:UpdatePanel>
             <div class="form-actions">

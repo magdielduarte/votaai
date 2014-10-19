@@ -26,6 +26,7 @@ namespace Votaai.UserControl
 
         private void MontaComboPartido(DataSet dados)
         {
+
             this.selectpartido.DataSource = dados;
             this.selectpartido.DataTextField = "sigla";
             this.selectpartido.DataValueField = "partidoid";
@@ -42,7 +43,7 @@ namespace Votaai.UserControl
             ValidarFoto(ref cand);
             ValidarVice(ref cand);
 
-            cand.partidoid = int.Parse(this.selectpartido.Value);
+            cand.partidoid = int.Parse(this.selectpartido.SelectedValue);
 
             ValidaOperacao(ref cand);
         }
@@ -91,6 +92,13 @@ namespace Votaai.UserControl
         protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void selectpartido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataSet valoratual = (DataSet)selectpartido.DataSource;
+            DataRow[] row = valoratual.Tables[0].Select(string.Format("partidoid={0}", this.selectpartido.SelectedValue));
+            this.numero.Text = row[0].ItemArray[4].ToString();
         }
     }
 }
