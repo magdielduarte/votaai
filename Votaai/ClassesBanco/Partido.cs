@@ -10,7 +10,7 @@ namespace ClassesBanco
     {
         public int partidoid { get; set; }
         public string cnpj { get; set; }
-        public int nome { get; set; }
+        public string nome { get; set; }
         public string sigla { get; set; }
         public int prefixo { get; set; }
 
