@@ -12,6 +12,7 @@
                             <input type="text" class="span4 " style="width: 150px" id="pesnumero" name="pesnumero" runat="server" />
                             <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="BtnPesquisar_Click" />
                         </div>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
 
