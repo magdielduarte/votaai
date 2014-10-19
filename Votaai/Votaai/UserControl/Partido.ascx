@@ -6,9 +6,10 @@
             <div class="control-group">
                 <label class="control-label" for="username">Sigla</label>
                 <div class="controls">
-                    <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" />
+                    <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" runat="server"/>
                     <input type="hidden" runat="server" id="hiddenpartido" />
-                    <a href="#" class="btn btn-sucess"><i class="icon-search"></i>pesquisar</a>
+                    <%--<button class="btn btn-sucess" id="><i class="icon-search"></i>pesquisar</button>--%>
+                    <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="Unnamed2_Click" />
                 </div>
             </div>
 
@@ -16,7 +17,8 @@
                 <label class="control-label" for="username">CNPJ</label>
                 <div class="controls">
                     <input type="text" class="span4" id="cpnjpartido" name="cnpj" runat="server" placeholder="99.999.999/9999-99">
-                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cpnjpartido" ErrorMessage="Cnpj Inválido!" ValidationExpression="/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/"></asp:RegularExpressionValidator>
+                       <%--TODO: Revisar essa desgraça de regex do capeta--%>
+<%--                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cpnjpartido" ErrorMessage="Cnpj Inválido!" ValidationExpression="^( \d{2}?\d{3}?\d{3}?\d{4}?\d{2})$"></asp:RegularExpressionValidator>--%>
                 </div>
                 <!-- /controls -->
             </div>
