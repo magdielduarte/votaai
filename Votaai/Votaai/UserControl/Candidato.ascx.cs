@@ -25,7 +25,8 @@ namespace Votaai.UserControl
             ValidarVice(ref cand);
 
             cand.partidoid = int.Parse(this.selectpartido.Value);
-            
+
+            ValidaOperacao(ref cand);
         }
 
         private void ValidarVice(ref ClassesBanco.Candidato cand)
@@ -53,6 +54,18 @@ namespace Votaai.UserControl
         protected void BtnCanCand_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ValidaOperacao(ref ClassesBanco.Candidato cand)
+        {
+            //if (this.hiddencand.Value == "")
+            //{
+            //    cand.ExecutarMetodo('I');
+            //}
+            //else
+            //{
+            //    cand.ExecutarMetodo('A');
+            //}
         }
     }
 }

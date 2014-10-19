@@ -7,6 +7,7 @@
                 <label class="control-label" for="username">Sigla</label>
                 <div class="controls">
                     <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" />
+                    <input type="hidden" runat="server" id="hiddenpartido" />
                     <a href="#" class="btn btn-sucess"><i class="icon-search"></i>pesquisar</a>
                 </div>
             </div>

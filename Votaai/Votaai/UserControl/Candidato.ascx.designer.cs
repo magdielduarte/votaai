@@ -22,6 +22,15 @@ namespace Votaai.UserControl {
         protected global::System.Web.UI.HtmlControls.HtmlInputText nomecandidato;
         
         /// <summary>
+        /// hiddencand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddencand;
+        
+        /// <summary>
         /// numero control.
         /// </summary>
         /// <remarks>

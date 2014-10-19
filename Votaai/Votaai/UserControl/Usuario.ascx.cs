@@ -9,6 +9,8 @@ namespace Votaai.UserControl
 {
     public partial class Usuario : System.Web.UI.UserControl
     {
+        #region Operações tela
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,9 +20,28 @@ namespace Votaai.UserControl
         {
             ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
             usu.login = this.userlogin.Value;
-
             ValidarSenha(ref usu);
 
+            ValidaOperacao(ref usu);
+        }
+
+        protected void BtnCanUsu_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+
+        private void ValidaOperacao(ref ClassesBanco.Usuario usu)
+        {
+            //if (this.idhidden.Value == "")
+            //{
+            //    usu.ExecutarMetodo('I');
+            //}
+            //else
+            //{
+            //    usu.ExecutarMetodo('A');
+            //}
         }
 
         private void ValidarSenha(ref ClassesBanco.Usuario usu)
@@ -39,9 +60,6 @@ namespace Votaai.UserControl
 
         }
 
-        protected void BtnCanUsu_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

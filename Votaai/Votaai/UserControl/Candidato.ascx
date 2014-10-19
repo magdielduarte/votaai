@@ -8,6 +8,7 @@
                 <label class="control-label" for="username">Nome</label>
                 <div class="controls">
                     <input type="text" class="span4" runat="server" id="nomecandidato" name="nome" placeholder="Digite o nome do candidato">
+                    <input type="hidden" runat="server" id="hiddencand" />
                 </div>
                 <!-- /controls -->
             </div>

@@ -8,6 +8,8 @@
                 <label class="control-label" for="username">Login</label>
                 <div class="controls">
                     <input type="text" class="span4" id="userlogin" runat="server" name="login" placeholder="Login">
+                    <input type="hidden" id="idhidden" runat="server" />
+
                 </div>
                 <!-- /controls -->
             </div>

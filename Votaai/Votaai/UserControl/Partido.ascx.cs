@@ -26,6 +26,20 @@ namespace Votaai.UserControl
             part.nome = this.nomepartido.Value;
             part.sigla = this.siglapartido.Value;
             part.prefixo = int.Parse(this.prefixopartido.Text);
+
+            ValidaOperacao(ref part);
+        }
+
+        private void ValidaOperacao(ref ClassesBanco.Partido part)
+        {
+            //if (this.hiddenpartido.Value == "")
+            //{
+            //    part.ExecutarMetodo('I');
+            //}
+            //else
+            //{
+            //    part.ExecutarMetodo('A');
+            //}
         }
     }
 }
