@@ -4,3 +4,6 @@
 /layout/admin/bower_components
 /layout/votacao/build
 /layout/admin/build
+/votaai/Votaai/ClassesBanco/bin
+/votaai/Votaai/ClassesConexao/bin
+/votaai/Votaai/Votaai/bin

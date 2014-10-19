@@ -7,3 +7,4 @@ A:\FreeLancer\Votaai\ClassesConexao\bin\Debug\ClassesConexao.pdb
 A:\FreeLancer\Votaai\ClassesConexao\obj\Debug\ClassesConexao.dll
 A:\FreeLancer\Votaai\ClassesConexao\obj\Debug\ClassesConexao.pdb
 A:\FreeLancer\Votaai\ClassesConexao\obj\Debug\ClassesConexao.csprojResolveAssemblyReference.cache
+A:\MapWards\votaai\votaai\ClassesConexao\obj\Debug\ClassesConexao.csprojResolveAssemblyReference.cache
