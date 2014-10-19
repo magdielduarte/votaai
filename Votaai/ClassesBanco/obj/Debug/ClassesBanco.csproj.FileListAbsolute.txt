@@ -2,7 +2,6 @@ A:\MapWards\votaai\Votaai\ClassesBanco\bin\ClassesBanco.dll
 A:\MapWards\votaai\Votaai\ClassesBanco\bin\ClassesBanco.pdb
 A:\MapWards\votaai\Votaai\ClassesBanco\bin\ClassesConexao.dll
 A:\MapWards\votaai\Votaai\ClassesBanco\bin\ClassesConexao.pdb
-A:\MapWards\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache
 A:\MapWards\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.dll
 A:\MapWards\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb
 C:\Projetos\votaai\Votaai\ClassesBanco\bin\ClassesBanco.dll

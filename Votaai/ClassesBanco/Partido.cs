@@ -33,7 +33,7 @@ namespace ClassesBanco
                 SQL.AppendLine("( CNPJ");
                 SQL.AppendLine(", NOME");
                 SQL.AppendLine(", SIGLA");
-                SQL.AppendLine(", PREFIXO");
+                SQL.AppendLine(", PREFIXO)");
 
                 SQL.AppendLine("VALUES");
                 SQL.AppendLine(string.Format("('{0}'", this.cnpj));
@@ -109,17 +109,17 @@ namespace ClassesBanco
                 SQL.AppendLine("SELECT * FROM PARTIDO");
 
                 SQL.AppendLine("WHERE (1 = 1)");
-                
-                if(this.cnpj != null)
-                    SQL.AppendLine(string.Format("AND cnpj = {0}", this.cnpj));
+
+                if (this.cnpj != null)
+                    SQL.AppendLine(string.Format(" AND cnpj = {0}", this.cnpj));
                 if (this.nome != null)
-                    SQL.AppendLine(string.Format("AND nome = {0}", this.nome));
+                    SQL.AppendLine(string.Format(" AND nome = {0}", this.nome));
                 if (this.prefixo != 0)
-                    SQL.AppendLine(string.Format("AND prefixo = {0}", this.prefixo));
+                    SQL.AppendLine(string.Format(" AND prefixo = {0}", this.prefixo));
                 if (this.sigla != null)
-                    SQL.AppendLine(string.Format("AND sigla = {0}", this.sigla));
-                if (this.partidoid != null)
-                    SQL.AppendLine(string.Format("AND partidoid = {0}", this.partidoid));
+                    SQL.AppendLine(string.Format(" AND sigla = '{0}'", this.sigla));
+                if (this.partidoid != null && this.partidoid != 0)
+                    SQL.AppendLine(string.Format(" AND partidoid = {0}", this.partidoid));
             }
             catch (Exception ex)
             {
