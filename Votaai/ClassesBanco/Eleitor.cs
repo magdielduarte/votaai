@@ -9,6 +9,7 @@ namespace ClassesBanco
 {
     public class Eleitor : IMetodosPadroes
     {
+
         public int eleitorid { get; set; }
         public string nome { get; set; }
         public string tituloeleitor { get; set; }

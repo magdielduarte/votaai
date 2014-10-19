@@ -13,6 +13,15 @@ namespace Votaai.UserControl {
     public partial class Partido {
         
         /// <summary>
+        /// pessigla control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText pessigla;
+        
+        /// <summary>
         /// hiddenpartido control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace Votaai.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenpartido;
+        
+        /// <summary>
+        /// BtnPesquisar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnPesquisar;
         
         /// <summary>
         /// cpnjpartido control.

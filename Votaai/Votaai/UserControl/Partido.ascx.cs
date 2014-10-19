@@ -41,5 +41,18 @@ namespace Votaai.UserControl
                 part.ExecutarMetodo('A', part);
             }
         }
+
+        protected void Unnamed2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClassesBanco.Partido part = new ClassesBanco.Partido();
+                part.sigla = this.pessigla.Value;
+            }
+            catch (Exception ex)
+            { 
+            
+            }
+        }
     }
 }
