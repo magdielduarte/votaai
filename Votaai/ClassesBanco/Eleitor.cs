@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace ClassesBanco
@@ -19,7 +20,7 @@ namespace ClassesBanco
         public int votou { get; set; }
 
 
-        bool IMetodosPadroes.Inserir(ref ClassesConexao.Conexao objConexao)
+        void IMetodosPadroes.Inserir()
         {
             StringBuilder SQL;
             try
@@ -49,15 +50,10 @@ namespace ClassesBanco
             {
 
             }
-            finally
-            {
 
-            }
-
-            return true;
         }
 
-        bool IMetodosPadroes.Alterar(ref ClassesConexao.Conexao objConexao)
+        void IMetodosPadroes.Alterar()
         {
             StringBuilder SQL;
             try
@@ -79,15 +75,10 @@ namespace ClassesBanco
             {
 
             }
-            finally
-            {
 
-            }
-
-            return true;
         }
 
-        bool IMetodosPadroes.Excluir(ref ClassesConexao.Conexao objConexao)
+        void IMetodosPadroes.Excluir()
         {
             StringBuilder SQL;
             try
@@ -101,12 +92,12 @@ namespace ClassesBanco
             {
 
             }
-            finally
-            {
+        }
 
-            }
-
-            return true;
+        DataSet IMetodosPadroes.Busca()
+        {
+            DataSet puta = new DataSet();
+            return puta;
         }
     }
 }

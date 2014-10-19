@@ -23,7 +23,7 @@ namespace Votaai.UserControl
         {
             ClassesBanco.Partido part = new ClassesBanco.Partido();
             part.cnpj = this.cpnjpartido.Value;
-            part.nome = this.nomepartido.Value;
+            part.nome = this.nomepartido.Value.ToString();
             part.sigla = this.siglapartido.Value;
             part.prefixo = int.Parse(this.prefixopartido.Text);
         }

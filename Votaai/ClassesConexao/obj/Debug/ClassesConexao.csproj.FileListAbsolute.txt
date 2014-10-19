@@ -1,0 +1,5 @@
+C:\Projetos\votaai\Votaai\ClassesConexao\bin\Debug\ClassesConexao.dll
+C:\Projetos\votaai\Votaai\ClassesConexao\bin\Debug\ClassesConexao.pdb
+C:\Projetos\votaai\Votaai\ClassesConexao\obj\Debug\ClassesConexao.csprojResolveAssemblyReference.cache
+C:\Projetos\votaai\Votaai\ClassesConexao\obj\Debug\ClassesConexao.dll
+C:\Projetos\votaai\Votaai\ClassesConexao\obj\Debug\ClassesConexao.pdb

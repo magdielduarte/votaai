@@ -1,0 +1,9 @@
+C:\Projetos\votaai\Votaai\Votaai\obj\Debug\Votaai.csprojResolveAssemblyReference.cache
+C:\Projetos\votaai\Votaai\Votaai\bin\Votaai.dll
+C:\Projetos\votaai\Votaai\Votaai\bin\Votaai.pdb
+C:\Projetos\votaai\Votaai\Votaai\bin\ClassesBanco.dll
+C:\Projetos\votaai\Votaai\Votaai\bin\ClassesConexao.dll
+C:\Projetos\votaai\Votaai\Votaai\bin\ClassesBanco.pdb
+C:\Projetos\votaai\Votaai\Votaai\bin\ClassesConexao.pdb
+C:\Projetos\votaai\Votaai\Votaai\obj\Debug\Votaai.dll
+C:\Projetos\votaai\Votaai\Votaai\obj\Debug\Votaai.pdb
