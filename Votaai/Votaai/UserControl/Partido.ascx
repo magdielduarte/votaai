@@ -2,25 +2,20 @@
 
 <div class="tab-pane active" id="Formpartido">
     <div id="edit-profile" class="form-horizontal">
-        <fieldset>
-            <asp:UpdatePanel runat="server">
-                <ContentTemplate>
+        <asp:UpdatePanel runat="server">
+            <ContentTemplate>
+                <fieldset>
+
                     <div class="control-group">
                         <label class="control-label" for="username">Sigla</label>
                         <div class="controls">
                             <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" runat="server" />
                             <input type="hidden" runat="server" id="hiddenpartido" />
-                            <%--<button class="btn btn-sucess" id="><i class="icon-search"></i>pesquisar</button>--%>
 
                             <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="Unnamed2_Click" />
 
                         </div>
                     </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-
-            <asp:UpdatePanel runat="server">
-                <ContentTemplate>
 
                     <div class="control-group">
                         <label class="control-label" for="username">CNPJ</label>
@@ -56,10 +51,9 @@
 
                     <div class="control-group">
                         <label class="control-label" for="email">Prefixo</label>
-                        <div class="controls">
-                            <%--                    <input type="number" class="span4" id="prefixopartido" runat="server" placeholder="Digite o prefixo do partid. Ex: 13">--%>
-                            <asp:TextBox runat="server" type="number" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
 
+                        <div class="controls">
+                            <asp:TextBox runat="server" type="number" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
                         </div>
                         <!-- /controls -->
                     </div>
@@ -70,9 +64,10 @@
                         <asp:Button runat="server" ID="BtnCadPart" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadPart_Click" />
                         <asp:Button runat="server" ID="BtnCanPart" CssClass="btn" Text="Cancelar" OnClick="BtnCanPart_Click"></asp:Button>
                     </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-            <!-- /form-actions -->
-        </fieldset>
+
+                    <!-- /form-actions -->
+                </fieldset>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 </div>

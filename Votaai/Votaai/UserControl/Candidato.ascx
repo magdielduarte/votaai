@@ -2,9 +2,10 @@
 
 <div class="tab-pane" id="Formcandidato">
     <div id="edit-profile" class="form-horizontal">
-        <fieldset>
-            <asp:UpdatePanel runat="server">
-                <ContentTemplate>
+        <asp:UpdatePanel runat="server">
+            <ContentTemplate>
+                <fieldset>
+
                     <div class="control-group">
 
                         <label class="control-label" for="username">Número</label>
@@ -13,12 +14,6 @@
                             <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="BtnPesquisar_Click" />
                         </div>
                     </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-
-            <asp:UpdatePanel runat="server">
-                <ContentTemplate>
-
 
                     <div class="control-group">
                         <label class="control-label" for="username">Nome</label>
@@ -45,7 +40,6 @@
                     <div class="control-group">
                         <label class="control-label" for="email">Número</label>
                         <div class="controls">
-                            <%--                    <input type="number" runat="server" class="span4" id="numero" placeholder="Digite o numero do candidato">--%>
                             <asp:TextBox runat="server" type="number" CssClass="span4" ID="numero" placeholder="Digite o número do candidato"></asp:TextBox>
                         </div>
                         <!-- /controls -->
@@ -91,7 +85,6 @@
                     <div class="control-group">
                         <label class="control-label" for="email">Foto</label>
                         <div class="controls">
-                            <%--                            <input type="file" runat="server" class="span4" id="img">--%>
                             <asp:FileUpload runat="server" ID="FileFotoCand" CssClass="span4"></asp:FileUpload>
                         </div>
                         <!-- /controls -->
@@ -99,16 +92,17 @@
                     <!-- /control-group -->
 
 
-                </ContentTemplate>
-            </asp:UpdatePanel>
-            <div class="form-actions">
+                    <div class="form-actions">
 
-                <asp:Button runat="server" ID="BtnCadCand" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadCand_Click" />
-                <asp:Button runat="server" ID="BtnCanCand" CssClass="btn" Text="Cancelar" OnClick="BtnCanCand_Click"></asp:Button>
-            </div>
-            <!-- /form-actions -->
+                        <asp:Button runat="server" ID="BtnCadCand" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadCand_Click" />
+                        <asp:Button runat="server" ID="BtnCanCand" CssClass="btn" Text="Cancelar" OnClick="BtnCanCand_Click"></asp:Button>
+                    </div>
+                    <!-- /form-actions -->
 
-        </fieldset>
+                </fieldset>
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 </div>
 
