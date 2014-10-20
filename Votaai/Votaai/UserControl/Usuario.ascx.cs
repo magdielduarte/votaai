@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace Votaai.UserControl
 {
@@ -61,6 +62,12 @@ namespace Votaai.UserControl
 
         protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
+            ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
+            usu.login = this.peslogin.Value;
+
+            DataSet dados = usu.BuscarDados(usu);
+
+            this.userlogin.Value = dados.Tables[0].Rows[0]["login"].ToString();
 
         }
 

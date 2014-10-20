@@ -43,19 +43,32 @@ namespace Votaai.UserControl
 
         protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
+                cand.numero = int.Parse(this.pesnumero.Value);
 
+                DataSet dados = cand.BuscarDados(cand);
+
+                this.nomecandidato.Value = dados.Tables[0].Rows[0]["nome"].ToString();
+                this.selectpartido.SelectedValue = dados.Tables[0].Rows[0]["partidoid"].ToString();
+                this.numero.Text = dados.Tables[0].Rows[0]["numero"].ToString();
+                this.selectcargo.Value = dados.Tables[0].Rows[0]["cargo"].ToString();
+            }
+            catch (Exception ex)
+            { }
         }
 
         protected void selectpartido_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (selectpartido.DataSource==null)
+            if (selectpartido.DataSource == null)
             {
                 selectpartido.DataSource = Session["DadosCombo"];
-                
+
             }
             DataSet valoratual = (DataSet)selectpartido.DataSource;
-            
+
             if (this.selectpartido.SelectedIndex > 0)
             {
                 DataRow[] row = valoratual.Tables[0].Select(string.Format("partidoid={0}", this.selectpartido.SelectedValue));

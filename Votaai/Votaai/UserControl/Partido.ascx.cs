@@ -43,7 +43,7 @@ namespace Votaai.UserControl
             }
         }
 
-        protected void Unnamed2_Click(object sender, EventArgs e)
+        protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
             try
             {

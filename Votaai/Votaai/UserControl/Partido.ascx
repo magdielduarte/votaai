@@ -12,7 +12,7 @@
                             <input type="text" class="span4 " style="width: 150px" id="pessigla" name="pessigla" runat="server" />
                             <input type="hidden" runat="server" id="hiddenpartido" />
 
-                            <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="Unnamed2_Click" />
+                            <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="BtnPesquisar_Click" />
 
                         </div>
                     </div>
