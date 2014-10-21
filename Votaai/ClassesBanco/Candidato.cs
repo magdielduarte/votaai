@@ -143,6 +143,10 @@ namespace ClassesBanco
                     sql.AppendLine(string.Format(" AND nome = '{0}'", this.nome));
                 if (this.partidoid != 0 && this.partidoid != null)
                     sql.AppendLine(string.Format(" AND partidoid = {0}", this.partidoid));
+                if (this.numero != 0 && this.numero != null)
+                   sql.AppendLine(string.Format(" AND numero = {0}", this.numero));
+
+                
 
             }
             catch (Exception ex)
