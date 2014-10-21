@@ -40,5 +40,41 @@ body {
 	}
 
 	.votar { margin-left: 0; }
+
+	.container { 
+
+		width: 95%;
+		margin-left: 5%; 
+	
+	
+		.title{ font-size: 33px; }	
+
+		
+		 .inputeleicao, 
+		 .tituloeleitor {
+			width: 90%;
+			height: 60px;
+			font-size: 44px;
+			margin-top: 30px;
+		}
+
+		.arrow {
+			display: block; 
+			float: right;
+			margin-right: 10%;
+			margin-top: 30px;
+			font-size: 70px;
+		}
+
+		.cargo { font-size: 60px; }
+
+		.governador { font-size: 57px; }
+	}
+
+	.box-success h1 { font-size: 46px; }
+
+	.box-success img { width: 80%; }
+
+	.inicio { float: left; }
 }
 
