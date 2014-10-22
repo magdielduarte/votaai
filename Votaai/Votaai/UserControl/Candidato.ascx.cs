@@ -29,28 +29,17 @@ namespace Votaai.UserControl
         protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValidaDivs();
-            switch (selectcargo.SelectedValue)
-            {
-                case "1":
-                    this.numero.MaxLength = 2;
-                    break;
-                case "2":
-                    this.numero.MaxLength = 3;
-                    break;
-                case "3":
-                    this.numero.MaxLength = 2;
-                    break;
-                case "4":
-                    this.numero.MaxLength = 4;
-                    break;
-                case "5":
-                    this.numero.MaxLength = 5;
-                    break;
-                default:
-                    this.numero.MaxLength = 5;
-                    break;
-
-            }
+            if (selectcargo.SelectedValue == "1")
+                this.numero.MaxLength = 2;
+            elseif (selectcargo.SelectedValue == "2")
+                this.numero.MaxLength = 3;
+            elseif (selectcargo.SelectedValue == "3")
+                this.numero.MaxLength = 2;
+            elseif (selectcargo.SelectedValue == "4")
+                this.numero.MaxLength = 4;
+            else
+                this.numero.MaxLength = 5;
+            
             this.numero.DataBind();
         }
 

@@ -13,6 +13,19 @@ namespace ClassesBanco
     /// </summary>
     interface IMetodosPadroes
     {
+        
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
 
 
          void Inserir();
