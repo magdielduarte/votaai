@@ -113,7 +113,7 @@ namespace Votaai.UserControl
 
                 }
                 LblSucess.Text = "Seus Dados Foram Salvos Com Sucesso!";
-                ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", "ativadiv('#le-sucess')", true);
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", "ativadiv('le-sucess')", true);
 
                 LimpaTela();
             }
@@ -124,7 +124,7 @@ namespace Votaai.UserControl
                 ///Fazer o alert vermelho caso caia aqui!.
 
                 lbldanger.Text = ex.Message.ToString();
-                ScriptManager.RegisterClientScriptBlock(this, GetType(), "erro", "ativadiv('#le-alert')", true);
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "erro", "ativadiv('le-alert')", true);
 
             }
 

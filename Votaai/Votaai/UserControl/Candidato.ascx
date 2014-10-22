@@ -208,7 +208,7 @@
     function ativadiv(id) {
         console.log("Diel Simpático");
         alert("Túlio Lindão");
-        $(id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
+        $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
     }
 </script>
 
