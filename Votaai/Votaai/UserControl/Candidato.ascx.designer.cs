@@ -73,7 +73,16 @@ namespace Votaai.UserControl {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectcargo;
+        protected global::System.Web.UI.WebControls.DropDownList selectcargo;
+        
+        /// <summary>
+        /// vice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl vice;
         
         /// <summary>
         /// txtvice control.
@@ -83,6 +92,15 @@ namespace Votaai.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtvice;
+        
+        /// <summary>
+        /// suplente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl suplente;
         
         /// <summary>
         /// txtsuplente1 control.

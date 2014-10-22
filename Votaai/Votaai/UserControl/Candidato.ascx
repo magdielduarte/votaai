@@ -49,27 +49,37 @@
                     <div class="control-group">
                         <label class="control-label" for="cargo">Cargo</label>
                         <div class="controls">
-                            <select name="" runat="server" id="selectcargo" class="span4">
+                            <%--                            <select name="" runat="server" id="selectcargo" class="span4">
                                 <option value=""></option>
                                 <option value="1">Presidente</option>
                                 <option value="2">Senador</option>
                                 <option value="3">Governador</option>
                                 <option value="4">Deputado Federal</option>
                                 <option value="5">Deputado Estadual</option>
-                            </select>
+                            </select>--%>
+
+                            <asp:DropDownList runat="server" AutoPostBack="true" ID="selectcargo" CssClass="span4" OnSelectedIndexChanged="selectcargo_SelectedIndexChanged">
+                                <asp:ListItem Value="" Text=""></asp:ListItem>
+                                <asp:ListItem Value="1" Text="Presidente"></asp:ListItem>
+                                <asp:ListItem Value="2" Text="Senador"></asp:ListItem>
+                                <asp:ListItem Value="3" Text="Governador"></asp:ListItem>
+                                <asp:ListItem Value="4" Text="Deputado Federal"></asp:ListItem>
+                                <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
+                            </asp:DropDownList>
+
 
                         </div>
                         <!-- /controls -->
                     </div>
                     <!-- /control-group -->
-                    <div class="control-group" id="vice" style="display: none;">
+                    <div class="control-group" runat="server" id="vice" style="display: none;">
                         <label class="control-label" for="cargo">Vice</label>
                         <div class="controls">
                             <input type="text" runat="server" class="span4" id="txtvice" placeholder="Digite o nome do vice">
                         </div>
                         <!-- /controls -->
                     </div>
-                    <div class="control-group" id="suplente" style="display: none;">
+                    <div class="control-group" id="suplente" runat="server" style="display: none;">
                         <label class="control-label" for="suplente1">1° suplemente</label>
                         <div class="controls" style="margin-bottom: 20px;">
                             <input type="text" class="span4" id="txtsuplente1" runat="server" placeholder="Digite o nome do 1° suplente">

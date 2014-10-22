@@ -26,7 +26,7 @@ namespace Votaai.UserControl
             ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
             cand.nome = nomecandidato.Value.ToString();
             cand.numero = int.Parse(numero.Text);
-            cand.cargo = this.selectcargo.Value;
+            cand.cargo = this.selectcargo.SelectedValue;
 
             ValidarFoto(ref cand);
             ValidarVice(ref cand);
@@ -53,7 +53,9 @@ namespace Votaai.UserControl
                 this.nomecandidato.Value = dados.Tables[0].Rows[0]["nome"].ToString();
                 this.selectpartido.SelectedValue = dados.Tables[0].Rows[0]["partidoid"].ToString();
                 this.numero.Text = dados.Tables[0].Rows[0]["numero"].ToString();
-                this.selectcargo.Value = dados.Tables[0].Rows[0]["cargo"].ToString();
+                this.selectcargo.SelectedValue = dados.Tables[0].Rows[0]["cargo"].ToString();
+                this.hiddencand.Value = dados.Tables[0].Rows[0]["candidatoid"].ToString();
+            
             }
             catch (Exception ex)
             { }
@@ -79,7 +81,35 @@ namespace Votaai.UserControl
             {
                 this.numero.Text = "";
             }
+
+            ValidaDivs();
+
         }
+
+        private void ValidaDivs()
+        {
+            switch (this.selectcargo.SelectedValue)
+            {
+                case "1":
+                    this.vice.Style["display"] = "block";
+                    this.suplente.Style["display"] = "none";
+                    break;
+                case "2":
+                    this.vice.Style["display"] = "none";
+                    this.suplente.Style["display"] = "block";
+                    break;
+                case "3":
+                    this.vice.Style["display"] = "block";
+                    this.suplente.Style["display"] = "none";
+                    break;
+                default:
+                    this.vice.Style["display"] = "none";
+                    this.suplente.Style["display"] = "none";
+                    break;
+            }
+
+        }
+
         #endregion
 
         #region Montagem de Combo
@@ -146,6 +176,11 @@ namespace Votaai.UserControl
             }
         }
         #endregion
+
+        protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidaDivs();
+        }
 
     }
 }
