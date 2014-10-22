@@ -18,6 +18,7 @@ namespace ClassesBanco
         public string cargo { get; set; }
         public string foto { get; set; }
         public int partidoid { get; set; }
+        public string estadocandidato { get; set; }
 
         Conexao conexao;
 
@@ -39,7 +40,8 @@ namespace ClassesBanco
                 SQL.AppendLine(", VICE");
                 SQL.AppendLine(", CARGO");
                 SQL.AppendLine(", FOTO");
-                SQL.AppendLine(", PARTIDOID )");
+                SQL.AppendLine(", PARTIDOID");
+                SQL.AppendLine(", ESTADOCANDIDATO)");
                 SQL.AppendLine("VALUES");
                 SQL.AppendLine(string.Format("('{0}'", this.nome));
                 SQL.AppendLine(string.Format(",{0}", this.numero));
@@ -55,8 +57,8 @@ namespace ClassesBanco
                 }
                 SQL.AppendLine(string.Format(",'{0}'", this.cargo));
                 SQL.AppendLine(string.Format(",'{0}'", this.foto));
-                SQL.AppendLine(string.Format(",{0})", this.partidoid));
-
+                SQL.AppendLine(string.Format(",{0}", this.partidoid));
+                SQL.AppendLine(string.Format(",'{0}')", this.estadocandidato));
                 conexao.ExecutaComando(SQL.ToString());
             }
             catch (Exception ex)
@@ -84,6 +86,7 @@ namespace ClassesBanco
                 SQL.AppendLine(string.Format(", CARGO = '{0}'", this.cargo));
                 SQL.AppendLine(string.Format(", FOTO = '{0}'", this.foto));
                 SQL.AppendLine(string.Format(", PARTIDOID = {0}", this.partidoid));
+                SQL.AppendLine(string.Format(", ESTADOCANDIDATO = '{0}'", this.estadocandidato));
                 SQL.AppendLine(string.Format("WHERE CANDIDATOID = {0}", this.candidatoid));
 
                 conexao.ExecutaComando(SQL.ToString());
@@ -145,7 +148,9 @@ namespace ClassesBanco
                     sql.AppendLine(string.Format(" AND partidoid = {0}", this.partidoid));
                 if (this.numero != 0 && this.numero != null)
                    sql.AppendLine(string.Format(" AND numero = {0}", this.numero));
-
+                if (this.estadocandidato != null)
+                    sql.AppendLine(string.Format(" AND estadocandidato = '{0}'", this.estadocandidato));
+                
                 
 
             }

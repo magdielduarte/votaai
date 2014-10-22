@@ -33,6 +33,7 @@
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server"></asp:ScriptManager>
+     
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -141,7 +142,7 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/base.js"></script>
 
-   
+
 </body>
 
 </html>

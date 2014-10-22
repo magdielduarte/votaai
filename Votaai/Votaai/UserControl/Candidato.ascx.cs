@@ -79,6 +79,7 @@ namespace Votaai.UserControl
                     {
                         //Tratar Erro com mensagem para o usuário.
                         throw new Exception("Já existe com este número e cargo para este estado!");
+
                     }
                 }
                 else
@@ -87,10 +88,20 @@ namespace Votaai.UserControl
                     ValidaOperacao(ref cand);
 
                 }
+                LblSucess.Text = "Seus Dados Foram Salvos Com Sucesso!";
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", "ativadiv('le-sucess')", true);
+
+                LimpaTela();
             }
+
+
             catch (Exception ex)
             {
                 ///Fazer o alert vermelho caso caia aqui!.
+
+                lbldanger.Text = ex.Message.ToString();
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "erro", "ativadiv('le-alert')", true);
+
             }
 
         }
@@ -101,6 +112,11 @@ namespace Votaai.UserControl
             validacand.numero = int.Parse(numero.Text);
             validacand.cargo = this.selectcargo.SelectedValue;
             validacand.partidoid = int.Parse(this.selectpartido.SelectedValue);
+
+            if (validacand.cargo != "1")
+            {
+                validacand.estadocandidato = this.selectestado.SelectedValue;
+            }
 
             DataSet dados = validacand.BuscarDados(validacand);
 
@@ -120,11 +136,16 @@ namespace Votaai.UserControl
             cand.nome = nomecandidato.Value.ToString();
             cand.numero = int.Parse(numero.Text);
             cand.cargo = this.selectcargo.SelectedValue;
+            cand.estadocandidato = this.selectestado.SelectedValue;
 
             ValidarFoto(ref cand);
             ValidarVice(ref cand);
 
             cand.partidoid = int.Parse(this.selectpartido.SelectedValue);
+            if (this.hiddencand.Value != "")
+            {
+                cand.candidatoid = int.Parse(this.hiddencand.Value);
+            }
 
         }
 
@@ -135,6 +156,11 @@ namespace Votaai.UserControl
         /// <param name="e"></param>
         protected void BtnCanCand_Click(object sender, EventArgs e)
         {
+            LimpaTela();
+        }
+
+        private void LimpaTela()
+        {
             this.pesnumero.Value = "";
             this.nomecandidato.Value = "";
             this.selectpartido.SelectedValue = "0";
@@ -144,6 +170,7 @@ namespace Votaai.UserControl
             this.txtvice.Value = "";
             this.txtsuplente1.Value = "";
             this.txtsuplente2.Value = "";
+            this.selectestado.SelectedValue = "";
 
             ValidaDivs();
         }
@@ -166,6 +193,7 @@ namespace Votaai.UserControl
                 this.selectpartido.SelectedValue = dados.Tables[0].Rows[0]["partidoid"].ToString();
                 this.numero.Text = dados.Tables[0].Rows[0]["numero"].ToString();
                 this.selectcargo.SelectedValue = dados.Tables[0].Rows[0]["cargo"].ToString();
+                this.selectestado.SelectedValue = dados.Tables[0].Rows[0]["estadocandidato"].ToString();
                 this.hiddencand.Value = dados.Tables[0].Rows[0]["candidatoid"].ToString();
 
             }

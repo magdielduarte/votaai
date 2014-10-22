@@ -5,6 +5,17 @@
         <asp:UpdatePanel runat="server">
             <ContentTemplate>
                 <fieldset>
+                    <div id="le-alert" style="display: none;" class="alert alert-danger alert-block fade">
+                        <button href="#" type="button" onclick="desativadiv()" class="close">&times;</button>
+                        <h4>Alerta!</h4>
+                        <asp:Label runat="server" ID="lbldanger" CssClass="p"></asp:Label>
+                    </div>
+
+                    <div id="le-sucess" style="display: none;" class="alert alert-sucess alert-block fade">
+                        <button href="#" type="button" onclick="desativadiv()" class="close">&times;</button>
+                        <h4>Mensagem!</h4>
+                        <asp:Label runat="server" ID="LblSucess" CssClass="p"></asp:Label>
+                    </div>
 
                     <div class="control-group">
 
@@ -52,14 +63,6 @@
                     <div class="control-group">
                         <label class="control-label" for="cargo">Cargo</label>
                         <div class="controls">
-                            <%--                            <select name="" runat="server" id="selectcargo" class="span4">
-                                <option value=""></option>
-                                <option value="1">Presidente</option>
-                                <option value="2">Senador</option>
-                                <option value="3">Governador</option>
-                                <option value="4">Deputado Federal</option>
-                                <option value="5">Deputado Estadual</option>
-                            </select>--%>
 
                             <asp:DropDownList runat="server" AutoPostBack="true" ID="selectcargo" CssClass="span4" OnSelectedIndexChanged="selectcargo_SelectedIndexChanged">
                                 <asp:ListItem Value="" Text=""></asp:ListItem>
@@ -70,10 +73,47 @@
                                 <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
                             </asp:DropDownList>
 
-
                         </div>
                         <!-- /controls -->
                     </div>
+
+                    <div class="control-group" runat="server" id="Div1">
+                        <label class="control-label" for="cargo">Estado</label>
+                        <div class="controls">
+                            <asp:DropDownList runat="server" ID="selectestado" Width="250">
+                                <asp:ListItem Value=""></asp:ListItem>
+                                <asp:ListItem Value="AC">Acre</asp:ListItem>
+                                <asp:ListItem Value="AL">Alagoas</asp:ListItem>
+                                <asp:ListItem Value="AM">Amazonas</asp:ListItem>
+                                <asp:ListItem Value="AP">Amapá</asp:ListItem>
+                                <asp:ListItem Value="BA">Bahia</asp:ListItem>
+                                <asp:ListItem Value="CE">Ceará</asp:ListItem>
+                                <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
+                                <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
+                                <asp:ListItem Value="GO">Goiás</asp:ListItem>
+                                <asp:ListItem Value="MA">Maranhão</asp:ListItem>
+                                <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
+                                <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
+                                <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
+                                <asp:ListItem Value="PA">Pará</asp:ListItem>
+                                <asp:ListItem Value="PB">Paraíba</asp:ListItem>
+                                <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
+                                <asp:ListItem Value="PI">Piauí</asp:ListItem>
+                                <asp:ListItem Value="PR">Paraná</asp:ListItem>
+                                <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
+                                <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
+                                <asp:ListItem Value="RO">Rondônia</asp:ListItem>
+                                <asp:ListItem Value="RR">Roraima</asp:ListItem>
+                                <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
+                                <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
+                                <asp:ListItem Value="SE">Sergipe</asp:ListItem>
+                                <asp:ListItem Value="SP">São Paulo</asp:ListItem>
+                                <asp:ListItem Value="TO">Tocantins</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <!-- /controls -->
+                    </div>
+
                     <!-- /control-group -->
                     <div class="control-group" runat="server" id="vice" style="display: none;">
                         <label class="control-label" for="cargo">Vice</label>
@@ -122,8 +162,8 @@
 <script>
     window.onload = function () {
         var select = document.getElementById('Candidato_selectcargo'),
-             vice = document.getElementById('vice'),
-             suplente = document.getElementById('suplente');
+             vice = document.getElementById('Candidato_vice'),
+             suplente = document.getElementById('Candidato_suplente');
 
         function none() {
             vice.style.display = 'none';
@@ -148,4 +188,20 @@
         };
     };
 </script>
+
+<script type="text/javascript">
+    function desativadiv(id) {
+
+        $('#' + id).css('display', 'none'); // hides alert with Bootstrap CSS3 implem
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    function ativadiv(id) {
+        $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
+    }
+</script>
+
 

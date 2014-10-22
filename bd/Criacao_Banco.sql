@@ -58,6 +58,7 @@ CREATE TABLE candidato (
   cargo VARCHAR(100) NOT NULL,
   foto TEXT NOT NULL,
   partidoid INT  NOT NULL,
+  estadocandidato varchar(2) not null,
   PRIMARY KEY (candidatoid),
   --INDEX fk_candidato_partido_idx (partidoid ASC),
   CONSTRAINT fk_candidato_partido
