@@ -21,9 +21,102 @@ namespace Votaai.UserControl
 
         }
 
+        /// <summary>
+        /// seleçao de cargo, validando tamanho do campo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidaDivs();
+            switch (selectcargo.SelectedValue)
+            {
+                case "1":
+                    this.numero.MaxLength = 2;
+                    break;
+                case "2":
+                    this.numero.MaxLength = 3;
+                    break;
+                case "3":
+                    this.numero.MaxLength = 2;
+                    break;
+                case "4":
+                    this.numero.MaxLength = 4;
+                    break;
+                case "5":
+                    this.numero.MaxLength = 5;
+                    break;
+                default:
+                    this.numero.MaxLength = 5;
+                    break;
+
+            }
+            this.numero.DataBind();
+        }
+
+
+        /// <summary>
+        /// Método do botão de incluir candidato
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnCadCand_Click(object sender, EventArgs e)
         {
-            ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
+            try
+            {
+
+
+                ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
+
+                if (this.hiddencand.Value == "")
+                {
+                    if (!VerificaCandExistente())
+                    {
+                        MontaValoresInclusao(cand);
+                        ValidaOperacao(ref cand);
+                    }
+                    else
+                    {
+                        //Tratar Erro com mensagem para o usuário.
+                        throw new Exception("Já existe com este número e cargo para este estado!");
+                    }
+                }
+                else
+                {
+                    MontaValoresInclusao(cand);
+                    ValidaOperacao(ref cand);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ///Fazer o alert vermelho caso caia aqui!.
+            }
+
+        }
+
+        private bool VerificaCandExistente()
+        {
+            ClassesBanco.Candidato validacand = new ClassesBanco.Candidato();
+            validacand.numero = int.Parse(numero.Text);
+            validacand.cargo = this.selectcargo.SelectedValue;
+            validacand.partidoid = int.Parse(this.selectpartido.SelectedValue);
+
+            DataSet dados = validacand.BuscarDados(validacand);
+
+            if (dados.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        private void MontaValoresInclusao(ClassesBanco.Candidato cand)
+        {
             cand.nome = nomecandidato.Value.ToString();
             cand.numero = int.Parse(numero.Text);
             cand.cargo = this.selectcargo.SelectedValue;
@@ -33,14 +126,33 @@ namespace Votaai.UserControl
 
             cand.partidoid = int.Parse(this.selectpartido.SelectedValue);
 
-            ValidaOperacao(ref cand);
         }
 
+        /// <summary>
+        /// Método do Botão de Cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnCanCand_Click(object sender, EventArgs e)
         {
+            this.pesnumero.Value = "";
+            this.nomecandidato.Value = "";
+            this.selectpartido.SelectedValue = "0";
+            this.numero.Text = "";
+            this.selectcargo.SelectedValue = "";
+            this.hiddencand.Value = "";
+            this.txtvice.Value = "";
+            this.txtsuplente1.Value = "";
+            this.txtsuplente2.Value = "";
 
+            ValidaDivs();
         }
 
+        /// <summary>
+        /// Método do botão de pesquisa de candidato
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
             try
@@ -61,6 +173,11 @@ namespace Votaai.UserControl
             { }
         }
 
+        /// <summary>
+        /// Evento de combo de partido, para busca de número
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void selectpartido_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -86,6 +203,9 @@ namespace Votaai.UserControl
 
         }
 
+        /// <summary>
+        /// Valida se a div de vice ou de suplente será mostrada, ou se as duas ficarão ocultas;
+        /// </summary>
         private void ValidaDivs()
         {
             switch (this.selectcargo.SelectedValue)
@@ -114,6 +234,9 @@ namespace Votaai.UserControl
 
         #region Montagem de Combo
 
+        /// <summary>
+        /// Inicio de montagem de combo de partido
+        /// </summary>
         private void CarregaComboPartido()
         {
             ClassesBanco.Partido part = new ClassesBanco.Partido();
@@ -177,33 +300,6 @@ namespace Votaai.UserControl
         }
         #endregion
 
-        protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ValidaDivs();
-            switch (selectcargo.SelectedValue)
-            {
-                case "1":
-                    this.numero.MaxLength = 2;
-                    break;
-                case "2":
-                    this.numero.MaxLength = 3;
-                    break;
-                case "3":
-                    this.numero.MaxLength = 2;
-                    break;
-                case "4":
-                    this.numero.MaxLength = 4;
-                    break;
-                case "5":
-                    this.numero.MaxLength = 5;
-                    break;
-                default:
-                    this.numero.MaxLength = 5;
-                    break;
-
-            }
-            this.numero.DataBind();
-        }
 
     }
 }
