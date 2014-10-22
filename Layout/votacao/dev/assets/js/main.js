@@ -33,9 +33,9 @@ linkCadastrar.onclick = function() {
 /*
 	Link para voltar ao início
 */
-var linkInicio = document.getElementById('linkInicio');
-linkInicio.onclick = function() {
+$('.linkInicio').on('click', function(){
 	$.fn.fullpage.moveTo(1);
-};
+});
+
 
 
