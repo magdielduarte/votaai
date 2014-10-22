@@ -129,6 +129,36 @@ namespace ClassesBanco
             return conexao.BuscaDados(SQL.ToString());
         }
 
+        DataSet BuscaDadosInsert()
+        {
+            StringBuilder SQL;
+            try
+            {
+                SQL = new StringBuilder();
+
+                SQL.AppendLine("SELECT * FROM PARTIDO");
+
+                SQL.AppendLine("WHERE (1 = 1)");
+
+                if (this.cnpj != null)
+                    SQL.AppendLine(string.Format(" or cnpj = '{0}'", this.cnpj));
+                if (this.nome != null)
+                    SQL.AppendLine(string.Format(" or nome = '{0}'", this.nome));
+                if (this.prefixo != 0)
+                    SQL.AppendLine(string.Format(" or prefixo = {0}", this.prefixo));
+                if (this.sigla != null)
+                    SQL.AppendLine(string.Format(" or sigla = '{0}'", this.sigla));
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return conexao.BuscaDados(SQL.ToString());
+        }
+
+
         /// <summary>
         /// Método que da acesso a parte visual do software, ao passar alguma opção:
         /// I - Inserir, E - Excluir, A - Alterar
@@ -168,5 +198,16 @@ namespace ClassesBanco
 
             return metodos.Busca();
         }
+
+        public DataSet BuscarDadosAlteracao(Partido part)
+        {
+
+
+            if (conexao == null)
+                conexao = new Conexao();
+
+            return part.BuscaDadosInsert();
+        }
+
     }
 }
