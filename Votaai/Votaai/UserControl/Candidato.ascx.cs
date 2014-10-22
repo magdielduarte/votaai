@@ -32,27 +32,50 @@ namespace Votaai.UserControl
             switch (selectcargo.SelectedValue)
             {
                 case "1":
-                    this.numero.MaxLength = 2;
+                    //this.numero.MaxLength = 2;
+                    this.numerocand.Visible = false;
+                    LimpaDadosSuplentes();
+
                     break;
                 case "2":
-                    this.numero.MaxLength = 3;
+                    this.numerocand.MaxLength = 1;
+                    this.numerocand.Width = 15;
+                    this.numerocand.Visible = true;
+                    LimpaDadosSuplentes();
                     break;
                 case "3":
-                    this.numero.MaxLength = 2;
+                    //this.numero.MaxLength = 2;
+                    this.numerocand.Visible = false;
                     break;
+                    LimpaDadosSuplentes();
                 case "4":
-                    this.numero.MaxLength = 4;
+                    this.numerocand.MaxLength = 2;
+                    this.numerocand.Width = 30;
+                    this.numerocand.Visible = true;
+                    LimpaDadosSuplentes();
                     break;
                 case "5":
-                    this.numero.MaxLength = 5;
+                    this.numerocand.MaxLength = 3;
+                    this.numerocand.Width = 45;
+                    this.numerocand.Visible = true;
+                    LimpaDadosSuplentes();
                     break;
                 default:
-                    this.numero.MaxLength = 5;
+                    this.numerocand.MaxLength = 3;
+                    this.numerocand.Width = 45;
+                    LimpaDadosSuplentes();
                     break;
 
             }
-            this.numero.Text = "";
-            this.numero.DataBind();
+            this.numerocand.Text = "";
+            this.numerocand.DataBind();
+        }
+
+        private void LimpaDadosSuplentes()
+        {
+            this.txtsuplente1.Value = "";
+            this.txtsuplente2.Value = "";
+            this.txtvice.Value = "";
         }
 
 
@@ -110,7 +133,7 @@ namespace Votaai.UserControl
         private bool VerificaCandExistente()
         {
             ClassesBanco.Candidato validacand = new ClassesBanco.Candidato();
-            validacand.numero = int.Parse(numero.Text);
+            validacand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
             validacand.cargo = this.selectcargo.SelectedValue;
             validacand.partidoid = int.Parse(this.selectpartido.SelectedValue);
 
@@ -135,7 +158,7 @@ namespace Votaai.UserControl
         private void MontaValoresInclusao(ClassesBanco.Candidato cand)
         {
             cand.nome = nomecandidato.Text.ToString();
-            cand.numero = int.Parse(numero.Text);
+            cand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
             cand.cargo = this.selectcargo.SelectedValue;
             cand.estadocandidato = this.selectestado.SelectedValue;
 
@@ -165,7 +188,8 @@ namespace Votaai.UserControl
             this.pesnumero.Value = "";
             this.nomecandidato.Text = "";
             this.selectpartido.SelectedValue = "0";
-            this.numero.Text = "";
+            this.numerocand.Text = "";
+            this.numeropartido.Text = "";
             this.selectcargo.SelectedValue = "";
             this.hiddencand.Value = "";
             this.txtvice.Value = "";
@@ -192,7 +216,8 @@ namespace Votaai.UserControl
 
                 this.nomecandidato.Text = dados.Tables[0].Rows[0]["nome"].ToString();
                 this.selectpartido.SelectedValue = dados.Tables[0].Rows[0]["partidoid"].ToString();
-                this.numero.Text = dados.Tables[0].Rows[0]["numero"].ToString();
+                this.numeropartido.Text = dados.Tables[0].Rows[0]["numero"].ToString().Substring(0, 2);
+                this.numerocand.Text = dados.Tables[0].Rows[0]["numero"].ToString().Substring(2, 5);
                 this.selectcargo.SelectedValue = dados.Tables[0].Rows[0]["cargo"].ToString();
                 this.selectestado.SelectedValue = dados.Tables[0].Rows[0]["estadocandidato"].ToString();
                 this.hiddencand.Value = dados.Tables[0].Rows[0]["candidatoid"].ToString();
@@ -220,12 +245,12 @@ namespace Votaai.UserControl
             if (this.selectpartido.SelectedIndex > 0)
             {
                 DataRow[] row = valoratual.Tables[0].Select(string.Format("partidoid={0}", this.selectpartido.SelectedValue));
-                this.numero.Text = row[0].ItemArray[4].ToString();
+                this.numeropartido.Text = row[0].ItemArray[4].ToString();
 
             }
             else
             {
-                this.numero.Text = "";
+                this.numeropartido.Text = "";
             }
 
             ValidaDivs();

@@ -139,13 +139,22 @@ namespace Votaai.UserControl {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtsuplente2;
         
         /// <summary>
-        /// numero control.
+        /// numeropartido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox numero;
+        protected global::System.Web.UI.WebControls.TextBox numeropartido;
+        
+        /// <summary>
+        /// numerocand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox numerocand;
         
         /// <summary>
         /// valNumbersOnly control.

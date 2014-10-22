@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastros.aspx.cs" Inherits="Votaai.Cadastros" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastros.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="Votaai.Cadastros" %>
 
 <%@ Register Src="~/UserControl/Candidato.ascx" TagPrefix="uc1" TagName="Candidato" %>
 <%@ Register Src="~/UserControl/Partido.ascx" TagPrefix="uc1" TagName="Partido" %>
