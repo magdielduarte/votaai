@@ -53,7 +53,7 @@
                         <label class="control-label" for="email">Prefixo</label>
 
                         <div class="controls">
-                            <asp:TextBox runat="server" type="number" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
+                                                        <asp:TextBox runat="server" MaxLength="2" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
                         </div>
                         <!-- /controls -->
                     </div>
@@ -64,7 +64,6 @@
                         <asp:Button runat="server" ID="BtnCadPart" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadPart_Click" />
                         <asp:Button runat="server" ID="BtnCanPart" CssClass="btn" Text="Cancelar" OnClick="BtnCanPart_Click"></asp:Button>
                     </div>
-
                     <!-- /form-actions -->
                 </fieldset>
             </ContentTemplate>

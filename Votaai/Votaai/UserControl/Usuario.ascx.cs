@@ -20,15 +20,71 @@ namespace Votaai.UserControl
         protected void BtnCadUsu_Click(object sender, EventArgs e)
         {
             ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
-            usu.login = this.userlogin.Value;
-            ValidarSenha(ref usu);
+            try
+            {
+                if (this.hiddenusuario.Value == "")
+                {
+                    if (!ValidaUsuExistente())
+                    {
+                        MontaDadosInclusão(usu);
+                        ValidaOperacao(ref usu);
+                    }
+                    else
+                    {
+                        throw new Exception("Já existe um usuário com esse login, favor escolha outro!");
+                    }
+                }
+                else
+                {
+                    MontaDadosInclusão(usu);
+                    ValidaOperacao(ref usu);
 
-            ValidaOperacao(ref usu);
+                }
+
+                LimpaTela();
+            }
+            catch (Exception ex)
+            { 
+            
+            }
+        }
+
+        private void LimpaTela()
+        {
+            this.userlogin.Value = "";
+            this.usersenha.Value = "";
+            this.usersenharepitida.Value = "";
+        }
+
+        private bool ValidaUsuExistente()
+        {
+            ClassesBanco.Usuario pesusu = new ClassesBanco.Usuario();
+            pesusu.login = this.userlogin.Value;
+            DataSet dados = pesusu.BuscarDados(pesusu);
+            if (dados.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+
+        private void MontaDadosInclusão(ClassesBanco.Usuario usu)
+        {
+            usu.login = this.userlogin.Value;
+            if (this.hiddenusuario.Value != "")
+            {
+                usu.usuarioid = int.Parse(this.hiddenusuario.Value);
+            }
+            ValidarSenha(ref usu);
         }
 
         protected void BtnCanUsu_Click(object sender, EventArgs e)
         {
-
+            LimpaTela();
         }
         #endregion
 
@@ -68,9 +124,8 @@ namespace Votaai.UserControl
             DataSet dados = usu.BuscarDados(usu);
 
             this.userlogin.Value = dados.Tables[0].Rows[0]["login"].ToString();
-
+            this.hiddenusuario.Value = dados.Tables[0].Rows[0]["usuarioid"].ToString();
         }
-
 
     }
 }

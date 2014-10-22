@@ -12,6 +12,7 @@
                         <div class="controls">
                             <input type="text" class="span4 " style="width: 150px" id="peslogin" name="peslogin" runat="server" />
                             <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="BtnPesquisar_Click" />
+                            <input type="hidden" runat="server" id="hiddenusuario" />
                         </div>
 
                         <div class="control-group">

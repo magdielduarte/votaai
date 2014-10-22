@@ -120,6 +120,7 @@ namespace Votaai.UserControl
             this.nomepartido.Value = "";
             this.siglapartido.Value = "";
             this.prefixopartido.Text = "";
+            this.pessigla.Value = "";
         }
 
         private void ValidaOperacao(ref ClassesBanco.Partido part)
