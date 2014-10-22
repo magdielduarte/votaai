@@ -58,16 +58,14 @@ body {
 			width: 90%;
 			height: 60px;
 			font-size: 44px;
-			margin-top: 30px;
-		}
+			margin-top: 30px; }
 
 		.arrow {
 			display: block; 
 			float: right;
 			margin-right: 10%;
 			margin-top: 30px;
-			font-size: 70px;
-		}
+			font-size: 70px; }
 
 		.cargo { font-size: 60px; }
 
@@ -83,12 +81,11 @@ body {
 
 		h1 { font-size: 46px; }
 
-		 img { width: 80%; }
+		img { width: 80%; }
 
 		.inicio { 
 			float: left;
-			margin-top: 20px; 
-		}
+			margin-top: 20px; }
 
 	}
 
@@ -107,12 +104,28 @@ body {
 		.correto {
 			width: 145px;
 			padding: 0 5px 0 5px; }
+
+		.inicio { font-size: 35px; }
 	}
 
 
 	.contentperfil { 
 		width: 100%;
-		margin-left: 0;
+		margin-left: 0;}
+
+
+	.box-cadastro {
+
+		h1 { font-size: 55px;
+			 padding-bottom: 10px; }
+
+		.formspaceleft { margin-left: 7px; }
+
+		.formleft { width: 100px; }
+
+		.formsecao { width: 120px; }
+
+		.arrowcadastro { margin-top: 200px; }
 	}
 	
 }
