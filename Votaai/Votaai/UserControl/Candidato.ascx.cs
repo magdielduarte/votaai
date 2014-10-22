@@ -51,6 +51,7 @@ namespace Votaai.UserControl
                     break;
 
             }
+            this.numero.Text = "";
             this.numero.DataBind();
         }
 
@@ -89,7 +90,7 @@ namespace Votaai.UserControl
 
                 }
                 LblSucess.Text = "Seus Dados Foram Salvos Com Sucesso!";
-                ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", "ativadiv('le-sucess')", true);
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", "ativadiv('#le-sucess')", true);
 
                 LimpaTela();
             }
@@ -100,7 +101,7 @@ namespace Votaai.UserControl
                 ///Fazer o alert vermelho caso caia aqui!.
 
                 lbldanger.Text = ex.Message.ToString();
-                ScriptManager.RegisterClientScriptBlock(this, GetType(), "erro", "ativadiv('le-alert')", true);
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "erro", "ativadiv('#le-alert')", true);
 
             }
 
@@ -133,7 +134,7 @@ namespace Votaai.UserControl
 
         private void MontaValoresInclusao(ClassesBanco.Candidato cand)
         {
-            cand.nome = nomecandidato.Value.ToString();
+            cand.nome = nomecandidato.Text.ToString();
             cand.numero = int.Parse(numero.Text);
             cand.cargo = this.selectcargo.SelectedValue;
             cand.estadocandidato = this.selectestado.SelectedValue;
@@ -162,7 +163,7 @@ namespace Votaai.UserControl
         private void LimpaTela()
         {
             this.pesnumero.Value = "";
-            this.nomecandidato.Value = "";
+            this.nomecandidato.Text = "";
             this.selectpartido.SelectedValue = "0";
             this.numero.Text = "";
             this.selectcargo.SelectedValue = "";
@@ -189,7 +190,7 @@ namespace Votaai.UserControl
 
                 DataSet dados = cand.BuscarDados(cand);
 
-                this.nomecandidato.Value = dados.Tables[0].Rows[0]["nome"].ToString();
+                this.nomecandidato.Text = dados.Tables[0].Rows[0]["nome"].ToString();
                 this.selectpartido.SelectedValue = dados.Tables[0].Rows[0]["partidoid"].ToString();
                 this.numero.Text = dados.Tables[0].Rows[0]["numero"].ToString();
                 this.selectcargo.SelectedValue = dados.Tables[0].Rows[0]["cargo"].ToString();

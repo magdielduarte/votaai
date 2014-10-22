@@ -29,8 +29,8 @@
                     <div class="control-group">
                         <label class="control-label" for="username">Nome</label>
                         <div class="controls">
-                            <input type="text" class="span4" runat="server" id="nomecandidato" name="nome" placeholder="Digite o nome do candidato">
-                            <input type="hidden" runat="server" id="hiddencand" />
+                            <asp:TextBox runat="server" ID="nomecandidato" CssClass="span4" name="nome" placeholder="Digite o nome do candidato"></asp:TextBox>
+
                         </div>
                         <!-- /controls -->
                     </div>
@@ -42,23 +42,14 @@
 
                             <asp:DropDownList runat="server" ID="selectpartido" AutoPostBack="true" CssClass="span4" OnSelectedIndexChanged="selectpartido_SelectedIndexChanged">
                             </asp:DropDownList>
+
+
                         </div>
                         <!-- /controls -->
                     </div>
                     <!-- /control-group -->
 
 
-                    <div class="control-group">
-                        <label class="control-label" for="email">Número</label>
-                        <div class="controls">
-                            <asp:TextBox MaxLength="5" runat="server" CssClass="span4" ID="numero" placeholder="Digite o número do candidato"></asp:TextBox>
-                            <asp:RegularExpressionValidator SetFocusOnError="true" runat="server" ID="valNumbersOnly" ControlToValidate="numero" Display="Dynamic" ErrorMessage="Please enter a numbers only in text box." ValidationExpression="(^([0-9]*|\d*\d{1}?\d*)$)" ForeColor="Red">
-
-                            </asp:RegularExpressionValidator>
-                        </div>
-                        <!-- /controls -->
-                    </div>
-                    <!-- /control-group -->
 
                     <div class="control-group">
                         <label class="control-label" for="cargo">Cargo</label>
@@ -72,6 +63,7 @@
                                 <asp:ListItem Value="4" Text="Deputado Federal"></asp:ListItem>
                                 <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
                             </asp:DropDownList>
+
 
                         </div>
                         <!-- /controls -->
@@ -123,13 +115,23 @@
                         <!-- /controls -->
                     </div>
                     <div class="control-group" id="suplente" runat="server" style="display: none;">
-                        <label class="control-label" for="suplente1">1° suplemente</label>
+                        <label class="control-label" for="suplente1">1° Suplente</label>
                         <div class="controls" style="margin-bottom: 20px;">
                             <input type="text" class="span4" id="txtsuplente1" runat="server" placeholder="Digite o nome do 1° suplente">
                         </div>
-                        <label class="control-label" for="suplente2">2° suplemente</label>
+                        <label class="control-label" for="suplente2">2° Suplente</label>
                         <div class="controls">
                             <input type="text" class="span4" id="txtsuplente2" runat="server" placeholder="Digite o nome do 2° suplente">
+                        </div>
+                        <!-- /controls -->
+                    </div>
+                    <!-- /control-group -->
+                    <div class="control-group">
+                        <label class="control-label" for="email">Número</label>
+                        <div class="controls">
+                            <asp:TextBox MaxLength="5" CausesValidation="false" runat="server" CssClass="span4" ID="numero" placeholder="Digite o número do candidato"></asp:TextBox>
+                            <asp:RegularExpressionValidator SetFocusOnError="true" runat="server" ID="valNumbersOnly" ControlToValidate="numero" Display="Dynamic" ErrorMessage="Apenas números são permitidos!" ValidationExpression="(^([0-9]*|\d*\d{1}?\d*)$)" ForeColor="Red"></asp:RegularExpressionValidator>
+
                         </div>
                         <!-- /controls -->
                     </div>
@@ -156,6 +158,9 @@
 
             </ContentTemplate>
         </asp:UpdatePanel>
+
+
+        <input type="hidden" runat="server" id="hiddencand" />
     </div>
 </div>
 
@@ -200,7 +205,7 @@
 
 <script type="text/javascript">
     function ativadiv(id) {
-        $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
+        $(id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
     }
 </script>
 

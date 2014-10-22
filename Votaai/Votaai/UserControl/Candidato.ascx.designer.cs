@@ -55,16 +55,7 @@ namespace Votaai.UserControl {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nomecandidato;
-        
-        /// <summary>
-        /// hiddencand control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddencand;
+        protected global::System.Web.UI.WebControls.TextBox nomecandidato;
         
         /// <summary>
         /// selectpartido control.
@@ -74,24 +65,6 @@ namespace Votaai.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList selectpartido;
-        
-        /// <summary>
-        /// numero control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox numero;
-        
-        /// <summary>
-        /// valNumbersOnly control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valNumbersOnly;
         
         /// <summary>
         /// selectcargo control.
@@ -166,6 +139,24 @@ namespace Votaai.UserControl {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtsuplente2;
         
         /// <summary>
+        /// numero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox numero;
+        
+        /// <summary>
+        /// valNumbersOnly control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valNumbersOnly;
+        
+        /// <summary>
         /// FileFotoCand control.
         /// </summary>
         /// <remarks>
@@ -191,5 +182,14 @@ namespace Votaai.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCanCand;
+        
+        /// <summary>
+        /// hiddencand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddencand;
     }
 }
