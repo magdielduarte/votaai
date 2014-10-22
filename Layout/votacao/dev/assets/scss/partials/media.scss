@@ -31,12 +31,15 @@ body {
 		overflow-y: scroll;
 	}
 
+	.fp-section { height: 100%; }
+
 	.cadastrar, .votar {
 		width: 100%;
-		height: 237.4px;
+		height: 34.5%;
 		position: inherit;
 		padding-top: 9%;
-		i { font-size:140px; }
+
+		i { font-size: 95px; }
 	}
 
 	.votar { margin-left: 0; }
@@ -69,12 +72,48 @@ body {
 		.cargo { font-size: 60px; }
 
 		.governador { font-size: 57px; }
+
+		.box { padding-top: 40%; }
+
+		.box-candidato { padding-top: 0; }
 	}
 
-	.box-success h1 { font-size: 46px; }
+	.box-success { 
+			padding-top: 15%;
 
-	.box-success img { width: 80%; }
+		h1 { font-size: 46px; }
 
-	.inicio { float: left; }
+		 img { width: 80%; }
+
+		.inicio { 
+			float: left;
+			margin-top: 20px; 
+		}
+
+	}
+
+	.box-perfil {
+		padding-top: 5%;
+
+		img { 
+			width: 130px; 
+			height: 130px; }
+
+		h2 { 
+			margin-left: 0;
+			font-size: 31px; }
+
+		.cancela, 
+		.correto {
+			width: 145px;
+			padding: 0 5px 0 5px; }
+	}
+
+
+	.contentperfil { 
+		width: 100%;
+		margin-left: 0;
+	}
+	
 }
 
