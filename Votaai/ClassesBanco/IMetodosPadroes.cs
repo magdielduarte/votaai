@@ -16,7 +16,16 @@ namespace ClassesBanco
         
         /* TULIO INFERFACE */
         /* TULIO INFERFACE */
-        /* TULIO INFERFACE *//* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
+        /* TULIO INFERFACE */
 
 
          void Inserir();
