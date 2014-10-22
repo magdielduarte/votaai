@@ -55,7 +55,7 @@ namespace Votaai.UserControl
                 this.numero.Text = dados.Tables[0].Rows[0]["numero"].ToString();
                 this.selectcargo.SelectedValue = dados.Tables[0].Rows[0]["cargo"].ToString();
                 this.hiddencand.Value = dados.Tables[0].Rows[0]["candidatoid"].ToString();
-            
+
             }
             catch (Exception ex)
             { }
@@ -180,6 +180,29 @@ namespace Votaai.UserControl
         protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValidaDivs();
+            switch (selectcargo.SelectedValue)
+            {
+                case "1":
+                    this.numero.MaxLength = 2;
+                    break;
+                case "2":
+                    this.numero.MaxLength = 3;
+                    break;
+                case "3":
+                    this.numero.MaxLength = 2;
+                    break;
+                case "4":
+                    this.numero.MaxLength = 4;
+                    break;
+                case "5":
+                    this.numero.MaxLength = 5;
+                    break;
+                default:
+                    this.numero.MaxLength = 5;
+                    break;
+
+            }
+            this.numero.DataBind();
         }
 
     }

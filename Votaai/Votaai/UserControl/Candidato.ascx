@@ -40,7 +40,10 @@
                     <div class="control-group">
                         <label class="control-label" for="email">Número</label>
                         <div class="controls">
-                            <asp:TextBox runat="server" type="number" CssClass="span4" ID="numero" placeholder="Digite o número do candidato"></asp:TextBox>
+                            <asp:TextBox MaxLength="5" runat="server" CssClass="span4" ID="numero" placeholder="Digite o número do candidato"></asp:TextBox>
+                            <asp:RegularExpressionValidator SetFocusOnError="true" runat="server" ID="valNumbersOnly" ControlToValidate="numero" Display="Dynamic" ErrorMessage="Please enter a numbers only in text box." ValidationExpression="(^([0-9]*|\d*\d{1}?\d*)$)" ForeColor="Red">
+
+                            </asp:RegularExpressionValidator>
                         </div>
                         <!-- /controls -->
                     </div>
