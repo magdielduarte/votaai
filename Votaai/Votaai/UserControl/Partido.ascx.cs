@@ -48,9 +48,13 @@ namespace Votaai.UserControl
                 }
 
                 LimpaTela();
+                RegistraAlerta("Seus Dados Foram Salvos Com Sucesso!", "le-sucess", "LblSucess");
+
             }
             catch (Exception ex)
-            { }
+            {
+                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+            }
         }
 
         protected void BtnPesquisar_Click(object sender, EventArgs e)
@@ -74,6 +78,13 @@ namespace Votaai.UserControl
             }
         }
         #endregion
+        private void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
+        {
+            Label lblmsg = Page.FindControl(nomelabel) as Label;
+            lblmsg.Text = "Seus Dados Foram Salvos Com Sucesso!";
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
+        }
+
         private bool ValidaPartExistente()
         {
             ClassesBanco.Partido validapart = new ClassesBanco.Partido();
@@ -100,15 +111,41 @@ namespace Votaai.UserControl
         /// <param name="part"></param>
         private void MontaValoresInclusao(ClassesBanco.Partido part)
         {
-            part.cnpj = this.cpnjpartido.Value;
-            part.nome = this.nomepartido.Value.ToString();
-            part.sigla = this.siglapartido.Value;
-            part.prefixo = int.Parse(this.prefixopartido.Text);
-
-            if (this.hiddenpartido.Value != "")
+            try
             {
-                part.partidoid = int.Parse(this.hiddenpartido.Value);
+                part.cnpj = this.cpnjpartido.Value;
+                part.nome = this.nomepartido.Value.ToString();
+                part.sigla = this.siglapartido.Value;
+                part.prefixo = int.Parse(this.prefixopartido.Text);
+
+                if (part.cnpj == "")
+                {
+                    throw new Exception("CNPJ não informado!");
+                }
+
+                if (part.nome == "")
+                {
+                    throw new Exception("Nome do partido não informado!");
+                }
+
+                if (part.sigla == "")
+                {
+                    throw new Exception("Sigla não informada!");
+                }
+                if (part.prefixo == 0)
+                {
+                    throw new Exception("Número do partido inválido ou não informado!");
+                }
+                if (this.hiddenpartido.Value != "")
+                {
+                    part.partidoid = int.Parse(this.hiddenpartido.Value);
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         /// <summary>

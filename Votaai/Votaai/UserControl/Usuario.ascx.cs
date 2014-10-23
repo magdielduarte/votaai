@@ -42,11 +42,21 @@ namespace Votaai.UserControl
                 }
 
                 LimpaTela();
+                RegistraAlerta("Seus Dados Foram Salvos Com Sucesso!", "le-sucess", "LblSucess");
+
             }
+
             catch (Exception ex)
-            { 
-            
+            {
+                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+
             }
+        }
+        private void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
+        {
+            Label lblmsg = Page.FindControl(nomelabel) as Label;
+            lblmsg.Text = "Seus Dados Foram Salvos Com Sucesso!";
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
         }
 
         private void LimpaTela()
@@ -74,12 +84,23 @@ namespace Votaai.UserControl
 
         private void MontaDadosInclusão(ClassesBanco.Usuario usu)
         {
-            usu.login = this.userlogin.Value;
-            if (this.hiddenusuario.Value != "")
+            try
             {
-                usu.usuarioid = int.Parse(this.hiddenusuario.Value);
+                usu.login = this.userlogin.Value;
+                if (usu.login == "")
+                {
+                    throw new Exception("Usuário não informado!");
+                }
+                if (this.hiddenusuario.Value != "")
+                {
+                    usu.usuarioid = int.Parse(this.hiddenusuario.Value);
+                }
+                ValidarSenha(ref usu);
             }
-            ValidarSenha(ref usu);
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void BtnCanUsu_Click(object sender, EventArgs e)
@@ -103,17 +124,26 @@ namespace Votaai.UserControl
         private void ValidarSenha(ref ClassesBanco.Usuario usu)
         {
 
-
-            if (this.usersenha.Value.ToString().GetHashCode() != this.usersenharepitida.Value.ToString().GetHashCode())
+            try
             {
-                //Lançar exceção de senha diferente
 
+
+                if (this.usersenha.Value.ToString().GetHashCode() != this.usersenharepitida.Value.ToString().GetHashCode())
+                {
+                    //Lançar exceção de senha diferente
+                    throw new Exception("Senhas não correspondem!");
+
+                }
+                else
+                {
+                    usu.senha = this.usersenha.Value.ToString().GetHashCode();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                usu.senha = this.usersenha.Value.ToString().GetHashCode();
-            }
 
+                throw ex;
+            }
         }
 
         protected void BtnPesquisar_Click(object sender, EventArgs e)
