@@ -80,17 +80,22 @@
                                     <div class="widget-content">
                                         <h6 class="bigstats">Acompanhe abaixo as atualizações de status gerais da votação em tempo real</h6>
                                         <div id="big_stats" class="cf">
-                                            <div class="stat"><i class="icon-group"></i>
-                                                <h6 class="bigstats">CADASTROS<h6><span class="value">851</span>
+                                            <div class="stat">
+                                                <i class="icon-group"></i>
+                                                <h6 class="bigstats">CADASTROS<h6>
+                                                    <span id="lblqtdcadastro" class="value">851</span>
                                             </div>
                                             <!-- .stat -->
 
-                                            <div class="stat"><i class="icon-filter"></i>
-                                                <h6 class="bigstats">QUANTOS VOTARAM<h6><span class="value">423</span>
+                                            <div class="stat">
+                                                <i class="icon-filter"></i>
+                                                <h6 class="bigstats">QUANTOS VOTARAM<h6>
+                                                    <span id="lblqtvotos" class="value">423</span>
                                             </div>
                                             <!-- .stat -->
-                                            <div class="stat"><i class="icon-certificate"></i>
-                                                <h6 class="bigstats">QUANTOS VOTARAM (%)<h6><span class="value">25%</span>
+                                            <div class="stat">
+                                                <i class="icon-certificate"></i>
+                                                <h6 class="bigstats">QUANTOS VOTARAM (%)<h6><span id="lblpercvoto" class="value">25%</span>
                                             </div>
                                             <!-- .stat -->
                                         </div>
@@ -234,6 +239,12 @@
         }
 
         var myLine = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData);
+    </script>
+    <script type="text/javascript">
+        function IncrementLabel(cadastros, qtsvotaram, percentual) {
+            for (var cad = 0; cad < length; cad++) {
+            }
+        }
     </script>
 </body>
 </html>
