@@ -5,18 +5,6 @@
         <asp:UpdatePanel runat="server">
             <ContentTemplate>
                 <fieldset>
-                    <div id="le-alert" style="display: none;" class="alert alert-danger alert-block fade">
-                        <button href="#" type="button" onclick="desativadiv()" class="close">&times;</button>
-                        <h4>Alerta!</h4>
-                        <asp:Label runat="server" ID="lbldanger" CssClass="p"></asp:Label>
-                    </div>
-
-                    <div id="le-sucess" style="display: none;" class="alert alert-sucess alert-block fade">
-                        <button href="#" type="button" onclick="desativadiv()" class="close">&times;</button>
-                        <h4>Mensagem!</h4>
-                        <asp:Label runat="server" ID="LblSucess" CssClass="p"></asp:Label>
-                    </div>
-
                     <div class="control-group">
 
                         <label class="control-label" for="username">Número</label>
@@ -193,23 +181,6 @@
             }
         };
     };
-</script>
-
-<script type="text/javascript">
-    function desativadiv(id) {
-
-        $('#' + id).css('display', 'none'); // hides alert with Bootstrap CSS3 implem
-    }
-
-
-</script>
-
-<script type="text/javascript">
-    function ativadiv(id) {
-        console.log("Diel Simpático");
-        alert("Túlio Lindão");
-        $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
-    }
 </script>
 
 

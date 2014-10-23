@@ -89,7 +89,6 @@ namespace Votaai.UserControl
             try
             {
 
-
                 ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
 
                 if (this.hiddencand.Value == "")
@@ -112,9 +111,8 @@ namespace Votaai.UserControl
                     ValidaOperacao(ref cand);
 
                 }
-                LblSucess.Text = "Seus Dados Foram Salvos Com Sucesso!";
-                ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", "ativadiv('le-sucess')", true);
 
+                RegistraAlerta("Seus Dados Foram Salvos Com Sucesso!", "le-sucess", "LblSucess");
                 LimpaTela();
             }
 
@@ -123,11 +121,16 @@ namespace Votaai.UserControl
             {
                 ///Fazer o alert vermelho caso caia aqui!.
 
-                lbldanger.Text = ex.Message.ToString();
-                ScriptManager.RegisterClientScriptBlock(this, GetType(), "erro", "ativadiv('le-alert')", true);
-
+                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
             }
 
+        }
+
+        private void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
+        {
+            Label lblmsg = Page.FindControl(nomelabel) as Label;
+            lblmsg.Text = "Seus Dados Foram Salvos Com Sucesso!";
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
         }
 
         private bool VerificaCandExistente()
@@ -157,20 +160,46 @@ namespace Votaai.UserControl
 
         private void MontaValoresInclusao(ClassesBanco.Candidato cand)
         {
-            cand.nome = nomecandidato.Text.ToString();
-            cand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
-            cand.cargo = this.selectcargo.SelectedValue;
-            cand.estadocandidato = this.selectestado.SelectedValue;
-
-            ValidarFoto(ref cand);
-            ValidarVice(ref cand);
-
-            cand.partidoid = int.Parse(this.selectpartido.SelectedValue);
-            if (this.hiddencand.Value != "")
+            try
             {
-                cand.candidatoid = int.Parse(this.hiddencand.Value);
-            }
 
+
+                cand.nome = nomecandidato.Text.ToString();
+                cand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
+                cand.cargo = this.selectcargo.SelectedValue;
+                cand.estadocandidato = this.selectestado.SelectedValue;
+                cand.partidoid = int.Parse(this.selectpartido.SelectedValue);
+
+                ValidarFoto(ref cand);
+                ValidarVice(ref cand);
+
+                if (cand.nome == "")
+                {
+                    throw new Exception("O nome deve ser informado!");
+                }
+
+                if (cand.numero == 0)
+                {
+                    throw new Exception("Número informado inválido!");
+                }
+
+                if (cand.cargo == "")
+                {
+                    throw new Exception("O cargo deve ser informado!");
+                }
+                if (cand.estadocandidato == "")
+                {
+                    throw new Exception("O estado deve ser informado!");
+                }
+                if (this.hiddencand.Value != "")
+                {
+                    cand.candidatoid = int.Parse(this.hiddencand.Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -224,7 +253,9 @@ namespace Votaai.UserControl
 
             }
             catch (Exception ex)
-            { }
+            {
+                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+            }
         }
 
         /// <summary>
@@ -234,26 +265,33 @@ namespace Votaai.UserControl
         /// <param name="e"></param>
         protected void selectpartido_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (selectpartido.DataSource == null)
+            try
             {
-                selectpartido.DataSource = Session["DadosCombo"];
 
+                if (selectpartido.DataSource == null)
+                {
+                    selectpartido.DataSource = Session["DadosCombo"];
+
+                }
+                DataSet valoratual = (DataSet)selectpartido.DataSource;
+
+                if (this.selectpartido.SelectedIndex > 0)
+                {
+                    DataRow[] row = valoratual.Tables[0].Select(string.Format("partidoid={0}", this.selectpartido.SelectedValue));
+                    this.numeropartido.Text = row[0].ItemArray[4].ToString();
+
+                }
+                else
+                {
+                    this.numeropartido.Text = "";
+                }
+
+                ValidaDivs();
             }
-            DataSet valoratual = (DataSet)selectpartido.DataSource;
-
-            if (this.selectpartido.SelectedIndex > 0)
+            catch (Exception ex)
             {
-                DataRow[] row = valoratual.Tables[0].Select(string.Format("partidoid={0}", this.selectpartido.SelectedValue));
-                this.numeropartido.Text = row[0].ItemArray[4].ToString();
-
+                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
             }
-            else
-            {
-                this.numeropartido.Text = "";
-            }
-
-            ValidaDivs();
 
         }
 
@@ -319,26 +357,64 @@ namespace Votaai.UserControl
 
         private void ValidarVice(ref ClassesBanco.Candidato cand)
         {
-            if (cand.cargo == "1" || cand.cargo == "3")
+            try
             {
-                cand.vice = txtvice.Value;
+                if (cand.cargo == "1" || cand.cargo == "3")
+                {
+                    if (txtvice.Value == "")
+                    {
+                        throw new Exception("Vice não informado!");
+                    }
+                    else
+                    {
+                        cand.vice = txtvice.Value;
+                    }
+                }
+                else if (cand.cargo == "2")
+                {
+                    if (this.txtsuplente1.Value == "" || this.txtsuplente2.Value == "")
+                    {
+                        throw new Exception("Suplente(s) não informado(s)");
+                    }
+                    else
+                    {
+                        cand.vice = this.txtsuplente1.Value + ";" + this.txtsuplente2.Value;
+
+                    }
+                }
+                else
+                {
+                    cand.vice = null;
+                }
+
             }
-            else if (cand.cargo == "2")
+            catch (Exception ex)
             {
-                cand.vice = this.txtsuplente1.Value + ";" + this.txtsuplente2.Value;
-            }
-            else
-            {
-                cand.vice = null;
+
+                throw ex;
             }
         }
 
         private void ValidarFoto(ref ClassesBanco.Candidato cand)
         {
-            string filepath = Server.MapPath("~/ImagensCandidatos/");
-            string fullpath = filepath + FileFotoCand.FileName;
-            this.FileFotoCand.SaveAs(fullpath);
-            cand.foto = fullpath;
+            try
+            {
+                if (FileFotoCand.FileName == "")
+                {
+                    throw new Exception("Foto não informada!");
+                }
+                else
+                {
+                    string filepath = Server.MapPath("~/ImagensCandidatos/");
+                    string fullpath = filepath + FileFotoCand.FileName;
+                    this.FileFotoCand.SaveAs(fullpath);
+                    cand.foto = fullpath;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void ValidaOperacao(ref ClassesBanco.Candidato cand)

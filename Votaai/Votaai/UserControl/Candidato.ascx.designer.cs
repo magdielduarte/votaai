@@ -13,24 +13,6 @@ namespace Votaai.UserControl {
     public partial class Candidato {
         
         /// <summary>
-        /// lbldanger control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldanger;
-        
-        /// <summary>
-        /// LblSucess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSucess;
-        
-        /// <summary>
         /// pesnumero control.
         /// </summary>
         /// <remarks>
