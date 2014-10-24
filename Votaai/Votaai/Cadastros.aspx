@@ -4,7 +4,6 @@
 <%@ Register Src="~/UserControl/Partido.ascx" TagPrefix="uc1" TagName="Partido" %>
 <%@ Register Src="~/UserControl/Usuario.ascx" TagPrefix="uc1" TagName="Usuario" %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +21,28 @@
     <link href="css/font-awesome.css" rel="stylesheet">
 
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/base.js"></script>
+
+
+    <script type="text/javascript">
+        function desativadiv(id) {
+
+            $('#' + id).css('display', 'none'); // hides alert with Bootstrap CSS3 implem
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        function ativadiv(id) {
+            console.log("Diel Simpático");
+            alert("Túlio Lindão");
+            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
+        }
+    </script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -149,29 +170,6 @@
         </div>
         <!-- /main -->
     </form>
-    <script src="js/jquery-1.7.2.min.js"></script>
-
-    <script src="js/bootstrap.js"></script>
-    <script src="js/base.js"></script>
-
-
-    <script type="text/javascript">
-        function desativadiv(id) {
-
-            $('#' + id).css('display', 'none'); // hides alert with Bootstrap CSS3 implem
-        }
-
-
-    </script>
-
-    <script type="text/javascript">
-        function ativadiv(id) {
-            console.log("Diel Simpático");
-            alert("Túlio Lindão");
-            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
-        }
-    </script>
-
 
 </body>
 
