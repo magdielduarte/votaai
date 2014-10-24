@@ -13,5 +13,20 @@ namespace Votaai
         {
 
         }
+        public void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
+        {
+            if (nomelabel == "LblSucess")
+            {
+                LblSucess.Text = msgalerta;
+            }
+            else
+            {
+                lbldanger.Text = msgalerta;
+            }
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
+
+        }
+
     }
 }

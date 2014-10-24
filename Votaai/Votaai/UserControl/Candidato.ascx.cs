@@ -128,9 +128,8 @@ namespace Votaai.UserControl
 
         private void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
         {
-            Label lblmsg = Page.FindControl(nomelabel) as Label;
-            lblmsg.Text = "Seus Dados Foram Salvos Com Sucesso!";
-            ScriptManager.RegisterClientScriptBlock(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
+
+            ((Cadastros)this.Page).RegistraAlerta(msgalerta, nomediv, nomelabel);
         }
 
         private bool VerificaCandExistente()
