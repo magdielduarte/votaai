@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Votaai.Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="Votaai.Index" %>
+
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +14,15 @@
     <!-- IMPORT CSS FILES-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
-        rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/pages/dashboard.css" rel="stylesheet">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/excanvas.min.js"></script>
+    <script src="js/chart.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/full-calendar/fullcalendar.min.js"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
 	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -64,168 +70,191 @@
         <!-- /subnavbar-inner -->
     </div>
     <!-- /subnavbar -->
-    <div class="main">
-        <div class="main-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="span6">
-                        <div class="widget widget-nopad">
-                            <div class="widget-header">
-                                <i class="icon-list-alt"></i>
-                                <h3>Status gerais</h3>
-                            </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <div class="widget big-stats-container">
-                                    <div class="widget-content">
-                                        <h6 class="bigstats">Acompanhe abaixo as atualizações de status gerais da votação em tempo real</h6>
-                                        <div id="big_stats" class="cf">
-                                            <div class="stat">
-                                                <i class="icon-group"></i>
-                                                <h6 class="bigstats">CADASTROS<h6>
-                                                    <span id="lblqtdcadastro" class="value">851</span>
-                                            </div>
-                                            <!-- .stat -->
+    <form runat="server">
+        <div class="main">
+            <div class="main-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="span6">
+                            <div class="widget widget-nopad">
+                                <div class="widget-header">
+                                    <i class="icon-list-alt"></i>
+                                    <h3>Status gerais</h3>
+                                </div>
+                                <!-- /widget-header -->
+                                <div class="widget-content">
+                                    <div class="widget big-stats-container">
+                                        <div class="widget-content">
+                                            <h6 class="bigstats">Acompanhe abaixo as atualizações de status gerais da votação em tempo real</h6>
+                                            <div id="big_stats" class="cf">
+                                                <div class="stat">
+                                                    <i class="icon-group"></i>
+                                                    <h6 class="bigstats">CADASTROS<h6>
+                                                        <%--<span id="lblqtdcadastro" class="value">851</span>--%>
+                                                        <div id="qtd-cadastro" class="value"></div>
+                                                </div>
+                                                <!-- .stat -->
 
-                                            <div class="stat">
-                                                <i class="icon-filter"></i>
-                                                <h6 class="bigstats">QUANTOS VOTARAM<h6>
-                                                    <span id="lblqtvotos" class="value">423</span>
+                                                <div class="stat">
+                                                    <i class="icon-filter"></i>
+                                                    <h6 class="bigstats">QUANTOS VOTARAM<h6>
+                                                        <%--                                                    <span id="lblqtvotos" class="value">423</span>--%>
+                                                        <div id="qtd-votos" class="value"></div>
+                                                </div>
+                                                <!-- .stat -->
+                                                <div class="stat">
+                                                    <i class="icon-certificate"></i>
+                                                    <h6 class="bigstats">QUANTOS VOTARAM (%)<h6>
+                                                        <%--                                                <span id="lblpercvoto" class="value">25%</span>--%>
+                                                        <div id="qtd-percent" class="value"><span class="value">%</span></div>
+                                                </div>
+                                                <!-- .stat -->
                                             </div>
-                                            <!-- .stat -->
-                                            <div class="stat">
-                                                <i class="icon-certificate"></i>
-                                                <h6 class="bigstats">QUANTOS VOTARAM (%)<h6><span id="lblpercvoto" class="value">25%</span>
-                                            </div>
-                                            <!-- .stat -->
                                         </div>
+                                        <!-- /widget-content -->
+
                                     </div>
-                                    <!-- /widget-content -->
-
                                 </div>
                             </div>
-                        </div>
-                        <!-- /widget -->
+                            <!-- /widget -->
 
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-file"></i>
-                                <h3>Notificações</h3>
-                            </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <ul class="messages_layout">
-                                    <li class="from_user left"><a href="#" class="avatar">
-                                        <img src="img/message_avatar1.png" /></a>
-                                        <div class="message_wrap">
-                                            <div class="text">Candidato X recebeu um voto as 14:20pm. </div>
-                                        </div>
-                                    </li>
-                                    <li class="by_myself left"><a href="#" class="avatar">
-                                        <img src="img/message_avatar2.png" /></a>
-                                        <div class="message_wrap">
-                                            <div class="text">Candidato Y recebeu um voto as 14:22pm.</div>
-                                        </div>
-                                    </li>
-                                    <li class="from_user left"><a href="#" class="avatar">
-                                        <img src="http://placehold.it/50x50" /></a>
-                                        <div class="message_wrap">
-                                            <div class="text">Novo eleitor cadastrado as 14:23pm.</div>
-                                        </div>
-                                    </li>
-                                    <li class="from_user left"><a href="#" class="avatar">
-                                        <img src="img/message_avatar1.png" /></a>
-                                        <div class="message_wrap">
-                                            <div class="text">Candidato X recebeu um voto as 14:20pm. </div>
-                                        </div>
-                                    </li>
-                                    <li class="from_user left"><a href="#" class="avatar">
-                                        <img src="img/message_avatar2.png" /></a>
-                                        <div class="message_wrap">
-                                            <div class="text">Candidato Y recebeu um voto as 14:22pm.</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /widget-content -->
-                        </div>
-                        <!-- /widget -->
-                    </div>
-                    <!-- /span6 -->
-                    <div class="span6">
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-bookmark"></i>
-                                <h3>Relatórios</h3>
-                            </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <div class="shortcuts">
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 1</span>
-                                    </a>
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 2</span>
-                                    </a>
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 3</span>
-                                    </a>
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 4</span>
-                                    </a>
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 5</span>
-                                    </a>
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 6</span>
-                                    </a>
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 7</span>
-                                    </a>
-                                    <a href="javascript:;" class="shortcut">
-                                        <span class="shortcut-label">Relatório 8</span>
-                                    </a>
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <i class="icon-file"></i>
+                                    <h3>Notificações</h3>
                                 </div>
-                                <!-- /shortcuts -->
+                                <!-- /widget-header -->
+                                <div class="widget-content">
+                                    <ul class="messages_layout">
+                                        <li class="from_user left"><a href="#" class="avatar">
+                                            <img src="img/message_avatar1.png" /></a>
+                                            <div class="message_wrap">
+                                                <div class="text">Candidato X recebeu um voto as 14:20pm. </div>
+                                            </div>
+                                        </li>
+                                        <li class="by_myself left"><a href="#" class="avatar">
+                                            <img src="img/message_avatar2.png" /></a>
+                                            <div class="message_wrap">
+                                                <div class="text">Candidato Y recebeu um voto as 14:22pm.</div>
+                                            </div>
+                                        </li>
+                                        <li class="from_user left"><a href="#" class="avatar">
+                                            <img src="http://placehold.it/50x50" /></a>
+                                            <div class="message_wrap">
+                                                <div class="text">Novo eleitor cadastrado as 14:23pm.</div>
+                                            </div>
+                                        </li>
+                                        <li class="from_user left"><a href="#" class="avatar">
+                                            <img src="img/message_avatar1.png" /></a>
+                                            <div class="message_wrap">
+                                                <div class="text">Candidato X recebeu um voto as 14:20pm. </div>
+                                            </div>
+                                        </li>
+                                        <li class="from_user left"><a href="#" class="avatar">
+                                            <img src="img/message_avatar2.png" /></a>
+                                            <div class="message_wrap">
+                                                <div class="text">Candidato Y recebeu um voto as 14:22pm.</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /widget-content -->
                             </div>
-                            <!-- /widget-content -->
+                            <!-- /widget -->
                         </div>
-                        <!-- /widget -->
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
-                                <h3>Votação para presidência</h3>
+                        <!-- /span6 -->
+                        <div class="span6">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <i class="icon-bookmark"></i>
+                                    <h3>Relatórios</h3>
+                                </div>
+                                <!-- /widget-header -->
+                                <div class="widget-content">
+                                    <div class="shortcuts">
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 1</span>
+                                        </a>
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 2</span>
+                                        </a>
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 3</span>
+                                        </a>
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 4</span>
+                                        </a>
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 5</span>
+                                        </a>
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 6</span>
+                                        </a>
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 7</span>
+                                        </a>
+                                        <a href="javascript:;" class="shortcut">
+                                            <span class="shortcut-label">Relatório 8</span>
+                                        </a>
+                                    </div>
+                                    <!-- /shortcuts -->
+                                </div>
+                                <!-- /widget-content -->
                             </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <canvas id="bar-chart" class="chart-holder" width="538" height="250"></canvas>
-                                <!-- /bar-chart -->
+                            <!-- /widget -->
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <i class="icon-bar-chart"></i>
+                                    <h3>Votação para presidência</h3>
+                                </div>
+                                <!-- /widget-header -->
+                                <div class="widget-content">
+                                    <%--                                <canvas id="bar_chart" class="chart-holder" runat="server" width="538" height="250"></canvas>--%>
+                                    <asp:DropDownList runat="server" AutoPostBack="true" ID="selectcargo" CssClass="span4" OnSelectedIndexChanged="selectcargo_SelectedIndexChanged">
+                                        <asp:ListItem Value="1" Text="Presidente"></asp:ListItem>
+                                        <asp:ListItem Value="2" Text="Senador"></asp:ListItem>
+                                        <asp:ListItem Value="3" Text="Governador"></asp:ListItem>
+                                        <asp:ListItem Value="4" Text="Deputado Federal"></asp:ListItem>
+                                        <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
+                                    </asp:DropDownList>
+
+                                    <asp:Chart ID="bar_chart" Width="538" Height="250" Visible="true" Enabled="true" CssClass="chart-holder" runat="server" OnLoad="bar_chart_Load">
+                                        <Series>
+                                            <asp:Series Name="Series1" IsValueShownAsLabel="true" XValueMember="NomeCandidato" YValueMembers="QtdVotos"></asp:Series>
+                                        </Series>
+                                        <ChartAreas>
+                                            <asp:ChartArea Name="ChartArea1">
+                                                <AxisY Title="Quantidade de Votos"></AxisY>
+                                                <AxisX Title="Nome do Candidato"></AxisX>
+                                            </asp:ChartArea>
+                                        </ChartAreas>
+                                        <Titles>
+                                            <asp:Title Name="Quantidade de Votos">
+                                            </asp:Title>
+                                        </Titles>
+                                    </asp:Chart>
+                                    <!-- /bar-chart -->
+                                </div>
+                                <!-- /widget-content -->
                             </div>
-                            <!-- /widget-content -->
+                            <!-- /widget -->
                         </div>
-                        <!-- /widget -->
+                        <!-- /span6 -->
                     </div>
-                    <!-- /span6 -->
+                    <!-- /row -->
                 </div>
-                <!-- /row -->
+                <!-- /container -->
             </div>
-            <!-- /container -->
+            <!-- /main-inner -->
         </div>
-        <!-- /main-inner -->
-    </div>
-    <!-- /main -->
-
+        <!-- /main -->
+    </form>
     <!-- Le javascript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.7.2.min.js"></script>
-    <script src="js/excanvas.min.js"></script>
-    <script src="js/chart.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.js"></script>
-    <script language="javascript" type="text/javascript" src="js/full-calendar/fullcalendar.min.js"></script>
 
     <script src="js/base.js"></script>
-    <script>
+    <%-- <script>
         var barChartData = {
             labels: ["dilma", "aecio", "marina", "pastor", "tulio", "diel", "marcin"],
             datasets: [
@@ -239,12 +268,6 @@
         }
 
         var myLine = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData);
-    </script>
-    <script type="text/javascript">
-        function IncrementLabel(cadastros, qtsvotaram, percentual) {
-            for (var cad = 0; cad < length; cad++) {
-            }
-        }
-    </script>
+    </script>--%>
 </body>
 </html>

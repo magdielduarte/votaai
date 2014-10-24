@@ -11,5 +11,23 @@ namespace Votaai {
     
     
     public partial class Index {
+        
+        /// <summary>
+        /// selectcargo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList selectcargo;
+        
+        /// <summary>
+        /// bar_chart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart bar_chart;
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Threading.Tasks;
-
+using ClassesConexao;
 namespace ClassesBanco
 {
     public class Voto : IMetodosPadroes
@@ -17,6 +17,7 @@ namespace ClassesBanco
         public string secaoeleitor { get; set; }
         public int candidatoid { get; set; }
 
+        Conexao conexao = new Conexao();
         void IMetodosPadroes.Inserir()
         {
             StringBuilder SQL;
@@ -83,13 +84,47 @@ namespace ClassesBanco
             {
 
             }
-            
+
         }
 
         DataSet IMetodosPadroes.Busca()
         {
             DataSet puta = new DataSet();
             return puta;
+        }
+
+        DataSet BuscaParaGrafico(string cargo)
+        {
+            StringBuilder SQL;
+            try
+            {
+                SQL = new StringBuilder();
+                SQL.AppendLine("SELECT TOP 5");
+                SQL.AppendLine(" candidato.nome as 'NomeCandidato'");
+                SQL.AppendLine(" ,count(voto.candidatoid) as 'QtdVotos'");
+                SQL.AppendLine(" from candidato");
+                SQL.AppendLine(" inner join voto");
+                SQL.AppendLine(" on candidato.candidatoid = voto.candidatoid");
+                SQL.AppendLine(string.Format(" where cargo = '{0}'", cargo));
+                SQL.AppendLine("group by candidato.nome");
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return conexao.BuscaDados(SQL.ToString());
+        }
+
+        public DataSet BuscarDadosAlteracao(Voto voto, string cargo)
+        {
+
+
+            if (conexao == null)
+                conexao = new Conexao();
+
+            return voto.BuscaParaGrafico(cargo);
         }
 
     }
