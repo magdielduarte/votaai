@@ -93,6 +93,16 @@ namespace Votaai.UserControl
                 {
                     usu.usuarioid = int.Parse(this.hiddenusuario.Value);
                 }
+
+                if (this.usersenha.Value == "")
+                {
+                    throw new Exception("Senha não informada!");
+                }
+
+                if (this.usersenharepitida.Value == "")
+                {
+                    throw new Exception("Repetição de Senha não informada");
+                }
                 ValidarSenha(ref usu);
             }
             catch (Exception ex)
