@@ -10,9 +10,9 @@ namespace Votaai
 {
     public partial class Index : System.Web.UI.Page
     {
-        private int qtdvotos = 0;
-        private int qtdcadastro = 0;
-        private int percent = 0;
+        private int qtdvotos = 100;
+        private int qtdcadastro = 100;
+        private int percent = 100;
         protected void Page_Unload(object sender, EventArgs e)
         {
         }

@@ -38,7 +38,8 @@
 
     <script type="text/javascript">
         function ativadiv(id) {
-            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
+            //fadeOut(1500);
+            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000) // shows alert with Bootstrap CSS3 implem
         }
     </script>
 
@@ -52,17 +53,7 @@
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server"></asp:ScriptManager>
-        <div id="le-alert" style="display: none;" class="alert alert-danger alert-block fade">
-            <button href="#" type="button" onclick="desativadiv()" class="close">&times;</button>
-            <h4>Alerta!</h4>
-            <asp:Label runat="server" ID="lbldanger" CssClass="p" Text=""></asp:Label>
-        </div>
 
-        <div id="le-sucess" style="display: none;" class="alert alert-sucess alert-block fade">
-            <button href="#" type="button" onclick="desativadiv()" class="close">&times;</button>
-            <h4>Mensagem!</h4>
-            <asp:Label runat="server" ID="LblSucess" CssClass="p" Text=""></asp:Label>
-        </div>
 
 
         <div class="navbar navbar-fixed-top">
@@ -105,6 +96,21 @@
             </div>
             <!-- /subnavbar-inner -->
         </div>
+        <asp:UpdatePanel runat="server"> 
+            <ContentTemplate>
+                <div id="le-alert" style="display: none; z-index: 999; width: 500px; margin: 0 auto; position: fixed" class="alert alert-danger alert-block fade alertVotaai">
+                    <button href="#" type="button" onclick="desativadiv('le-alert')" class="close">&times;</button>
+                    <h4>Alerta!</h4>
+                    <asp:Label runat="server" ID="lbldanger" CssClass="p" Text=""></asp:Label>
+                </div>
+
+                <div id="le-sucess" style="display: none; z-index: 999; width: 500px; margin: 0 auto; position: fixed" class="alert alert-sucess alert-block fade alertVotaai">
+                    <button href="#" type="button" onclick="desativadiv('le-sucess')" class="close">&times;</button>
+                    <h4>Mensagem!</h4>
+                    <asp:Label runat="server" ID="LblSucess" CssClass="p" Text=""></asp:Label>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 
         <div class="main">
 
