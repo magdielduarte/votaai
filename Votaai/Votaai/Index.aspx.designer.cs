@@ -13,6 +13,15 @@ namespace Votaai {
     public partial class Index {
         
         /// <summary>
+        /// IdUsuLogado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl IdUsuLogado;
+        
+        /// <summary>
         /// selectcargo control.
         /// </summary>
         /// <remarks>
@@ -28,6 +37,6 @@ namespace Votaai {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart bar_chart;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bar_chart;
     }
 }

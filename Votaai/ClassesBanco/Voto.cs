@@ -99,7 +99,7 @@ namespace ClassesBanco
             try
             {
                 SQL = new StringBuilder();
-                SQL.AppendLine("SELECT TOP 5");
+                SQL.AppendLine("SELECT TOP 10");
                 SQL.AppendLine(" candidato.nome as 'NomeCandidato'");
                 SQL.AppendLine(" ,count(voto.candidatoid) as 'QtdVotos'");
                 SQL.AppendLine(" from candidato");
@@ -107,6 +107,7 @@ namespace ClassesBanco
                 SQL.AppendLine(" on candidato.candidatoid = voto.candidatoid");
                 SQL.AppendLine(string.Format(" where cargo = '{0}'", cargo));
                 SQL.AppendLine("group by candidato.nome");
+                //SQL.AppendLine("Select 'Aécio Neves' as 'NomeCandidato',100 as 'QtdVotos'");
 
             }
             catch (Exception ex)
