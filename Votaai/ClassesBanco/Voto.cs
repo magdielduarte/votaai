@@ -93,7 +93,7 @@ namespace ClassesBanco
             return puta;
         }
 
-        DataSet BuscaParaGrafico(string cargo)
+        DataSet BuscaParaGrafico(string cargo, string estado)
         {
             StringBuilder SQL;
             try
@@ -106,8 +106,14 @@ namespace ClassesBanco
                 SQL.AppendLine(" inner join voto");
                 SQL.AppendLine(" on candidato.candidatoid = voto.candidatoid");
                 SQL.AppendLine(string.Format(" where cargo = '{0}'", cargo));
+                if (cargo != "1")
+                {
+                    SQL.AppendLine(string.Format(" and estadocandidato = '{0}'",estado));
+                }
                 SQL.AppendLine("group by candidato.nome");
-                //SQL.AppendLine("Select 'Aécio Neves' as 'NomeCandidato',100 as 'QtdVotos'");
+                SQL.AppendLine("");
+                SQL.AppendLine("union all");
+                SQL.AppendLine("select '' as NomeCandidato,0 as 'QtdVotos'");
 
             }
             catch (Exception ex)
@@ -118,14 +124,14 @@ namespace ClassesBanco
             return conexao.BuscaDados(SQL.ToString());
         }
 
-        public DataSet BuscarDadosAlteracao(Voto voto, string cargo)
+        public DataSet BuscarDadosAlteracao(Voto voto, string cargo, string estado)
         {
 
 
             if (conexao == null)
                 conexao = new Conexao();
 
-            return voto.BuscaParaGrafico(cargo);
+            return voto.BuscaParaGrafico(cargo, estado);
         }
 
     }

@@ -12,20 +12,36 @@ namespace Votaai
     {
         private int qtdvotos = 0;
         private int qtdcadastro = 0;
-        private int percent = 0;
+        private decimal percent = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.IdUsuLogado.InnerText = Session["UsuLogin"].ToString();
-
+            if (Session["UsuLogin"] != null)
+            {
+                this.IdUsuLogado.InnerText = Session["UsuLogin"].ToString();
+            }
+            ValidaDivs();
+            BuscaDadosCadastros();
             Increment();
             MontaGrafico();
+        }
+
+        private void BuscaDadosCadastros()
+        {
+            DataSet dados;
+
+            ClassesBanco.Eleitor ele = new ClassesBanco.Eleitor();
+            dados = ele.BuscarDados(ele);
+
+            this.qtdcadastro = int.Parse(dados.Tables[0].Rows[0]["TotalCadastro"].ToString());
+            this.qtdvotos = int.Parse(dados.Tables[0].Rows[0]["TotalVotou"].ToString());
+            this.percent = decimal.Parse(dados.Tables[0].Rows[0]["PercentualVotou"].ToString());
         }
 
         private void MontaGrafico()
         {
             ClassesBanco.Voto voto = new ClassesBanco.Voto();
-            DataSet dados = voto.BuscarDadosAlteracao(voto, this.selectcargo.SelectedValue);
+            DataSet dados = voto.BuscarDadosAlteracao(voto, this.selectcargo.SelectedValue, this.selectestado.SelectedValue);
             dados.Tables[0].NewRow();
             GeraScriptGrafico(dados);
 
@@ -44,13 +60,13 @@ namespace Votaai
             {
                 if (i == dados.Tables[0].Rows.Count - 1)
                 {
-                    nomes = "'" + dados.Tables[0].Rows[i]["NomeCandidato"].ToString() + "'";
-                    valores = "'" + dados.Tables[0].Rows[i]["QtdVotos"].ToString() + "'";
+                    nomes = nomes + "'" + dados.Tables[0].Rows[i]["NomeCandidato"].ToString() + "'";
+                    valores = valores + "" + dados.Tables[0].Rows[i]["QtdVotos"].ToString() + "";
                 }
                 else
                 {
-                    nomes = "'" + dados.Tables[0].Rows[i]["NomeCandidato"].ToString() + "';";
-                    valores = "'" + dados.Tables[0].Rows[i]["QtdVotos"].ToString() + "';";
+                    nomes = nomes + "'" + dados.Tables[0].Rows[i]["NomeCandidato"].ToString() + "',";
+                    valores = valores + "" + dados.Tables[0].Rows[i]["QtdVotos"].ToString() + ",";
 
                 }
             }
@@ -110,15 +126,6 @@ namespace Votaai
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "increment", txt.ToString(), true);
         }
-        /// <summary>
-        /// Evento de Combo para gerar novo gráfico de novos candidato
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MontaGrafico();
-        }
 
         /// <summary>
         /// Load do gráfico
@@ -129,6 +136,34 @@ namespace Votaai
         {
             MontaGrafico();
 
+        }
+
+        protected void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            MontaGrafico();
+        }
+
+        private void ValidaDivs()
+        {
+            switch (this.selectcargo.SelectedValue)
+            {
+                case "1":
+                    this.divestado.Style["display"] = "none";
+                    break;
+                default:
+                    this.divestado.Style["display"] = "block";
+                    break;
+            }
+
+        }
+
+        protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.selectcargo.SelectedValue == "1")
+            {
+                this.selectestado.SelectedIndex = 0;
+            }
+            ValidaDivs();
         }
     }
 }

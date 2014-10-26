@@ -31,6 +31,33 @@ namespace Votaai {
         protected global::System.Web.UI.WebControls.DropDownList selectcargo;
         
         /// <summary>
+        /// divestado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divestado;
+        
+        /// <summary>
+        /// selectestado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList selectestado;
+        
+        /// <summary>
+        /// BtnPesquisar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnPesquisar;
+        
+        /// <summary>
         /// bar_chart control.
         /// </summary>
         /// <remarks>

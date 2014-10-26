@@ -11,14 +11,17 @@ namespace Votaai
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.IdUsuLogado.InnerText = Session["UsuLogin"].ToString();
+            if (Session["UsuLogin"] != null)
+            {
+                this.IdUsuLogado.InnerText = Session["UsuLogin"].ToString();
+            }
         }
-/// <summary>
-/// Registro de Alerta para o usuário
-/// </summary>
-/// <param name="msgalerta"></param>
-/// <param name="nomediv"></param>
-/// <param name="nomelabel"></param>
+        /// <summary>
+        /// Registro de Alerta para o usuário
+        /// </summary>
+        /// <param name="msgalerta"></param>
+        /// <param name="nomediv"></param>
+        /// <param name="nomelabel"></param>
         public void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
         {
             if (nomelabel == "LblSucess")

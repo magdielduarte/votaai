@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Threading.Tasks;
-
+using ClassesConexao;
 namespace ClassesBanco
 {
     public class Eleitor : IMetodosPadroes
@@ -20,6 +20,7 @@ namespace ClassesBanco
         public string secao { get; set; }
         public int votou { get; set; }
 
+        Conexao conexao;
 
         void IMetodosPadroes.Inserir()
         {
@@ -97,8 +98,33 @@ namespace ClassesBanco
 
         DataSet IMetodosPadroes.Busca()
         {
-            DataSet puta = new DataSet();
-            return puta;
+            StringBuilder SQL;
+            try
+            {
+                SQL = new StringBuilder();
+                SQL.AppendLine("select count(*) as 'TotalCadastro'");
+                SQL.AppendLine(",count(votou) as 'TotalVotou',");
+                SQL.AppendLine("(count(votou)/count(*)) as 'PercentualVotou' ");
+                SQL.AppendLine("from eleitor");
+                SQL.AppendLine("group by votou");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return conexao.BuscaDados(SQL.ToString());
         }
+
+        public DataSet BuscarDados(Eleitor part)
+        {
+            IMetodosPadroes metodos = part;
+
+            if (conexao == null)
+                conexao = new Conexao();
+
+            return metodos.Busca();
+        }
+
     }
 }
