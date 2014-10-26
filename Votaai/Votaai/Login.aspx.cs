@@ -11,6 +11,12 @@ namespace Votaai
     public partial class Login : System.Web.UI.Page
     {
         private bool clicklgn = false;
+        
+        /// <summary>
+        /// Load da página de Login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!clicklgn)
@@ -19,12 +25,22 @@ namespace Votaai
             }
         }
 
+        /// <summary>
+        /// Função de alerta para mensagem ao usuário
+        /// </summary>
+        /// <param name="msgalerta"></param>
+        /// <param name="nomediv"></param>
         public void RegistraAlerta(string msgalerta, string nomediv)
         {
             lbldanger.Text = msgalerta;
             ScriptManager.RegisterStartupScript(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
         }
 
+        /// <summary>
+        /// Click do botão de login, efetuando a entrada no sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -47,6 +63,11 @@ namespace Votaai
             }
         }
 
+        /// <summary>
+        /// Verifica se usuário existe no sistema, com a senha correta
+        /// </summary>
+        /// <param name="usu"></param>
+        /// <returns></returns>
         private bool MontarDadosBusca(ClassesBanco.Usuario usu)
         {
             DataSet dados;
