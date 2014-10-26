@@ -13,6 +13,15 @@ namespace Votaai.UserControl {
     public partial class Usuario {
         
         /// <summary>
+        /// upusuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upusuario;
+        
+        /// <summary>
         /// peslogin control.
         /// </summary>
         /// <remarks>

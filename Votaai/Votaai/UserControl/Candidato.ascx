@@ -2,7 +2,7 @@
 
 <div class="tab-pane" id="Formcandidato">
     <div id="edit-profile" class="form-horizontal">
-        <asp:UpdatePanel runat="server">
+        <asp:UpdatePanel ID="upcand" runat="server">
             <ContentTemplate>
                 <fieldset>
                     <div class="control-group">

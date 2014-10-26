@@ -2,7 +2,7 @@
 
 <div class="tab-pane active" id="Formpartido">
     <div id="edit-profile" class="form-horizontal">
-        <asp:UpdatePanel runat="server">
+        <asp:UpdatePanel ID="uppartido" runat="server">
             <ContentTemplate>
                 <fieldset>
 
