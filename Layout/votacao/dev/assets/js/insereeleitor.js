@@ -2,15 +2,16 @@
 	Js para manipulação do cadastro de eleitor
 ************************************************/
 
-var nextCadastro     = document.getElementById('nextCadastro'),
-	finalizaCadastro = document.getElementById('finalizaCadastro'),
-	nome  		 	 = document.getElementById('nomeEleitor'),
-	idade 		 	 = document.getElementById('idadeEleitor'),
-	sexo         	 = document.getElementById('sexoEleitor'),
-	estado       	 = document.getElementById('estadoEleitor'),
-	titulo		 	 = document.getElementById('tituloEleitor'),
-	zona		 	 = document.getElementById('zonaEleitor'),
-	secao		 	 = document.getElementById('secaoEleitor');
+var nextCadastro     	  = document.getElementById('nextCadastro'),
+	finalizaCadastro 	  = document.getElementById('finalizaCadastro'),
+	nome  		 		  = document.getElementById('nomeEleitor'),
+	idade 		 		  = document.getElementById('idadeEleitor'),
+	sexo         		  = document.getElementById('sexoEleitor'),
+	estado       		  = document.getElementById('estadoEleitor'),
+	tituloEleitorCadastro = document.getElementById('tituloEleitorCadastro'),
+	zona		 	 	  = document.getElementById('zonaEleitor'),
+	secao		 	 	  = document.getElementById('secaoEleitor');
+
 
 /*
 	Evento clique do botão nextCadastro
@@ -36,18 +37,50 @@ nextCadastro.onclick = function() {
 finalizaCadastro.onclick = function() {
 	//lembrar de chamar a funcao de validação
 
-	sessionStorage.setItem('titulo', titulo.value);
+	sessionStorage.setItem('titulo', tituloEleitorCadastro.value);
 	sessionStorage.setItem('zona', zona.value);
-	sessionStorage.setItem('secao', secao.value);
+	sessionStorage.setItem('secao', secao.value);  
 
-	cadastraEleitor();	
-
-	$.fn.fullpage.moveSlideRight();	
+	validaTituloExiste();
+	
 };
 
 /*
-	Função cadastra eleitor
+	Função que valida se o titulo já foi cadastrado
 */
+
+function validaTituloExiste() {
+	titulo = sessionStorage.getItem('titulo');   
+     
+	$.ajax({            
+		type: 'post',
+		dataType: 'jsonp',
+		url: "http://apivotaai.azurewebsites.net/validatitulo.php",
+		data: {
+			titulo: titulo
+		},
+		success: function(dados) {
+			if(dados.status){
+				alert('Título já cadastrado, tente novamente!');
+				return false;
+			} 
+			else
+				cadastraEleitor();
+
+
+		},
+		error:function(dados){
+			//enviar mensagem de erro
+			console.log(dados);  
+		}
+	});
+
+
+}
+
+/*
+	Função cadastra eleitor
+*/  
 
 function cadastraEleitor() {
 	nome   = sessionStorage.getItem('nome'),
@@ -59,9 +92,9 @@ function cadastraEleitor() {
 	secao  = sessionStorage.getItem('secao');  
 
 	$.ajax({ 
-		type: 'POST',
+		type: 'post',
 		dataType: 'jsonp',
-		url: "http://apivotaai.azurewebsites.net/insere/insereeleitor.php",
+		url: "http://apivotaai.azurewebsites.net/insereeleitor.php",
 		data: {
 			nome: nome,
 			titulo: titulo,
@@ -73,21 +106,24 @@ function cadastraEleitor() {
 		},
 		success: function(dados) {
 			//redireciona para a página de sucesso
-			console.log(JSON.parse(dados.data));
+			if(dados.status){
 
-			//remove os itens da sessão
-			sessionStorage.removeItem('nome');
-			sessionStorage.removeItem('idade');
-			sessionStorage.removeItem('sexo');
-			sessionStorage.removeItem('estado');
-			sessionStorage.removeItem('titulo');
-			sessionStorage.removeItem('zona');
-			sessionStorage.removeItem('secao'); 
-
+				$.fn.fullpage.moveSlideRight();	
+				//remove os itens da sessão
+				sessionStorage.removeItem('nome');
+				sessionStorage.removeItem('idade');
+				sessionStorage.removeItem('sexo');
+				sessionStorage.removeItem('estado');
+				sessionStorage.removeItem('titulo');
+				sessionStorage.removeItem('zona');
+				sessionStorage.removeItem('secao'); 
+			}
+			else
+				alert(dados.mensagem);
 		},
 		error:function(dados){
 			//enviar mensagem de erro
-			console.log('deu erro');
+			console.log(dados);  
 		}
 	});
 
