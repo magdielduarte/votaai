@@ -18,7 +18,7 @@ namespace Votaai
         {
             if (Session["UsuLogin"] != null)
             {
-                this.IdUsuLogado.InnerText = Session["UsuLogin"].ToString();
+                this.IdUsuLogado.InnerHtml = Session["UsuLogin"].ToString();
             }
             ValidaDivs();
             BuscaDadosCadastros();

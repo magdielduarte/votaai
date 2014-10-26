@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Vota Aí - Login</title>
+    <title>Votaaí - Login</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,7 +27,7 @@
     <script type="text/javascript">
         function ativadiv(id) {
 
-            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000) // shows alert with Bootstrap CSS3 implem
+            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500) // shows alert with Bootstrap CSS3 implem
         }
     </script>
 
@@ -42,7 +42,7 @@
 
             <div class="container">
 
-                <a class="brand" href="Index.aspx">Vota Aí - Login
+                <a class="brand" href="Index.aspx">Votaaí - Login
                 </a>
 
             </div>

@@ -31,7 +31,7 @@ namespace Votaai
                 if (MontarDadosBusca(usu))
                 {
                     Session["UsuLogin"] = usu.login;
-                    Response.Redirect("");
+                    Response.Redirect("Index.aspx");
                 }
             }
 
