@@ -19,11 +19,18 @@ namespace Votaai
             if (Session["UsuLogin"] != null)
             {
                 this.IdUsuLogado.InnerHtml = Session["UsuLogin"].ToString();
+
+                ValidaDivs();
+                BuscaDadosCadastros();
+                Increment();
+                MontaGrafico();
+
             }
-            ValidaDivs();
-            BuscaDadosCadastros();
-            Increment();
-            MontaGrafico();
+            else
+            {
+                Session["UsuLogin"] = null;
+                Response.Redirect("Login.aspx");
+            }
         }
 
         private void BuscaDadosCadastros()

@@ -10,9 +10,13 @@ namespace Votaai
 {
     public partial class Login : System.Web.UI.Page
     {
+        private bool clicklgn = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!clicklgn)
+            {
+                Session["UsuLogin"] = null;
+            }
         }
 
         public void RegistraAlerta(string msgalerta, string nomediv)
@@ -25,6 +29,7 @@ namespace Votaai
         {
             try
             {
+                this.clicklgn = true;
                 ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
                 MontarDadosBusca(usu);
 
@@ -35,8 +40,9 @@ namespace Votaai
                 }
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
+                this.clicklgn = false;
                 RegistraAlerta("Usuário ou senha inválida", "le-alert");
             }
         }

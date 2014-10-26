@@ -26,6 +26,7 @@
 
 
     <script type="text/javascript">
+
         function desativadiv(id) {
 
             $('#' + id).css('display', 'none'); // hides alert with Bootstrap CSS3 implem
@@ -67,7 +68,7 @@
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i id="IdUsuLogado" runat="server" class="icon-user"></i><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:;">Logout</a></li>
+                                    <li><a href="Login.aspx">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
