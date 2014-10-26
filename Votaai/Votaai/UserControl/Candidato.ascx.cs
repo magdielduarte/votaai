@@ -12,6 +12,12 @@ namespace Votaai.UserControl
     {
         #region Ações Tela
 
+
+        /// <summary>
+        /// Evento load de página, que carrega o combo de partido, caso seja a primeira vez a entrar na tela
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -71,13 +77,15 @@ namespace Votaai.UserControl
             this.numerocand.DataBind();
         }
 
+        /// <summary>
+        /// Limpeza de dados de suplentes
+        /// </summary>
         private void LimpaDadosSuplentes()
         {
             this.txtsuplente1.Value = "";
             this.txtsuplente2.Value = "";
             this.txtvice.Value = "";
         }
-
 
         /// <summary>
         /// Método do botão de incluir candidato
@@ -88,7 +96,6 @@ namespace Votaai.UserControl
         {
             try
             {
-
                 ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
 
                 if (this.hiddencand.Value == "")
@@ -126,12 +133,22 @@ namespace Votaai.UserControl
 
         }
 
+        /// <summary>
+        /// Método de alerta para mensagens ao usuário
+        /// </summary>
+        /// <param name="msgalerta"></param>
+        /// <param name="nomediv"></param>
+        /// <param name="nomelabel"></param>
         private void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
         {
 
             ((Cadastros)this.Page).RegistraAlerta(msgalerta, nomediv, nomelabel);
         }
 
+        /// <summary>
+        /// Verifica se existe algum candidato com o número informado, cargo, partido e estado
+        /// </summary>
+        /// <returns></returns>
         private bool VerificaCandExistente()
         {
             ClassesBanco.Candidato validacand = new ClassesBanco.Candidato();
@@ -157,11 +174,14 @@ namespace Votaai.UserControl
 
         }
 
+        /// <summary>
+        /// Monta os valores para inclusão e/ou alteração de candidato
+        /// </summary>
+        /// <param name="cand"></param>
         private void MontaValoresInclusao(ClassesBanco.Candidato cand)
         {
             try
             {
-
 
                 cand.nome = nomecandidato.Text.ToString();
                 cand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
@@ -211,6 +231,9 @@ namespace Votaai.UserControl
             LimpaTela();
         }
 
+        /// <summary>
+        /// Limpa os valores da tela após a inclusão ou ao cancelamento de inclusão
+        /// </summary>
         private void LimpaTela()
         {
             this.pesnumero.Value = "";
@@ -262,6 +285,7 @@ namespace Votaai.UserControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+
         protected void selectpartido_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -336,6 +360,10 @@ namespace Votaai.UserControl
             MontaComboPartido(dados);
         }
 
+        /// <summary>
+        /// Popula o combo de partido, com os dados buscados
+        /// </summary>
+        /// <param name="dados"></param>
         private void MontaComboPartido(DataSet dados)
         {
             DataRow row = dados.Tables[0].NewRow();
@@ -354,6 +382,10 @@ namespace Votaai.UserControl
 
         #region Validações para Cadastro
 
+        /// <summary>
+        /// Valida, se caso o cargo seja governador ou presidente, se o vice foi informado
+        /// </summary>
+        /// <param name="cand"></param>
         private void ValidarVice(ref ClassesBanco.Candidato cand)
         {
             try
@@ -394,6 +426,10 @@ namespace Votaai.UserControl
             }
         }
 
+        /// <summary>
+        /// Verifica se foto foi informada
+        /// </summary>
+        /// <param name="cand"></param>
         private void ValidarFoto(ref ClassesBanco.Candidato cand)
         {
 
@@ -409,7 +445,7 @@ namespace Votaai.UserControl
                     string fullpath = filepath + FileFotoCand.FileName;
                     if ((double)(FileFotoCand.PostedFile.ContentLength / 1024) > 4.0D)
                     {
-
+                        throw new Exception("Arquivo deve ser menor do que 4MB!");
                     }
                     this.FileFotoCand.SaveAs(fullpath);
                     cand.foto = fullpath;
@@ -421,6 +457,10 @@ namespace Votaai.UserControl
             }
         }
 
+        /// <summary>
+        /// Valida a operação que será disparada no banco de dados
+        /// </summary>
+        /// <param name="cand"></param>
         private void ValidaOperacao(ref ClassesBanco.Candidato cand)
         {
             if (this.hiddencand.Value == "")
