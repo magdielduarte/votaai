@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace Votaai
 {
@@ -11,6 +12,52 @@ namespace Votaai
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public void RegistraAlerta(string msgalerta, string nomediv)
+        {
+            lbldanger.Text = msgalerta;
+            ScriptManager.RegisterStartupScript(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
+        }
+
+        protected void BtnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
+                MontarDadosBusca(usu);
+
+                if (MontarDadosBusca(usu))
+                {
+                    Session["UsuLogin"] = usu.login;
+                    Response.Redirect("");
+                }
+            }
+
+            catch (Exception)
+            {
+                RegistraAlerta("Usuário ou senha inválida", "le-alert");
+            }
+        }
+
+        private bool MontarDadosBusca(ClassesBanco.Usuario usu)
+        {
+            DataSet dados;
+
+            usu.login = this.username.Value.ToString();
+            usu.senha = this.password.Value.ToString().GetHashCode();
+
+            dados = usu.BuscarDados(usu);
+
+            if (dados.Tables[0].Rows.Count == 0)
+            {
+                throw new Exception("Usuário ou senha inválida!");
+            }
+            else
+            {
+                return true;
+            }
 
         }
     }

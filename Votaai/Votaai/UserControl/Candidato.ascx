@@ -130,6 +130,7 @@
                         <label class="control-label" for="email">Foto</label>
                         <div class="controls">
                             <asp:FileUpload runat="server" ID="FileFotoCand" CssClass="span4"></asp:FileUpload>
+
                         </div>
                         <!-- /controls -->
                     </div>

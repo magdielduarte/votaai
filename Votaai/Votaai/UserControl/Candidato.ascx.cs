@@ -396,6 +396,7 @@ namespace Votaai.UserControl
 
         private void ValidarFoto(ref ClassesBanco.Candidato cand)
         {
+
             try
             {
                 if (FileFotoCand.FileName == "")
@@ -406,6 +407,10 @@ namespace Votaai.UserControl
                 {
                     string filepath = Server.MapPath("~/ImagensCandidatos/");
                     string fullpath = filepath + FileFotoCand.FileName;
+                    if ((double)(FileFotoCand.PostedFile.ContentLength / 1024) > 4.0D)
+                    {
+
+                    }
                     this.FileFotoCand.SaveAs(fullpath);
                     cand.foto = fullpath;
                 }

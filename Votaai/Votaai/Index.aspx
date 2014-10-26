@@ -23,6 +23,8 @@
     <script src="js/chart.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/full-calendar/fullcalendar.min.js"></script>
+    <script src="js/base.js"></script>
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
 	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -42,8 +44,8 @@
                                 <li><a href="javascript:;">Sobre</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i>tulio de paula<b class="caret"></b></a>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i id="IdUsuLogado" runat="server" class="icon-user"></i>tulio de paula<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="javascript:;">Logout</a></li>
                             </ul>
@@ -106,7 +108,7 @@
                                                     <i class="icon-certificate"></i>
                                                     <h6 class="bigstats">QUANTOS VOTARAM (%)<h6>
                                                         <%--                                                <span id="lblpercvoto" class="value">25%</span>--%>
-                                                        <div id="qtd-percent" class="value"><span class="value">%</span></div>
+                                                        <div id="qtd-percent" class="value"></div>
                                                 </div>
                                                 <!-- .stat -->
                                             </div>
@@ -218,21 +220,7 @@
                                         <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
                                     </asp:DropDownList>
 
-                                    <asp:Chart ID="bar_chart" Width="538" Height="250" Visible="true" Enabled="true" CssClass="chart-holder" runat="server" OnLoad="bar_chart_Load">
-                                        <Series>
-                                            <asp:Series Name="Series1" IsValueShownAsLabel="true" XValueMember="NomeCandidato" YValueMembers="QtdVotos"></asp:Series>
-                                        </Series>
-                                        <ChartAreas>
-                                            <asp:ChartArea Name="ChartArea1">
-                                                <AxisY Title="Quantidade de Votos"></AxisY>
-                                                <AxisX Title="Nome do Candidato"></AxisX>
-                                            </asp:ChartArea>
-                                        </ChartAreas>
-                                        <Titles>
-                                            <asp:Title Name="Quantidade de Votos">
-                                            </asp:Title>
-                                        </Titles>
-                                    </asp:Chart>
+                                    <canvas id="bar_chart" class="chart-holder" runat="server" width="538" height="250"></canvas>
                                     <!-- /bar-chart -->
                                 </div>
                                 <!-- /widget-content -->
@@ -253,21 +241,5 @@
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="js/base.js"></script>
-    <%-- <script>
-        var barChartData = {
-            labels: ["dilma", "aecio", "marina", "pastor", "tulio", "diel", "marcin"],
-            datasets: [
-        {
-            fillColor: "rgba(151,187,205,0.5)",
-            strokeColor: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 96, 27, 100]
-        }
-            ]
-
-        }
-
-        var myLine = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData);
-    </script>--%>
 </body>
 </html>

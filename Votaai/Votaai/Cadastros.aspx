@@ -16,14 +16,11 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
-
     <link href="css/style.css" rel="stylesheet">
 
     <script src="js/jquery-1.7.2.min.js"></script>
-
     <script src="js/bootstrap.js"></script>
     <script src="js/base.js"></script>
 
@@ -38,8 +35,8 @@
 
     <script type="text/javascript">
         function ativadiv(id) {
-            //fadeOut(1500);
-            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000) // shows alert with Bootstrap CSS3 implem
+
+            $('#' + id).removeAttr('style').fadeIn(20000).addClass('in').delay(1000).fadeOut(1500); // shows alert with Bootstrap CSS3 implem
         }
     </script>
 
@@ -54,8 +51,6 @@
     <form runat="server">
         <asp:ScriptManager runat="server"></asp:ScriptManager>
 
-
-
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -69,8 +64,8 @@
                                     <li><a href="javascript:;">Sobre</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                class="icon-user"></i>tulio de paula<b class="caret"></b></a>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i id="IdUsuLogado" runat="server" class="icon-user"></i>tulio de paula<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:;">Logout</a></li>
                                 </ul>
@@ -96,7 +91,7 @@
             </div>
             <!-- /subnavbar-inner -->
         </div>
-        <asp:UpdatePanel runat="server"> 
+        <asp:UpdatePanel runat="server">
             <ContentTemplate>
                 <div id="le-alert" style="display: none; z-index: 999; width: 500px; margin: 0 auto; position: fixed" class="alert alert-danger alert-block fade alertVotaai">
                     <button href="#" type="button" onclick="desativadiv('le-alert')" class="close">&times;</button>

@@ -117,6 +117,12 @@ namespace ClassesBanco
                 {
                     SQL.AppendLine(string.Format(" AND login = '{0}' ", this.login));
                 }
+
+                if (this.senha!=null)
+                {
+                    SQL.AppendLine(string.Format(" AND senha = '{0}'", this.senha));
+                }
+
                 if (this.usuarioid != 0 && this.usuarioid != null)
                 {
                     SQL.AppendLine(string.Format(" AND usuarioid = {0}", this.usuarioid));
