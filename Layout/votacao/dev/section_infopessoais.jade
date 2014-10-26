@@ -2,19 +2,19 @@
   .box-cadastro
     h1 Cadastre-se 
     h2.title Nome:  
-    input(name="nome" placeholder="" class="inputeleicao")
+    input(name="nome" placeholder="" class="inputeleicao" id="nomeEleitor")
     .formleft
       h2.title Idade:
-      input(name="idade" placeholder="" class="inputeleicao inputform")
+      input(name="idade" placeholder="" class="inputeleicao inputform" id="idadeEleitor")
     .formleft.formspaceleft
       h2.title sexo:
-      select.inputeleicao.inputform
+      select(class="inputeleicao inputform" id="sexoEleitor")
         option(name="sexo" value="M") M
         option(name="sexo" value="F") F
     .formleft.formspaceleft
       h2.title Estado:
-      select.inputeleicao.inputform
+      select(class="inputeleicao inputform" id="estadoEleitor")
         option(name="estado" value="mg") MG
         option(name="estado" value="sp") SP   
     
-    i(class="fa fa-arrow-circle-right arrow") 
+    i(class="fa fa-arrow-circle-right arrow" id="nextCadastro") 
