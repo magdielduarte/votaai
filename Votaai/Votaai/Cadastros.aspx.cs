@@ -9,6 +9,12 @@ namespace Votaai
 {
     public partial class Cadastros : System.Web.UI.Page
     {
+        /// <summary>
+        /// Evento de load da página, colocando o nome do usuário logado, na barra inicial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UsuLogin"] != null)

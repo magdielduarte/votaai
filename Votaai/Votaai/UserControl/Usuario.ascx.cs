@@ -17,6 +17,11 @@ namespace Votaai.UserControl
 
         }
 
+        /// <summary>
+        /// Evento de botão de cadastro de usuário, para efetuar o cadastro de um usuário no sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnCadUsu_Click(object sender, EventArgs e)
         {
             ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
@@ -52,11 +57,21 @@ namespace Votaai.UserControl
 
             }
         }
+
+        /// <summary>
+        /// Registro de alerta, mandando a mensagem e qual div deverá ser exibida para a tela pai
+        /// </summary>
+        /// <param name="msgalerta"></param>
+        /// <param name="nomediv"></param>
+        /// <param name="nomelabel"></param>
         private void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
         {
             ((Cadastros)this.Page).RegistraAlerta(msgalerta, nomediv, nomelabel);
         }
 
+        /// <summary>
+        /// Limpa os campos da tela, caso o botão de cancelar seja clicado
+        /// </summary>
         private void LimpaTela()
         {
             this.userlogin.Value = "";
@@ -64,6 +79,10 @@ namespace Votaai.UserControl
             this.usersenharepitida.Value = "";
         }
 
+        /// <summary>
+        /// Verifica se existe algum usuário com o login informado
+        /// </summary>
+        /// <returns></returns>
         private bool ValidaUsuExistente()
         {
             ClassesBanco.Usuario pesusu = new ClassesBanco.Usuario();
@@ -80,6 +99,10 @@ namespace Votaai.UserControl
             }
         }
 
+        /// <summary>
+        /// Monta os dados para inclusão de usuário
+        /// </summary>
+        /// <param name="usu"></param>
         private void MontaDadosInclusão(ClassesBanco.Usuario usu)
         {
             try
@@ -111,12 +134,21 @@ namespace Votaai.UserControl
             }
         }
 
+        /// <summary>
+        /// Evento de botão responsável por limpar os campos da tela
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnCanUsu_Click(object sender, EventArgs e)
         {
             LimpaTela();
         }
         #endregion
 
+        /// <summary>
+        /// Valida qual operação será executada no banco de dados
+        /// </summary>
+        /// <param name="usu"></param>
         private void ValidaOperacao(ref ClassesBanco.Usuario usu)
         {
             if (this.idhidden.Value == "")
@@ -129,13 +161,14 @@ namespace Votaai.UserControl
             }
         }
 
+        /// <summary>
+        /// valida se as senhas informadas correspondem
+        /// </summary>
+        /// <param name="usu"></param>
         private void ValidarSenha(ref ClassesBanco.Usuario usu)
         {
-
             try
             {
-
-
                 if (this.usersenha.Value.ToString().GetHashCode() != this.usersenharepitida.Value.ToString().GetHashCode())
                 {
                     //Lançar exceção de senha diferente
@@ -154,6 +187,11 @@ namespace Votaai.UserControl
             }
         }
 
+        /// <summary>
+        /// Pesquisa um usuário cadastrado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
             ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
