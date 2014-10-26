@@ -12,16 +12,31 @@ namespace Votaai.UserControl
     {
         #region Ações Tela
 
+        /// <summary>
+        /// Evento de load da página
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Evento de botão de cancelar, limpando os campos da tela
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnCanPart_Click(object sender, EventArgs e)
         {
             LimpaTela();
         }
 
+        /// <summary>
+        /// Evento de botão de cadastro de partido
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnCadPart_Click(object sender, EventArgs e)
         {
             try
@@ -57,6 +72,11 @@ namespace Votaai.UserControl
             }
         }
 
+        /// <summary>
+        /// Evento de pesquisar partido
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
             try
@@ -78,11 +98,22 @@ namespace Votaai.UserControl
             }
         }
         #endregion
+
+        /// <summary>
+        /// Evento de registrar alerta para mensagens ao usuário
+        /// </summary>
+        /// <param name="msgalerta"></param>
+        /// <param name="nomediv"></param>
+        /// <param name="nomelabel"></param>
         private void RegistraAlerta(string msgalerta, string nomediv, string nomelabel)
         {
             ((Cadastros)this.Page).RegistraAlerta(msgalerta, nomediv, nomelabel);
         }
 
+        /// <summary>
+        /// Verifica se existe algum partido existente com o CNPJ, ou nome, ou prefixo ou a sigla
+        /// </summary>
+        /// <returns></returns>
         private bool ValidaPartExistente()
         {
             ClassesBanco.Partido validapart = new ClassesBanco.Partido();
@@ -158,6 +189,10 @@ namespace Votaai.UserControl
             this.pessigla.Value = "";
         }
 
+        /// <summary>
+        /// Valida qual operação será executada no banco de dados, I - Inclusão, A - Alteração
+        /// </summary>
+        /// <param name="part"></param>
         private void ValidaOperacao(ref ClassesBanco.Partido part)
         {
             if (this.hiddenpartido.Value == "")
@@ -169,7 +204,6 @@ namespace Votaai.UserControl
                 part.ExecutarMetodo('A', part);
             }
         }
-
 
     }
 }
