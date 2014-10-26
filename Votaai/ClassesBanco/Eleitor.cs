@@ -102,11 +102,15 @@ namespace ClassesBanco
             try
             {
                 SQL = new StringBuilder();
-                SQL.AppendLine("select count(*) as 'TotalCadastro'");
-                SQL.AppendLine(",count(votou) as 'TotalVotou',");
-                SQL.AppendLine("(count(votou)/count(*)) as 'PercentualVotou' ");
-                SQL.AppendLine("from eleitor");
-                SQL.AppendLine("group by votou");
+                SQL.AppendLine(" select count(*) as 'TotalCadastro'");
+                SQL.AppendLine(" from eleitor");
+                SQL.AppendLine("");
+                SQL.AppendLine(" union all");
+                SQL.AppendLine(" select count(*) as 'TotalVotou'");
+                SQL.AppendLine(" from eleitor");
+                SQL.AppendLine(" where votou = 1");
+                SQL.AppendLine("");
+
             }
             catch (Exception ex)
             {

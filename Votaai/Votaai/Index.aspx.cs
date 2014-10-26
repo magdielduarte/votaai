@@ -32,10 +32,20 @@ namespace Votaai
 
             ClassesBanco.Eleitor ele = new ClassesBanco.Eleitor();
             dados = ele.BuscarDados(ele);
-
-            this.qtdcadastro = int.Parse(dados.Tables[0].Rows[0]["TotalCadastro"].ToString());
-            this.qtdvotos = int.Parse(dados.Tables[0].Rows[0]["TotalVotou"].ToString());
-            this.percent = decimal.Parse(dados.Tables[0].Rows[0]["PercentualVotou"].ToString());
+            if (dados.Tables[0].Rows.Count > 0)
+            {
+                this.qtdcadastro = int.Parse(dados.Tables[0].Rows[0]["TotalCadastro"].ToString());
+                this.qtdvotos = int.Parse(dados.Tables[0].Rows[1]["TotalCadastro"].ToString());
+                
+                if (this.qtdcadastro == 0 || this.qtdvotos == 0)
+                {
+                    this.percent = 0;
+                }
+                else
+                {
+                    this.percent = this.qtdvotos / this.qtdcadastro;
+                }
+            }
         }
 
         private void MontaGrafico()
