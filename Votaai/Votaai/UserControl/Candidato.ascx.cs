@@ -12,6 +12,7 @@ namespace Votaai.UserControl
     {
         #region Ações Tela
 
+        List<string> extensoes;
 
         /// <summary>
         /// Evento load de página, que carrega o combo de partido, caso seja a primeira vez a entrar na tela
@@ -98,6 +99,7 @@ namespace Votaai.UserControl
             {
                 ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
 
+                FileFotoCand.DataBind();
                 if (this.hiddencand.Value == "")
                 {
                     if (!VerificaCandExistente())
@@ -121,6 +123,7 @@ namespace Votaai.UserControl
 
                 RegistraAlerta("Seus Dados Foram Salvos Com Sucesso!", "le-sucess", "LblSucess");
                 LimpaTela();
+                SimulaClickLink();
             }
 
 
@@ -129,8 +132,22 @@ namespace Votaai.UserControl
                 ///Fazer o alert vermelho caso caia aqui!.
 
                 RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+                SimulaClickLink();
             }
 
+        }
+
+        private void SimulaClickLink()
+        {
+            try
+            {
+                ((Cadastros)this.Page).ClicaLink();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -441,6 +458,15 @@ namespace Votaai.UserControl
                 }
                 else
                 {
+                    ExtensoesPermitidas();
+                    string achou = extensoes.Find(x => x == FileFotoCand.PostedFile.ContentType);
+                    
+                    if (achou == "")
+                    {
+                        throw new Exception("Extensão de arquivo não permitida! Por favor inclua um arquivo com as extensões PNG, JPG, JPEG.");
+
+                    }
+
                     string filepath = Server.MapPath("~/ImagensCandidatos/");
                     string fullpath = filepath + FileFotoCand.FileName;
                     if ((double)(FileFotoCand.PostedFile.ContentLength / 1024) > 4.0D)
@@ -455,6 +481,17 @@ namespace Votaai.UserControl
             {
                 throw ex;
             }
+        }
+
+        /// <summary>
+        /// Lista as extensões permitidas de fotos
+        /// </summary>
+        private void ExtensoesPermitidas()
+        {
+            extensoes = new List<string>();
+            extensoes.Add("png");
+            extensoes.Add("jpg");
+            extensoes.Add("jpeg");
         }
 
         /// <summary>

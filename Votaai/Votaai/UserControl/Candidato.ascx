@@ -145,8 +145,10 @@
                     <!-- /form-actions -->
 
                 </fieldset>
-
             </ContentTemplate>
+            <Triggers>
+                <asp:PostBackTrigger ControlID="BtnCadCand" />
+            </Triggers>
         </asp:UpdatePanel>
 
 

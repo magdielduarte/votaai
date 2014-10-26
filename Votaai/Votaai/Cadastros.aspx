@@ -135,7 +135,7 @@
                                             <li class="active">
                                                 <a href="#Formpartido" data-toggle="tab">Cadastrar Partido</a>
                                             </li>
-                                            <li><a id="candform" runat="server" href="#Formcandidato" data-toggle="tab">Cadastrar Candidato</a></li>
+                                            <li><a id="candform" href="#Formcandidato" data-toggle="tab">Cadastrar Candidato</a></li>
                                             <li><a href="#Formusuario" data-toggle="tab">Cadastrar Usuário</a></li>
                                         </ul>
 
