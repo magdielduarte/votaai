@@ -33,7 +33,7 @@ namespace Votaai
         public void RegistraAlerta(string msgalerta, string nomediv)
         {
             lbldanger.Text = msgalerta;
-            ScriptManager.RegisterStartupScript(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "sucess", string.Format("ativadiv('{0}');", nomediv), true);
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace Votaai
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UsuLogin"] != null)
@@ -22,6 +22,16 @@ namespace Votaai
                 this.IdUsuLogado.InnerText = Session["UsuLogin"].ToString();
             }
         }
+
+
+        public void ClicaLink()
+        {
+            System.Text.StringBuilder txt = new System.Text.StringBuilder();
+            txt.Append(string.Format("\ndocument.getElementById('candform').click();"));
+            ScriptManager.RegisterStartupScript(this, GetType(), "clickfunc", txt.ToString(), true);
+        }
+
+
         /// <summary>
         /// Registro de Alerta para o usuário
         /// </summary>
@@ -39,7 +49,7 @@ namespace Votaai
                 lbldanger.Text = msgalerta;
             }
 
-            ScriptManager.RegisterStartupScript(this, GetType(), "sucess", string.Format("ativadiv('{0}')", nomediv), true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "sucess", string.Format("ativadiv('{0}');", nomediv), true);
 
         }
 
