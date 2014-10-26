@@ -14,6 +14,11 @@ namespace Votaai
         private int qtdcadastro = 0;
         private decimal percent = 0;
 
+        /// <summary>
+        /// Evento de Load da página principal, montando os valores no contador, e o gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UsuLogin"] != null)
@@ -33,6 +38,9 @@ namespace Votaai
             }
         }
 
+        /// <summary>
+        /// Busca os dados de cadastro de eleitores, quantidade de eleitores que votaram, e o percentual de eleitores que votaram
+        /// </summary>
         private void BuscaDadosCadastros()
         {
             DataSet dados;
@@ -55,6 +63,9 @@ namespace Votaai
             }
         }
 
+        /// <summary>
+        /// Montagem de gráfico, com os 10 mais votados para o cargo e estado escolhido na tela pelo usuário
+        /// </summary>
         private void MontaGrafico()
         {
             ClassesBanco.Voto voto = new ClassesBanco.Voto();
@@ -65,7 +76,7 @@ namespace Votaai
         }
 
         /// <summary>
-        /// Geração de Gráfico com valores lidos dos candidatos
+        /// Geração de script de Gráfico com valores lidos dos candidatos
         /// </summary>
         /// <param name="dados"></param>
         private void GeraScriptGrafico(DataSet dados)
@@ -155,11 +166,19 @@ namespace Votaai
 
         }
 
+        /// <summary>
+        /// Pesquisa para montagem de gráfico de acordo com critérios escolhidos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnPesquisar_Click(object sender, EventArgs e)
         {
             MontaGrafico();
         }
 
+        /// <summary>
+        /// Validação de divs na tela, caso o cargo seja presidente, o combo de estado desaparecerá
+        /// </summary>
         private void ValidaDivs()
         {
             switch (this.selectcargo.SelectedValue)
@@ -174,6 +193,11 @@ namespace Votaai
 
         }
 
+        /// <summary>
+        /// Evento de combo de cargo, para esconder os valores de presidente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.selectcargo.SelectedValue == "1")
