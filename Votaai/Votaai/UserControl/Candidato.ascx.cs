@@ -140,7 +140,7 @@ namespace Votaai.UserControl
                     RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
                 }
 
-              
+
                 SimulaClickLink();
             }
 
@@ -182,8 +182,32 @@ namespace Votaai.UserControl
 
 
                 ClassesBanco.Candidato validacand = new ClassesBanco.Candidato();
-                validacand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
                 validacand.cargo = this.selectcargo.SelectedValue;
+                if (validacand.cargo == "1" || validacand.cargo == "3" || validacand.cargo == "")
+                {
+                    if (this.numeropartido.Text == "")
+                    {
+                        throw new Exception("Partido não informado!");
+                    }
+                    else
+                    {
+                        validacand.numero = int.Parse(string.Format("{0}", this.numeropartido.Text));
+
+                    }
+                }
+                else
+                {
+                    if (this.numeropartido.Text == "")
+                    {
+                        throw new Exception("Partido não informado!");
+                    }
+                    else
+                    {
+                        validacand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
+                    }
+
+                }
+
                 validacand.partidoid = int.Parse(this.selectpartido.SelectedValue);
 
                 if (validacand.cargo != "1")
