@@ -45,13 +45,13 @@ namespace Votaai
         {
             try
             {
-                this.clicklgn = true;
                 ClassesBanco.Usuario usu = new ClassesBanco.Usuario();
                 MontarDadosBusca(usu);
 
                 if (MontarDadosBusca(usu))
                 {
                     Session["UsuLogin"] = usu.login;
+                    this.clicklgn = true;
                     Response.Redirect("Index.aspx");
                 }
             }
