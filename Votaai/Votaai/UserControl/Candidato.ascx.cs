@@ -112,7 +112,6 @@ namespace Votaai.UserControl
                     {
                         //Tratar Erro com mensagem para o usuário.
                         throw new Exception("Já existe com este número e cargo para este estado! Gentileza ir para a janela de candidato para continuar o cadastro!");
-
                     }
                 }
                 else
@@ -126,8 +125,6 @@ namespace Votaai.UserControl
                 LimpaTela();
                 SimulaClickLink();
             }
-
-
             catch (Exception ex)
             {
                 ///Fazer o alert vermelho caso caia aqui!.
@@ -139,13 +136,13 @@ namespace Votaai.UserControl
                 {
                     RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
                 }
-
-
                 SimulaClickLink();
             }
 
         }
-
+        /// <summary>
+        /// Método para simular click de link
+        /// </summary>
         private void SimulaClickLink()
         {
             try
@@ -179,7 +176,6 @@ namespace Votaai.UserControl
         {
             try
             {
-
 
                 ClassesBanco.Candidato validacand = new ClassesBanco.Candidato();
                 validacand.cargo = this.selectcargo.SelectedValue;
@@ -375,7 +371,6 @@ namespace Votaai.UserControl
             }
 
         }
-
         /// <summary>
         /// Valida se a div de vice ou de suplente será mostrada, ou se as duas ficarão ocultas;
         /// </summary>
