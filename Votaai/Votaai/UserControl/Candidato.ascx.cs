@@ -36,6 +36,7 @@ namespace Votaai.UserControl
         /// <param name="e"></param>
         protected void selectcargo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LimpaSessions();
             ValidaDivs();
             switch (selectcargo.SelectedValue)
             {
@@ -207,7 +208,15 @@ namespace Votaai.UserControl
                     }
                     else
                     {
-                        validacand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
+                        if ((validacand.cargo != "1" && validacand.cargo != "3") && !System.Text.RegularExpressions.Regex.IsMatch(this.numerocand.Text, "^[0-9]"))
+                        {
+                            throw new Exception("Apenas Números permitidos nos números de candidatos!");
+
+                        }
+                        else
+                        {
+                            validacand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
+                        }
                     }
 
                 }
@@ -246,8 +255,15 @@ namespace Votaai.UserControl
             {
 
                 cand.nome = nomecandidato.Text.ToString();
-                cand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
+
                 cand.cargo = this.selectcargo.SelectedValue;
+                if ((cand.cargo != "1" && cand.cargo != "3") && !System.Text.RegularExpressions.Regex.IsMatch(this.numerocand.Text, "^[0-9]"))
+                {
+                    throw new Exception("Apenas Números permitidos nos números de candidatos!");
+
+                }
+                cand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
+
                 cand.estadocandidato = this.selectestado.SelectedValue;
                 cand.partidoid = int.Parse(this.selectpartido.SelectedValue);
 
@@ -376,7 +392,7 @@ namespace Votaai.UserControl
         {
             try
             {
-
+                LimpaSessions();
                 if (selectpartido.DataSource == null)
                 {
                     selectpartido.DataSource = Session["DadosCombo"];

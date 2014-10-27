@@ -120,8 +120,7 @@
                         <div class="controls">
                             <asp:TextBox MaxLength="2" Width="30" ReadOnly="true" Enabled="false" CausesValidation="false" runat="server" CssClass="span4" ID="numeropartido"></asp:TextBox>
                             <asp:TextBox MaxLength="3" Width="55" CausesValidation="false" runat="server" CssClass="span4" ID="numerocand"></asp:TextBox>
-                            <asp:RegularExpressionValidator SetFocusOnError="true" runat="server" ID="valNumbersOnly" ControlToValidate="numerocand" Display="Dynamic" ErrorMessage="Apenas números são permitidos!" ValidationExpression="(^([0-9]*|\d*\d{1}?\d*)$)" ForeColor="Red"></asp:RegularExpressionValidator>
-
+                        
                         </div>
                         <!-- /controls -->
                     </div>
