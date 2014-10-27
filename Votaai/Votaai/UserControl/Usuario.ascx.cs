@@ -53,8 +53,14 @@ namespace Votaai.UserControl
 
             catch (Exception ex)
             {
-                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+                if (ex.Message.Contains("formato incorreto!"))
+                {
 
+                }
+                else
+                {
+                    RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+                }
             }
         }
 

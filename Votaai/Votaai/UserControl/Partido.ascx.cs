@@ -68,7 +68,17 @@ namespace Votaai.UserControl
             }
             catch (Exception ex)
             {
-                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+                if (ex.Message.Contains("formato incorreto"))
+                {
+                    RegistraAlerta("Dados informados incorretamente! Gentileza verificar!", "le-alert", "lbldanger");
+
+                }
+
+                else
+                {
+                    RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+
+                }
             }
         }
 
@@ -119,7 +129,15 @@ namespace Votaai.UserControl
             ClassesBanco.Partido validapart = new ClassesBanco.Partido();
             validapart.cnpj = this.cpnjpartido.Value;
             validapart.nome = this.nomepartido.Value;
-            validapart.prefixo = int.Parse(this.prefixopartido.Text);
+            if (this.prefixopartido.Text == "")
+            {
+                throw new Exception("Prefixo do partido não informado!");
+            }
+            else
+            {
+                validapart.prefixo = int.Parse(this.prefixopartido.Text);
+
+            }
             validapart.sigla = this.siglapartido.Value;
 
             DataSet dados = validapart.BuscarDadosAlteracao(validapart);

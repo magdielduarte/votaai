@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 
 namespace Votaai.UserControl
 {
@@ -110,7 +111,7 @@ namespace Votaai.UserControl
                     else
                     {
                         //Tratar Erro com mensagem para o usuário.
-                        throw new Exception("Já existe com este número e cargo para este estado!");
+                        throw new Exception("Já existe com este número e cargo para este estado! Gentileza ir para a janela de candidato para continuar o cadastro!");
 
                     }
                 }
@@ -130,8 +131,16 @@ namespace Votaai.UserControl
             catch (Exception ex)
             {
                 ///Fazer o alert vermelho caso caia aqui!.
+                if (ex.Message.Contains("formato incorreto"))
+                {
+                    RegistraAlerta("Dados informados incorretamente! Gentileza verificar!", "le-alert", "lbldanger");
+                }
+                else
+                {
+                    RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+                }
 
-                RegistraAlerta(ex.Message.ToString(), "le-alert", "lbldanger");
+              
                 SimulaClickLink();
             }
 
@@ -168,27 +177,35 @@ namespace Votaai.UserControl
         /// <returns></returns>
         private bool VerificaCandExistente()
         {
-            ClassesBanco.Candidato validacand = new ClassesBanco.Candidato();
-            validacand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
-            validacand.cargo = this.selectcargo.SelectedValue;
-            validacand.partidoid = int.Parse(this.selectpartido.SelectedValue);
-
-            if (validacand.cargo != "1")
+            try
             {
-                validacand.estadocandidato = this.selectestado.SelectedValue;
+
+
+                ClassesBanco.Candidato validacand = new ClassesBanco.Candidato();
+                validacand.numero = int.Parse(string.Format("{0}{1}", this.numeropartido.Text, this.numerocand.Text));
+                validacand.cargo = this.selectcargo.SelectedValue;
+                validacand.partidoid = int.Parse(this.selectpartido.SelectedValue);
+
+                if (validacand.cargo != "1")
+                {
+                    validacand.estadocandidato = this.selectestado.SelectedValue;
+                }
+
+                DataSet dados = validacand.BuscarDados(validacand);
+
+                if (dados.Tables[0].Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            DataSet dados = validacand.BuscarDados(validacand);
-
-            if (dados.Tables[0].Rows.Count > 0)
+            catch (Exception ex)
             {
-                return true;
+                throw ex;
             }
-            else
-            {
-                return false;
-            }
-
         }
 
         /// <summary>
@@ -211,21 +228,21 @@ namespace Votaai.UserControl
 
                 if (cand.nome == "")
                 {
-                    throw new Exception("O nome deve ser informado!");
+                    throw new Exception("O nome deve ser informado! Gentileza ir para a janela de candidato para continuar o cadastro!");
                 }
 
                 if (cand.numero == 0)
                 {
-                    throw new Exception("Número informado inválido!");
+                    throw new Exception("Número informado inválido! Gentileza ir para a janela de candidato para continuar o cadastro!");
                 }
 
                 if (cand.cargo == "")
                 {
-                    throw new Exception("O cargo deve ser informado!");
+                    throw new Exception("O cargo deve ser informado! Gentileza ir para a janela de candidato para continuar o cadastro!");
                 }
                 if (cand.estadocandidato == "")
                 {
-                    throw new Exception("O estado deve ser informado!");
+                    throw new Exception("O estado deve ser informado! Gentileza ir para a janela de candidato para continuar o cadastro!");
                 }
                 if (this.hiddencand.Value != "")
                 {
@@ -411,7 +428,7 @@ namespace Votaai.UserControl
                 {
                     if (txtvice.Value == "")
                     {
-                        throw new Exception("Vice não informado!");
+                        throw new Exception("Vice não informado! Gentileza ir para a janela de candidato para continuar o cadastro!");
                     }
                     else
                     {
@@ -422,7 +439,7 @@ namespace Votaai.UserControl
                 {
                     if (this.txtsuplente1.Value == "" || this.txtsuplente2.Value == "")
                     {
-                        throw new Exception("Suplente(s) não informado(s)");
+                        throw new Exception("Suplente(s) não informado(s) Gentileza ir para a janela de candidato para continuar o cadastro!");
                     }
                     else
                     {
@@ -454,24 +471,25 @@ namespace Votaai.UserControl
             {
                 if (FileFotoCand.FileName == "")
                 {
-                    throw new Exception("Foto não informada!");
+                    throw new Exception("Foto não informada! Gentileza ir para a janela de candidato para continuar o cadastro!");
                 }
                 else
                 {
                     ExtensoesPermitidas();
-                    string achou = extensoes.Find(x => x == FileFotoCand.PostedFile.ContentType);
-                    
-                    if (achou == "")
+                    string achou = extensoes.Find(x => x == Path.GetExtension(FileFotoCand.FileName));
+
+                    if (achou == "" || achou == null)
                     {
-                        throw new Exception("Extensão de arquivo não permitida! Por favor inclua um arquivo com as extensões PNG, JPG, JPEG.");
+                        throw new Exception("Extensão de arquivo não permitida! Por favor inclua um arquivo com as extensões PNG, JPG, JPEG. Gentileza ir para a janela de candidato para continuar o cadastro!");
 
                     }
 
                     string filepath = Server.MapPath("~/ImagensCandidatos/");
                     string fullpath = filepath + FileFotoCand.FileName;
-                    if ((double)(FileFotoCand.PostedFile.ContentLength / 1024) > 4.0D)
+
+                    if ((double)(FileFotoCand.PostedFile.ContentLength) > 4194304)
                     {
-                        throw new Exception("Arquivo deve ser menor do que 4MB!");
+                        throw new Exception("Arquivo deve ser menor do que 4MB! Gentileza ir para a janela de candidato para continuar o cadastro!");
                     }
                     this.FileFotoCand.SaveAs(fullpath);
                     cand.foto = fullpath;
@@ -489,9 +507,9 @@ namespace Votaai.UserControl
         private void ExtensoesPermitidas()
         {
             extensoes = new List<string>();
-            extensoes.Add("png");
-            extensoes.Add("jpg");
-            extensoes.Add("jpeg");
+            extensoes.Add(".png");
+            extensoes.Add(".jpg");
+            extensoes.Add(".jpeg");
         }
 
         /// <summary>
@@ -510,7 +528,6 @@ namespace Votaai.UserControl
             }
         }
         #endregion
-
 
     }
 }
