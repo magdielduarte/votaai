@@ -8,24 +8,35 @@ var deputadoFederal       = document.getElementById('deputadoFederal'),
 
 /*
 	Função de click do valida deputado estadual
-*/ 
-
-validaDeputadoEstadual.onclick = function() {
+*/  
+    
+validaDeputadoFederal.onclick = function() {
+	var eleitor = JSON.parse(sessionStorage.getItem('eleitor'));  
 	$.ajax({ 
-		type: 'POST',
+		type: 'post',
 		dataType: 'jsonp',
-		url: "http://apivotaai.azurewebsites.net/valida/validaCandidato.php",
+		url: "http://apivotaai.azurewebsites.net/validacandidato.php",
 		data: {
-			numero: deputadoFederal.value
-		},
+			numero: deputadoFederal.value,
+			estadocandidato: eleitor.estadoeleitor,
+			cargo: 4
+		},  
 		success: function(dados) {
-			//salva os itens necessário na seção para montar o perfil do candidato
+			
+			if(dados.status) {
+				//Salvo na sessão o id do cargo para montar a query de retorno
+				sessionStorage.setItem('cargoID', 4);
 
-
-			//redireciona para a proxima página
+				//se o candidato existir os dados para montar o seu perfil
+				retornaCandidato(deputadoFederal.value);
+			}
+			else {
+				alert('candidato não existe, deseja anular seu voto?');
+				return false;
+			}
 		},
 		error:function(dados){
-			//enviar mensagem avisando que o numero não existe e se deseja anular o voto.
+			alert('Não foi possível validar o candidato, tente novamente !');
 		}
 	});
 };

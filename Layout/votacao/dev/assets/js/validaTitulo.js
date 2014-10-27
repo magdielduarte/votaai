@@ -32,7 +32,7 @@ validaTitulo.onclick = function() {
 		},
 		error: function(dados){
 			alert('Não foi possível validar seu título, tente novamente!');
-		}
+		}  
 	});
 };
 
@@ -47,11 +47,18 @@ function retornaEleitor() {
 		},
 		success: function(dados) {
 			//salva os itens necessário na seção para inserir o voto
-			sessionStorage.setItem('estadoeleitor', dados.estado); 
-			sessionStorage.setItem('idadeeleitor', dados.idade);
-			sessionStorage.setItem('sexoeleitor', dados.sexo);
-			sessionStorage.setItem('zonaeleitor', dados.zonaeleitoral);
-			sessionStorage.setItem('secaoeleitor', dados.secao);
+			console.log(dados);
+
+			var eleitor  = {
+				eleitorid: dados.eleitorid,
+				estadoeleitor: dados.estado,
+				idadeeleitor: dados.idade,
+				sexoeleitor: dados.sexo,
+				zonaeleitor: dados.zonaeleitoral,
+				secaoeleitor: dados.secao
+			} 
+
+			sessionStorage.setItem('eleitor', JSON.stringify(eleitor));
 
 			//redireciona para o começo da votação
 			$.fn.fullpage.moveSlideRight();	
