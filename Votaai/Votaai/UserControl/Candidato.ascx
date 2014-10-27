@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Candidato.ascx.cs" Inherits="Votaai.UserControl.Candidato" %>
+<%@ Register TagPrefix="ajx" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" %>
 
 <div class="tab-pane" id="Formcandidato">
     <div id="edit-profile" class="form-horizontal">
@@ -129,8 +130,8 @@
                     <div class="control-group">
                         <label class="control-label" for="email">Foto</label>
                         <div class="controls">
-                            <asp:FileUpload runat="server" ID="FileFotoCand" CssClass="span4"></asp:FileUpload>
-
+                            <%--<asp:FileUpload runat="server" ID="FileFotoCand" CssClass="span4"></asp:FileUpload>--%>
+                            <ajx:AsyncFileUpload runat="server" CssClass="span4" ID="FileFotoCand" OnUploadedComplete="FileFotoCand_UploadedComplete" CompleteBackColor="White" ErrorBackColor="White" />
                         </div>
                         <!-- /controls -->
                     </div>
@@ -146,9 +147,6 @@
 
                 </fieldset>
             </ContentTemplate>
-            <Triggers>
-                <asp:PostBackTrigger ControlID="BtnCadCand" />
-            </Triggers>
         </asp:UpdatePanel>
 
 

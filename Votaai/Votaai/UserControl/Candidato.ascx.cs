@@ -122,6 +122,7 @@ namespace Votaai.UserControl
                 }
 
                 RegistraAlerta("Seus Dados Foram Salvos Com Sucesso!", "le-sucess", "LblSucess");
+                LimpaSessions();
                 LimpaTela();
                 SimulaClickLink();
             }
@@ -139,6 +140,13 @@ namespace Votaai.UserControl
                 SimulaClickLink();
             }
 
+        }
+
+        private void LimpaSessions()
+        {
+
+            Session["FolderFoto"] = null;
+            Session["MensagemFoto"] = null;
         }
         /// <summary>
         /// Método para simular click de link
@@ -243,7 +251,7 @@ namespace Votaai.UserControl
                 cand.estadocandidato = this.selectestado.SelectedValue;
                 cand.partidoid = int.Parse(this.selectpartido.SelectedValue);
 
-                ValidarFoto(ref cand);
+                ValidaFoto(ref cand);
                 ValidarVice(ref cand);
 
                 if (cand.nome == "")
@@ -271,6 +279,29 @@ namespace Votaai.UserControl
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Verifica se tem alguma mensagem gravada na session, em caso afirmativo é gerado um erro, senão, é recuperado o path do arquivo para salvar no banco de Dados
+        /// </summary>
+        /// <param name="cand"></param>
+        private void ValidaFoto(ref ClassesBanco.Candidato cand)
+        {
+            try
+            {
+                if (Session["MensagemFoto"] != null && Session["MensagemFoto"].ToString().Contains("Erro!"))
+                {
+                    throw new Exception(Session["MensagemFoto"].ToString());
+                }
+                else
+                {
+                    cand.foto = Session["FolderFoto"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
@@ -479,46 +510,6 @@ namespace Votaai.UserControl
             }
         }
 
-        /// <summary>
-        /// Verifica se foto foi informada
-        /// </summary>
-        /// <param name="cand"></param>
-        private void ValidarFoto(ref ClassesBanco.Candidato cand)
-        {
-
-            try
-            {
-                if (FileFotoCand.FileName == "")
-                {
-                    throw new Exception("Foto não informada! Gentileza ir para a janela de candidato para continuar o cadastro!");
-                }
-                else
-                {
-                    ExtensoesPermitidas();
-                    string achou = extensoes.Find(x => x == Path.GetExtension(FileFotoCand.FileName));
-
-                    if (achou == "" || achou == null)
-                    {
-                        throw new Exception("Extensão de arquivo não permitida! Por favor inclua um arquivo com as extensões PNG, JPG, JPEG. Gentileza ir para a janela de candidato para continuar o cadastro!");
-
-                    }
-
-                    string filepath = Server.MapPath("~/ImagensCandidatos/");
-                    string fullpath = filepath + FileFotoCand.FileName;
-
-                    if ((double)(FileFotoCand.PostedFile.ContentLength) > 4194304)
-                    {
-                        throw new Exception("Arquivo deve ser menor do que 4MB! Gentileza ir para a janela de candidato para continuar o cadastro!");
-                    }
-                    this.FileFotoCand.SaveAs(fullpath);
-                    cand.foto = fullpath;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
         /// <summary>
         /// Lista as extensões permitidas de fotos
@@ -526,7 +517,6 @@ namespace Votaai.UserControl
         private void ExtensoesPermitidas()
         {
             extensoes = new List<string>();
-            extensoes.Add(".png");
             extensoes.Add(".jpg");
             extensoes.Add(".jpeg");
         }
@@ -547,6 +537,48 @@ namespace Votaai.UserControl
             }
         }
         #endregion
+
+        /// <summary>
+        /// Verificação de Foto que foi feita o upload
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void FileFotoCand_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
+        {
+            string filepath = Server.MapPath("~/ImagensCandidatos/");
+            string fullpath = filepath + FileFotoCand.FileName;
+            bool achouerro = false;
+
+            if (Session["FolderFoto"] != null && System.IO.File.Exists(Session["FolderFoto"].ToString()))
+            {
+                System.IO.File.Delete(Session["FolderFoto"].ToString());
+            }
+
+            Session["FolderFoto"] = null;
+
+            ExtensoesPermitidas();
+            string achou = extensoes.Find(x => x == Path.GetExtension(FileFotoCand.FileName));
+
+
+            if ((achou == "" || achou == null) && !achouerro)
+            {
+                Session["MensagemFoto"] = "Erro! Extensão de arquivo não permitida! Por favor inclua um arquivo com as extensões JPG, JPEG. Gentileza ir para a janela de candidato para continuar o cadastro!";
+
+            }
+
+            if (((double)(FileFotoCand.PostedFile.ContentLength) > 4194304) && !achouerro)
+            {
+                Session["MensagemFoto"] = "Erro! Arquivo não deve ser maior do que 4 MB!";
+            }
+
+            if (!achouerro)
+            {
+                this.FileFotoCand.SaveAs(fullpath);
+                Session["FolderFoto"] = fullpath;
+
+            }
+
+        }
 
     }
 }

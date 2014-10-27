@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastros.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="Votaai.Cadastros" %>
 
+<%@ Register TagPrefix="ajx" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit"%>
+
 <%@ Register Src="~/UserControl/Candidato.ascx" TagPrefix="uc1" TagName="Candidato" %>
 <%@ Register Src="~/UserControl/Partido.ascx" TagPrefix="uc1" TagName="Partido" %>
 <%@ Register Src="~/UserControl/Usuario.ascx" TagPrefix="uc1" TagName="Usuario" %>
@@ -50,8 +52,8 @@
 
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server"></asp:ScriptManager>
-
+        <%--<asp:ScriptManager runat="server"></asp:ScriptManager>--%>
+        <ajx:ToolkitScriptManager runat="server"></ajx:ToolkitScriptManager>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
