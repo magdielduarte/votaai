@@ -21,6 +21,9 @@ namespace Votaai
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["FolderFoto"] = null;
+            Session["MensagemFoto"] = null;
+
             if (Session["UsuLogin"] != null)
             {
                 this.IdUsuLogado.InnerHtml = Session["UsuLogin"].ToString();
@@ -51,7 +54,7 @@ namespace Votaai
             {
                 this.qtdcadastro = int.Parse(dados.Tables[0].Rows[0]["TotalCadastro"].ToString());
                 this.qtdvotos = int.Parse(dados.Tables[0].Rows[1]["TotalCadastro"].ToString());
-                
+
                 if (this.qtdcadastro == 0 || this.qtdvotos == 0)
                 {
                     this.percent = 0;

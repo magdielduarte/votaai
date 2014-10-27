@@ -314,6 +314,7 @@ namespace Votaai.UserControl
         protected void BtnCanCand_Click(object sender, EventArgs e)
         {
             LimpaTela();
+            LimpaSessions();
         }
 
         /// <summary>
