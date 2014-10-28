@@ -312,7 +312,14 @@ namespace Votaai.UserControl
                 }
                 else
                 {
-                    cand.foto = Session["FolderFoto"].ToString();
+                    if (Session["FolderFoto"]!=null)
+                    {
+                        cand.foto = Session["FolderFoto"].ToString();
+                    }
+                    else
+                    {
+                        throw new Exception("Foto não informada!");
+                    }
                 }
             }
             catch (Exception ex)
