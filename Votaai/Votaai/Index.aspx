@@ -180,29 +180,17 @@
                                 <!-- /widget-header -->
                                 <div class="widget-content">
                                     <div class="shortcuts">
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 1</span>
+                                        <a href="Relatorio.aspx?filtro=estado" class="shortcut">
+                                            <span class="shortcut-label">Votações por Estado</span>
                                         </a>
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 2</span>
+                                        <a href="Relatorio.aspx?filtro=sexo" class="shortcut">
+                                            <span class="shortcut-label">Votações por sexo</span>
                                         </a>
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 3</span>
+                                        <a href="Relatorio.aspx?filtro=zona" class="shortcut">
+                                            <span class="shortcut-label">Votações por Zona Eleitoral</span>
                                         </a>
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 4</span>
-                                        </a>
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 5</span>
-                                        </a>
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 6</span>
-                                        </a>
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 7</span>
-                                        </a>
-                                        <a href="javascript:;" class="shortcut">
-                                            <span class="shortcut-label">Relatório 8</span>
+                                        <a href="Relatorio.aspx?filtro=secao" class="shortcut">
+                                            <span class="shortcut-label">Votação por Seção</span>
                                         </a>
                                     </div>
                                     <!-- /shortcuts -->

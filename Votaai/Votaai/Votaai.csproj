@@ -112,10 +112,13 @@
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\signin.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Relatorio.aspx" />
     <Content Include="UserControl\Candidato.ascx" />
     <Content Include="UserControl\Partido.ascx" />
     <Content Include="UserControl\Usuario.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cadastros.aspx.cs">
@@ -140,6 +143,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorio.aspx.cs">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorio.aspx.designer.cs">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Candidato.ascx.cs">
       <DependentUpon>Candidato.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
