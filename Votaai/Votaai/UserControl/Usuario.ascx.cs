@@ -204,9 +204,16 @@ namespace Votaai.UserControl
             usu.login = this.peslogin.Value;
 
             DataSet dados = usu.BuscarDados(usu);
+            if (dados.Tables[0].Rows.Count==0)
+            {
+                RegistraAlerta("Usuário Inexistente!", "le-alert", "lbldanger");
+            }
+            else
+            {
+                this.userlogin.Value = dados.Tables[0].Rows[0]["login"].ToString();
+                this.hiddenusuario.Value = dados.Tables[0].Rows[0]["usuarioid"].ToString();
 
-            this.userlogin.Value = dados.Tables[0].Rows[0]["login"].ToString();
-            this.hiddenusuario.Value = dados.Tables[0].Rows[0]["usuarioid"].ToString();
+            }
         }
 
     }

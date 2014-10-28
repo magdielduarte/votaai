@@ -174,13 +174,13 @@
                         </div>
                         <!-- /span6 -->
                         <div class="span6">
-                            <div class="widget">
+                            <div class="widget" >
                                 <div class="widget-header">
                                     <i class="icon-bookmark"></i>
                                     <h3>Relatórios</h3>
                                 </div>
                                 <!-- /widget-header -->
-                                <div class="widget-content">
+                                <div class="widget-content" style="height:255px;width:568px;">
                                     <div class="shortcuts">
                                         <a href="Relatorio.aspx?filtro=estado" class="shortcut">
                                             <span class="shortcut-label">Votações por Estado</span>
