@@ -127,8 +127,27 @@ namespace Votaai.UserControl
         private bool ValidaPartExistente()
         {
             ClassesBanco.Partido validapart = new ClassesBanco.Partido();
-            validapart.cnpj = this.cpnjpartido.Value;
-            validapart.nome = this.nomepartido.Value;
+
+
+            if (this.cpnjpartido.Value == "")
+            {
+                throw new Exception("CNPJ do partido não informado!");
+
+            }
+            else
+            {
+                validapart.cnpj = this.cpnjpartido.Value;
+            }
+
+            if (this.nomepartido.Value == "")
+            {
+                throw new Exception("Nome do partido não informado!");
+            }
+            else
+            {
+                validapart.nome = this.nomepartido.Value;
+            }
+
             if (this.prefixopartido.Text == "")
             {
                 throw new Exception("Prefixo do partido não informado!");
@@ -136,9 +155,15 @@ namespace Votaai.UserControl
             else
             {
                 validapart.prefixo = int.Parse(this.prefixopartido.Text);
-
             }
-            validapart.sigla = this.siglapartido.Value;
+            if (this.siglapartido.Value == "")
+            {
+                throw new Exception("Sigla do partido não informado!");
+            }
+            else
+            {
+                validapart.sigla = this.siglapartido.Value;
+            }
 
             DataSet dados = validapart.BuscarDadosAlteracao(validapart);
             if (dados.Tables[0].Rows.Count > 0)
@@ -152,6 +177,8 @@ namespace Votaai.UserControl
 
         }
 
+
+
         /// <summary>
         /// Monta os valores da tela no objeto para inclusão ou alteração
         /// </summary>
@@ -160,6 +187,10 @@ namespace Votaai.UserControl
         {
             try
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(this.cpnjpartido.Value.ToString(), "^[0-9]"))
+                {
+                    throw new Exception("CNPJ Deve ser informado apenas com números!");
+                }
                 part.cnpj = this.cpnjpartido.Value;
                 part.nome = this.nomepartido.Value.ToString();
                 part.sigla = this.siglapartido.Value;

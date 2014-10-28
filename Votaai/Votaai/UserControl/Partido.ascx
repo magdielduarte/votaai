@@ -20,9 +20,7 @@
                     <div class="control-group">
                         <label class="control-label" for="username">CNPJ</label>
                         <div class="controls">
-                            <input type="text" class="span4" id="cpnjpartido" name="cnpj" runat="server" placeholder="99.999.999/9999-99">
-                            <%--TODO: Revisar essa desgraça de regex do capeta--%>
-                            <%--                    <asp:RegularExpressionValidator runat="server" ControlToValidate="cpnjpartido" ErrorMessage="Cnpj Inválido!" ValidationExpression="^( \d{2}?\d{3}?\d{3}?\d{4}?\d{2})$"></asp:RegularExpressionValidator>--%>
+                            <input type="text" class="span4" id="cpnjpartido" maxlength="14" name="cnpj" runat="server" placeholder="Informe o CNPJ, apenas números">
                         </div>
                         <!-- /controls -->
                     </div>
@@ -53,7 +51,7 @@
                         <label class="control-label" for="email">Prefixo</label>
 
                         <div class="controls">
-                                                        <asp:TextBox runat="server" MaxLength="2" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
+                            <asp:TextBox runat="server" MaxLength="2" CssClass="span4" ID="prefixopartido" placeholder="Digite o prefixo do partid. Ex: 13"></asp:TextBox>
                         </div>
                         <!-- /controls -->
                     </div>
