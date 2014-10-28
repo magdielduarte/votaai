@@ -1,29 +1,3 @@
-Ôªø<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Relatorio.aspx.cs" MaintainScrollPositionOnPostback="true" %>
-
-<%@ Register TagPrefix="ajx" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" %>
-
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Votaa√≠ - Relat√≥rios</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <script src="js/jquery-1.7.2.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/base.js"></script>
-
-
     <script type="text/javascript">
 
     </script>
@@ -44,12 +18,12 @@
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
                         class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-                    <a class="brand" href="Index.aspx">Votaa√≠ - Relat√≥rios</a>
+                    <a class="brand" href="Index.aspx">VotaaÌ - RelatÛrios</a>
 
                     <div class="nav-collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                class="icon-cog"></i>Configura√ß√µes<b class="caret"></b></a>
+                                class="icon-cog"></i>ConfiguraÁıes<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:;">Sobre</a></li>
                                 </ul>
@@ -75,7 +49,7 @@
                     <ul class="mainnav">
                         <li><a href="Index.aspx"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
                         <li><a href="Cadastros.aspx"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
-                        <li class="active"><a href="#"><i class="icon-download"></i><span>Relat√≥rios</span></a></li>
+                        <li class="active"><a href="#"><i class="icon-download"></i><span>RelatÛrios</span></a></li>
 
                     </ul>
                 </div>
@@ -113,7 +87,7 @@
 
                                 <div class="widget-header">
                                     <i class="icon-plus-sign"></i>
-                                    <h3>Relat√≥rio</h3>
+                                    <h3>RelatÛrio</h3>
                                 </div>
                                 <!-- /widget-header -->
 
@@ -129,29 +103,29 @@
                                                     <asp:ListItem Value="AC">Acre</asp:ListItem>
                                                     <asp:ListItem Value="AL">Alagoas</asp:ListItem>
                                                     <asp:ListItem Value="AM">Amazonas</asp:ListItem>
-                                                    <asp:ListItem Value="AP">Amap√°</asp:ListItem>
+                                                    <asp:ListItem Value="AP">Amap·</asp:ListItem>
                                                     <asp:ListItem Value="BA">Bahia</asp:ListItem>
-                                                    <asp:ListItem Value="CE">Cear√°</asp:ListItem>
+                                                    <asp:ListItem Value="CE">Cear·</asp:ListItem>
                                                     <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
-                                                    <asp:ListItem Value="ES">Esp√≠rito Santo</asp:ListItem>
-                                                    <asp:ListItem Value="GO">Goi√°s</asp:ListItem>
-                                                    <asp:ListItem Value="MA">Maranh√£o</asp:ListItem>
+                                                    <asp:ListItem Value="ES">EspÌrito Santo</asp:ListItem>
+                                                    <asp:ListItem Value="GO">Goi·s</asp:ListItem>
+                                                    <asp:ListItem Value="MA">Maranh„o</asp:ListItem>
                                                     <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
                                                     <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
                                                     <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
-                                                    <asp:ListItem Value="PA">Par√°</asp:ListItem>
-                                                    <asp:ListItem Value="PB">Para√≠ba</asp:ListItem>
+                                                    <asp:ListItem Value="PA">Par·</asp:ListItem>
+                                                    <asp:ListItem Value="PB">ParaÌba</asp:ListItem>
                                                     <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
-                                                    <asp:ListItem Value="PI">Piau√≠</asp:ListItem>
-                                                    <asp:ListItem Value="PR">Paran√°</asp:ListItem>
+                                                    <asp:ListItem Value="PI">PiauÌ</asp:ListItem>
+                                                    <asp:ListItem Value="PR">Paran·</asp:ListItem>
                                                     <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
                                                     <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
-                                                    <asp:ListItem Value="RO">Rond√¥nia</asp:ListItem>
+                                                    <asp:ListItem Value="RO">RondÙnia</asp:ListItem>
                                                     <asp:ListItem Value="RR">Roraima</asp:ListItem>
                                                     <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
                                                     <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
                                                     <asp:ListItem Value="SE">Sergipe</asp:ListItem>
-                                                    <asp:ListItem Value="SP">S√£o Paulo</asp:ListItem>
+                                                    <asp:ListItem Value="SP">S„o Paulo</asp:ListItem>
                                                     <asp:ListItem Value="TO">Tocantins</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
@@ -160,7 +134,7 @@
 
                                     </div>
                                     <div class="col-sm-3">
-                                        <asp:Button Text="Gerar Relat√≥rio" ID="BtnGerarRelatorio" CssClass="btn btn-success" runat="server" OnClick="BtnGerarRelatorio_Click" ></asp:Button>
+                                        <asp:Button Text="Gerar RelatÛrio" ID="BtnGerarRelatorio" CssClass="btn btn-success" runat="server" OnClick="BtnGerarRelatorio_Click" ></asp:Button>
                                     </div>
                                 </div>
                                 <!-- /widget-content -->
