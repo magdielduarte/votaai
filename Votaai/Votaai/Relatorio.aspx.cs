@@ -13,5 +13,12 @@ namespace Votaai
         {
 
         }
+
+        protected void BtnGerarRelatorio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
