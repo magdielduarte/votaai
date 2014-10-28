@@ -61,7 +61,8 @@ function validaTituloExiste() {
 		},
 		success: function(dados) {
 			if(dados.status){
-				alert('Título já cadastrado, tente novamente!');
+				$('#alert').text('Título já cadastrado, tente novamente!');
+				$('#alert').trigger('openModal');
 				return false;
 			} 
 			else
@@ -71,7 +72,8 @@ function validaTituloExiste() {
 		},
 		error:function(dados){
 			//enviar mensagem de erro
-			console.log(dados);  
+			$('#alert').text('Não foi possível validar se o título existe, tente novamente !');
+			$('#alert').trigger('openModal');  
 		}
 	});
 
@@ -123,7 +125,8 @@ function cadastraEleitor() {
 		},
 		error:function(dados){
 			//enviar mensagem de erro
-			console.log(dados);  
+			$('#alert').text('não foi possível cadastrar, tente novamente !');
+			$('#alert').trigger('openModal');
 		}
 	});
 

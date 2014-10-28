@@ -2,12 +2,12 @@
   .box-cadastro
     h1 Quase lá =)
     h2.title Título de eleitor:
-    input(name="tituloeleitor" placeholder="0000.0000.000" class="inputeleicao" id="tituloEleitorCadastro")
+    input(name="tituloeleitor" placeholder="0000.0000.000" class="inputeleicao" id="tituloEleitorCadastro" maxlength="12")
     .formleft
       h2.title Zona:
-      input(name="zona" placeholder="000" class="inputeleicao inputform" id="zonaEleitor")
+      input(name="zona" placeholder="000" class="inputeleicao inputform" id="zonaEleitor" maxlength="3")
     .formleft.formspaceleft.formsecao
       h2.title Seção:
-      input(name="secao" placeholder="0000" class="inputeleicao inputform" id="secaoEleitor")
+      input(name="secao" placeholder="0000" class="inputeleicao inputform" id="secaoEleitor" maxlength="4")
 
     i(class="fa fa-arrow-circle-right arrow arrowcadastro" id="finalizaCadastro")

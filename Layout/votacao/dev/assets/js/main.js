@@ -9,6 +9,11 @@ setTimeout(function(){
 	}
 },10);
 
+/*
+	seto o modal
+*/
+
+$('#alert').easyModal();
 
 /*
 	link para começar a votação
@@ -131,11 +136,9 @@ function validaVoto() {
 			$.fn.fullpage.moveSlideRight();
 		},
 		error: function(dados){
-			console.log(dados);
-			alert('Não foi possível cadastrar  seu voto, tente novamente!');
+			$('#alert').text('Não foi possível cadastrar seu voto, tente novamente!');
+			$('#alert').trigger('openModal');
 		}
-	});	
-}
-
-
+	});	 
+}  
 

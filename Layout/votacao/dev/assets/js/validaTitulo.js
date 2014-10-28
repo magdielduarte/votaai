@@ -24,14 +24,17 @@ validaTitulo.onclick = function() {
 		success: function(dados) {
 			//salva os itens necessário na seção para inserir o voto
 			if(dados.status){
-				retornaEleitor();
+				validaVotou();
 			} 
-			else
-				alert('Título não cadastrado, cadastre-se antes de votar =)');
+			else{
+				$('#alert').text('Título não está cadastrado ou não existe, tente novamente !');
+				$('#alert').trigger('openModal');
+			}
 			
 		},
 		error: function(dados){
-			alert('Não foi possível validar seu título, tente novamente!');
+			$('#alert').text('Não foi possível validar seu título, tente novamente!');
+			$('#alert').trigger('openModal');
 		}  
 	});
 };
@@ -65,7 +68,33 @@ function retornaEleitor() {
 
 		},
 		error: function(dados){
-			alert('Não foi possível validar seu título, tente novamente!');
+			$('#alert').text('Não foi possível validar seu título, tente novamente!');
+			$('#alert').trigger('openModal');
+		}
+	});	
+}
+
+function validaVotou() {
+	$.ajax({ 
+		type: 'POST',
+		dataType: 'jsonp',
+		url: "http://apivotaai.azurewebsites.net/validavoto.php",
+		data: {
+			titulo: titulo.value
+		},
+		success: function(dados) {  
+
+			if(!dados.status)
+				retornaEleitor();
+			else{
+				$('#alert').text('O título informado já realizou a votação.');
+				$('#alert').trigger('openModal');
+			}
+
+		},
+		error: function(dados){
+			$('#alert').text('Não foi possível validar seu título, tente novamente!');
+			$('#alert').trigger('openModal');
 		}
 	});	
 }

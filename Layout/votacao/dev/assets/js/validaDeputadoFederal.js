@@ -31,12 +31,14 @@ validaDeputadoFederal.onclick = function() {
 				retornaCandidato(deputadoFederal.value);
 			}
 			else {
-				alert('candidato não existe, deseja anular seu voto?');
+				$('#alert').text('candidato não existe, deseja anular seu voto?');
+				$('#alert').trigger('openModal');
 				return false;
 			}
 		},
 		error:function(dados){
-			alert('Não foi possível validar o candidato, tente novamente !');
+			$('#alert').text('Não foi possível validar o candidato, tente novamente !');
+			$('#alert').trigger('openModal');
 		}
 	});
 };

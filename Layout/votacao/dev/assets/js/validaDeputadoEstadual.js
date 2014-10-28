@@ -31,12 +31,14 @@ validaDeputadoEstadual.onclick = function() {
 				retornaCandidato(deputadoEstadual.value);
 			}
 			else {
-				alert('candidato não existe, deseja anular seu voto?');
+				$('#alert').text('candidato não existe, deseja anular seu voto?');
+				$('#alert').trigger('openModal');
 				return false;
 			}
 		},
 		error:function(dados){
-			alert('Não foi possível validar o candidato, tente novamente !');
+			$('#alert').text('Não foi possível validar o candidato, tente novamente !');
+			$('#alert').trigger('openModal');
 		}
 	});
 };
@@ -67,7 +69,8 @@ function retornaCandidato(numero) {
 				$.fn.fullpage.moveSlideRight();	  
 		},
 		error:function(dados){
-			alert('Não foi possível montar o perfil do candidato, tente novamente !');
+			$('#alert').text('Não foi possível montar o perfil do candidato, tente novamente !');
+			$('#alert').trigger('openModal');
 		}
 	});
 }
