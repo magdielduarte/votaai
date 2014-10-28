@@ -71,6 +71,7 @@
                 <ul class="mainnav">
                     <li class="active"><a href="Index.aspx"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
                     <li><a href="Cadastros.aspx"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
+                    <li><a href="#"><i class="icon-download"></i><span>Relatórios</span></a></li>
                 </ul>
             </div>
             <!-- /container -->

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Relatorio.aspx.cs" MaintainScrollPositionOnPostback="true" %>
 
-<%@ Register TagPrefix="ajx" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit"%>
+<%@ Register TagPrefix="ajx" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,9 @@
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="Index.aspx">Votaaí - Dashboard</a>
+                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+                    <a class="brand" href="Index.aspx">Votaaí - Relatórios</a>
+
                     <div class="nav-collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -71,7 +73,9 @@
                 <div class="container">
                     <ul class="mainnav">
                         <li><a href="Index.aspx"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
-                        <li class="active"><a href="Cadastros.aspx"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
+                        <li><a href="Cadastros.aspx"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
+                        <li class="active"><a href="#"><i class="icon-download"></i><span>Relatórios</span></a></li>
+
                     </ul>
                 </div>
                 <!-- /container -->
