@@ -40,12 +40,11 @@
                     <div class="control-group">
                         <label class="control-label" for="lastname">Sigla</label>
                         <div class="controls">
-                            <input type="text" class="span4" id="siglapartido" runat="server" placeholder="Digite a sigla do partido">
+                            <input type="text" class="span4" maxlength="5" id="siglapartido" runat="server" placeholder="Digite a sigla do partido">
                         </div>
                         <!-- /controls -->
                     </div>
                     <!-- /control-group -->
-
 
                     <div class="control-group">
                         <label class="control-label" for="email">Prefixo</label>
