@@ -61,7 +61,7 @@ namespace Votaai
                 }
                 else
                 {
-                    this.percent = this.qtdvotos / this.qtdcadastro;
+                    this.percent = (int)(((decimal)this.qtdvotos / (decimal)this.qtdcadastro) * 100);
                 }
             }
         }

@@ -79,6 +79,7 @@
     </div>
     <!-- /subnavbar -->
     <form runat="server">
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
         <div class="main">
             <div class="main-inner">
                 <div class="container">
@@ -201,56 +202,62 @@
                             <div class="widget">
                                 <div class="widget-header">
                                     <i class="icon-bar-chart"></i>
-                                    <h3>Votação para presidência</h3>
+                                    <h3>Gráfico de Votações</h3>
                                 </div>
                                 <!-- /widget-header -->
+
+
                                 <div class="widget-content">
+                                    <asp:UpdatePanel runat="server">
+                                        <ContentTemplate>
+                                            <label class="control-label" for="email">Cargo</label>
 
-                                    <label class="control-label" for="email">Cargo</label>
+                                            <asp:DropDownList runat="server" AutoPostBack="true" ID="selectcargo" CssClass="span4" OnSelectedIndexChanged="selectcargo_SelectedIndexChanged">
+                                                <asp:ListItem Value="1" Text="Presidente"></asp:ListItem>
+                                                <asp:ListItem Value="2" Text="Senador"></asp:ListItem>
+                                                <asp:ListItem Value="3" Text="Governador"></asp:ListItem>
+                                                <asp:ListItem Value="4" Text="Deputado Federal"></asp:ListItem>
+                                                <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
+                                            </asp:DropDownList>
+                                            <div runat="server" style="width: 300px;" id="divestado">
+                                                <label class="control-label">Estado</label>
+                                                <asp:DropDownList runat="server" ID="selectestado" CssClass="span4">
+                                                    <asp:ListItem Value="AC">Acre</asp:ListItem>
+                                                    <asp:ListItem Value="AL">Alagoas</asp:ListItem>
+                                                    <asp:ListItem Value="AM">Amazonas</asp:ListItem>
+                                                    <asp:ListItem Value="AP">Amapá</asp:ListItem>
+                                                    <asp:ListItem Value="BA">Bahia</asp:ListItem>
+                                                    <asp:ListItem Value="CE">Ceará</asp:ListItem>
+                                                    <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
+                                                    <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
+                                                    <asp:ListItem Value="GO">Goiás</asp:ListItem>
+                                                    <asp:ListItem Value="MA">Maranhão</asp:ListItem>
+                                                    <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
+                                                    <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
+                                                    <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
+                                                    <asp:ListItem Value="PA">Pará</asp:ListItem>
+                                                    <asp:ListItem Value="PB">Paraíba</asp:ListItem>
+                                                    <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
+                                                    <asp:ListItem Value="PI">Piauí</asp:ListItem>
+                                                    <asp:ListItem Value="PR">Paraná</asp:ListItem>
+                                                    <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
+                                                    <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
+                                                    <asp:ListItem Value="RO">Rondônia</asp:ListItem>
+                                                    <asp:ListItem Value="RR">Roraima</asp:ListItem>
+                                                    <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
+                                                    <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
+                                                    <asp:ListItem Value="SE">Sergipe</asp:ListItem>
+                                                    <asp:ListItem Value="SP">São Paulo</asp:ListItem>
+                                                    <asp:ListItem Value="TO">Tocantins</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <asp:Button Text="Atualizar Gráfico" runat="server" ID="BtnPesquisar" CssClass="btn-info" OnClick="BtnPesquisar_Click" />
 
-                                    <asp:DropDownList runat="server" AutoPostBack="true" ID="selectcargo" CssClass="span4" OnSelectedIndexChanged="selectcargo_SelectedIndexChanged">
-                                        <asp:ListItem Value="1" Text="Presidente"></asp:ListItem>
-                                        <asp:ListItem Value="2" Text="Senador"></asp:ListItem>
-                                        <asp:ListItem Value="3" Text="Governador"></asp:ListItem>
-                                        <asp:ListItem Value="4" Text="Deputado Federal"></asp:ListItem>
-                                        <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
-                                    </asp:DropDownList>
-                                    <div runat="server" style="width:300px;" id="divestado">
-                                        <label class="control-label">Estado</label>
-                                        <asp:DropDownList runat="server" ID="selectestado" CssClass="span4">
-                                            <asp:ListItem Value="AC">Acre</asp:ListItem>
-                                            <asp:ListItem Value="AL">Alagoas</asp:ListItem>
-                                            <asp:ListItem Value="AM">Amazonas</asp:ListItem>
-                                            <asp:ListItem Value="AP">Amapá</asp:ListItem>
-                                            <asp:ListItem Value="BA">Bahia</asp:ListItem>
-                                            <asp:ListItem Value="CE">Ceará</asp:ListItem>
-                                            <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
-                                            <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
-                                            <asp:ListItem Value="GO">Goiás</asp:ListItem>
-                                            <asp:ListItem Value="MA">Maranhão</asp:ListItem>
-                                            <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
-                                            <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
-                                            <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
-                                            <asp:ListItem Value="PA">Pará</asp:ListItem>
-                                            <asp:ListItem Value="PB">Paraíba</asp:ListItem>
-                                            <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
-                                            <asp:ListItem Value="PI">Piauí</asp:ListItem>
-                                            <asp:ListItem Value="PR">Paraná</asp:ListItem>
-                                            <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
-                                            <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
-                                            <asp:ListItem Value="RO">Rondônia</asp:ListItem>
-                                            <asp:ListItem Value="RR">Roraima</asp:ListItem>
-                                            <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
-                                            <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
-                                            <asp:ListItem Value="SE">Sergipe</asp:ListItem>
-                                            <asp:ListItem Value="SP">São Paulo</asp:ListItem>
-                                            <asp:ListItem Value="TO">Tocantins</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
-                                    <asp:Button Text="Atualizar Gráfico" runat="server" ID="BtnPesquisar" CssClass="btn-info" OnClick="BtnPesquisar_Click" />
+                                            <canvas id="bar_chart" class="chart-holder" runat="server" width="538" height="250"></canvas>
+                                            <!-- /bar-chart -->
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
 
-                                    <canvas id="bar_chart" class="chart-holder" runat="server" width="538" height="250"></canvas>
-                                    <!-- /bar-chart -->
                                 </div>
                                 <!-- /widget-content -->
                             </div>
