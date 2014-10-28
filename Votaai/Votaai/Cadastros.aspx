@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastros.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="Votaai.Cadastros" %>
 
-<%@ Register TagPrefix="ajx" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit"%>
+<%@ Register TagPrefix="ajx" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" %>
 
 <%@ Register Src="~/UserControl/Candidato.ascx" TagPrefix="uc1" TagName="Candidato" %>
 <%@ Register Src="~/UserControl/Partido.ascx" TagPrefix="uc1" TagName="Partido" %>
@@ -88,6 +88,7 @@
                     <ul class="mainnav">
                         <li><a href="Index.aspx"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
                         <li class="active"><a href="Cadastros.aspx"><i class="icon-list-alt"></i><span>Cadastros</span> </a></li>
+                        <li><a href="#"><i class="icon-download"></i><span>Relatórios</span></a></li>
                     </ul>
                 </div>
                 <!-- /container -->
