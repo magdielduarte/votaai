@@ -134,5 +134,11 @@ namespace ClassesBanco
             return voto.BuscaParaGrafico(cargo, estado);
         }
 
+
+        public DataSet RelatorioPorEstadoPresidente(string estado)
+        {
+            
+        }
+
     }
 }
