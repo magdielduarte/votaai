@@ -206,7 +206,7 @@
                                 <!-- /widget-header -->
                                 <div class="widget-content">
 
-                                    <label class="control-label" for="email">Repita a senha</label>
+                                    <label class="control-label" for="email">Cargo</label>
 
                                     <asp:DropDownList runat="server" AutoPostBack="true" ID="selectcargo" CssClass="span4" OnSelectedIndexChanged="selectcargo_SelectedIndexChanged">
                                         <asp:ListItem Value="1" Text="Presidente"></asp:ListItem>
@@ -215,9 +215,9 @@
                                         <asp:ListItem Value="4" Text="Deputado Federal"></asp:ListItem>
                                         <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
                                     </asp:DropDownList>
-                                    <div runat="server" id="divestado">
+                                    <div runat="server" style="width:300px;" id="divestado">
                                         <label class="control-label">Estado</label>
-                                        <asp:DropDownList runat="server" ID="selectestado" Width="250">
+                                        <asp:DropDownList runat="server" ID="selectestado" CssClass="span4">
                                             <asp:ListItem Value="AC">Acre</asp:ListItem>
                                             <asp:ListItem Value="AL">Alagoas</asp:ListItem>
                                             <asp:ListItem Value="AM">Amazonas</asp:ListItem>
