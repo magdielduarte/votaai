@@ -139,26 +139,34 @@ namespace ClassesBanco
         /// </summary>
         /// <param name="estado">Estado desejado</param>
         /// <param name="cargo">Cargo do político</param>
-        /// <param name="top">Quantos registros deseja buscar</param>
         /// <returns>O dataset com os dados</returns>
-        public DataSet RelatorioPorEstado(string estado, int cargo, int top)
+        public DataSet RelatorioPorEstado(string estado, int cargo)
         {
             DataSet dados = new DataSet();
-
+            StringBuilder sql = new StringBuilder();
             try
             {
-                string sql = string.Format(@"select top {0}
-                                        candidato.nome as nome,
-                                        count(voto.candidatoid) as votos
-                                        from candidato
-                                        inner join voto
-                                        on candidato.candidatoid = voto.candidatoid
-                                        and candidato.cargo = {1}
-                                        and voto.estadoeleitor = '{2}'
-                                        group by candidato.nome", top, cargo, estado);
+                int top = 3;
+
+                if (cargo == 4 || cargo == 5)
+                    top = 10;
+                
+
+                sql.AppendLine(string.Format("SELECT TOP {0}", top));
+                sql.AppendLine("candidato.nome as nome,");
+                sql.AppendLine("count(voto.candidatoid) as votos");
+                sql.AppendLine("from candidato");
+                sql.AppendLine("inner join voto");
+                sql.AppendLine("on candidato.candidatoid = voto.candidatoid");
+                sql.AppendLine(string.Format("and candidato.cargo = {0}", cargo));
+                sql.AppendLine(string.Format("and voto.estadoeleitor = '{0}'", estado));
+                if(cargo != 1)
+                    sql.AppendLine(string.Format("and candidato.estadocandidato = '{0}'", estado));
+                sql.AppendLine("group by candidato.nome");
+                sql.AppendLine("order by votos DESC");
 
                 //Seta o sql como parametro, realiza a busca e retorna como dataset para o objeto 'dados'
-                dados = conexao.BuscaDados(sql);
+                dados = conexao.BuscaDados(sql.ToString());
 
                 return dados;
             }

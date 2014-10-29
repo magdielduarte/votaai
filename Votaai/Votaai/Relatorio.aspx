@@ -113,15 +113,50 @@
                                 </div>
                                 <!-- /widget-header -->
 
-                                <div class="widget-content" id="filtroEstado" runat="server">
+                                <div class="widget-content" >
 
-                                    <div class="tabbable">
+                                    <div class="tabbable" id="filtroSexo" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="sexo">
+                                             <label class="control-label" for="cargo">Sexo: </label>
+                                            <div class="controls">
+                                                <asp:DropDownList runat="server" ID="selectsexo" Width="250">
+                                                    <asp:ListItem Value="M">Masculino</asp:ListItem>
+                                                    <asp:ListItem Value="F">Feminino</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tabbable" id="filtroZona" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="zona">
+                                             <label class="control-label" for="cargo">Zona Eleitoral: </label>
+                                            <div class="controls">
+                                                <asp:TextBox ID="txtZona" runat="server" Width="250" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tabbable" id="filtroSecao" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="secao">
+                                             <label class="control-label" for="cargo">Seção Eleitoral: </label>
+                                            <div class="controls">
+                                                <asp:TextBox ID="txtSecao" runat="server" Width="250" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tabbable" id="filtroEstado" runat="server" style="display: none">
 
                                         <div class="control-group" runat="server" id="estado">
                                             <label class="control-label" for="cargo">Estado: </label>
                                             <div class="controls">
                                                 <asp:DropDownList runat="server" ID="selectestado" Width="250">
-                                                    <asp:ListItem Value=""></asp:ListItem>
                                                     <asp:ListItem Value="AC">Acre</asp:ListItem>
                                                     <asp:ListItem Value="AL">Alagoas</asp:ListItem>
                                                     <asp:ListItem Value="AM">Amazonas</asp:ListItem>
@@ -155,12 +190,49 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-sm-3">
+
+                                    <div class="tabbable" id="filtroErro" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="erro">
+                                             <label class="control-label" for="cargo">Filtro não encontrado! Tente novamente.</label>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="tabbable" id="resposta" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="busca">
+                                             Presidentes Eleitos:
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="presidente" />
+                                            <br />
+                                            Governadores:
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="governador" />
+                                            <br />
+                                            Senadores:
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="senador" />
+                                            <br />
+                                            Deputados Federais:
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="federal" />
+                                            <br />
+                                            Deputados Estaduais:
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="estadual" />
+                                            <br />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-3" id="confirma" runat="server">
                                         <asp:Button Text="Gerar Relatório" ID="BtnGerarRelatorio" CssClass="btn btn-success" runat="server" OnClick="BtnGerarRelatorio_Click"></asp:Button>
                                     </div>
                                 </div>
                                 <!-- /widget-content -->
-
+                                
                             </div>
                             <!-- /widget -->
                         </div>

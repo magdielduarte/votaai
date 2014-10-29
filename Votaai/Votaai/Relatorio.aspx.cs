@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassesBanco;
 
 namespace Votaai
 {
@@ -18,14 +20,53 @@ namespace Votaai
             switch (parametro) 
             { 
                 case "estado":
-
+                    filtroEstado.Style["display"] = "block";
+                    break;
+                case "sexo":
+                    filtroSexo.Style["display"] = "block";
+                    break;
+                case "secao":
+                    filtroSecao.Style["display"] = "block";
+                    break;
+                case "zona":
+                    filtroZona.Style["display"] = "block";
+                    break;
+                default:
+                    filtroErro.Style["display"] = "block";
+                    confirma.Style["display"] = "none";
                     break;
             }
         }
 
         protected void BtnGerarRelatorio_Click(object sender, EventArgs e)
         {
+            DataSet dados = new DataSet();
+            Voto votos = new Voto();
 
+            //Irá pegar o parâmetro passado pela URL
+            string parametro = Request.QueryString["filtro"];
+
+            dynamic[] campos = {presidente, senador, governador, federal, estadual};
+
+            switch (parametro)
+            { 
+                case "estado":
+                    string uf = selectestado.SelectedItem.Value;
+                    //Retorna dados de presidente
+                    for (int i = 1; i < 5; i++)
+                    {
+                        dados = votos.RelatorioPorEstado(uf, i);
+
+                        for (int j = 0; j < dados.Tables[0].Rows.Count; j++)
+                        {
+                            campos[i - 1].Text += dados.Tables[0].Rows[j]["nome"].ToString() + ": " + dados.Tables[0].Rows[j]["votos"].ToString() + " Votos<br />";
+                        }
+                    }
+                    
+                    break;
+            }
+
+            resposta.Style["display"] = "block";
         }
     }
 }
