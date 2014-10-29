@@ -12,3 +12,10 @@ C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.dll
 C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb
 A:\MapWards\votaai\votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache
 C:\Projetos\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache
+C:\wamp\www\faculdade\votaai\Votaai\ClassesBanco\bin\ClassesBanco.dll
+C:\wamp\www\faculdade\votaai\Votaai\ClassesBanco\bin\ClassesBanco.pdb
+C:\wamp\www\faculdade\votaai\Votaai\ClassesBanco\bin\ClassesConexao.dll
+C:\wamp\www\faculdade\votaai\Votaai\ClassesBanco\bin\ClassesConexao.pdb
+C:\wamp\www\faculdade\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.csprojResolveAssemblyReference.cache
+C:\wamp\www\faculdade\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.dll
+C:\wamp\www\faculdade\votaai\Votaai\ClassesBanco\obj\Debug\ClassesBanco.pdb

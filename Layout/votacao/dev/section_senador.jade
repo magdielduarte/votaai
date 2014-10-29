@@ -2,5 +2,5 @@
   .box-candidato
     h1.cargo Senador
     h2.title Por favor, digite o numero do candidato:
-    input(name="numerocandidato" placeholder="000" class="inputeleicao numerocandidato inputsenador" id="senador")
+    input(name="numerocandidato" placeholder="000" class="inputeleicao numerocandidato inputsenador" onkeydown="mascara( this, soNumero );" maxlength="3" id="senador")
     i(class="fa fa-arrow-circle-right arrow" id="validaSenador") 

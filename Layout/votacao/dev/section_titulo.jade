@@ -1,5 +1,5 @@
 .container
   .box
     h2.title Por favor, digite seu título de eleitor:
-    input(name="tituloeleitor" placeholder="0000.0000.000" class="tituloeleitor inputeleicao" id="tituloEleitor" maxlength="12")
-    i(class="fa fa-arrow-circle-right arrow" id="validaTitulo") 
+    input(name="tituloeleitor" placeholder="0000.0000.000" onkeydown="mascara( this, soNumero );" class="tituloeleitor inputeleicao" id="tituloEleitor" maxlength="12")
+    i(class="fa fa-arrow-circle-right arrow" id="validaTitulo")   
