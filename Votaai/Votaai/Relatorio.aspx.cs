@@ -80,6 +80,7 @@ namespace Votaai
             }
 
             resposta.Style["display"] = "block";
+            confirma.Style["display"] = "none";
         }
     }
 }
