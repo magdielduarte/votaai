@@ -179,6 +179,8 @@
     <Content Include="font\fontawesome-webfont.woff" />
     <Content Include="font\fontawesome-webfontd41d.eot" />
     <Content Include="font\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\Votaai - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Votaai - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

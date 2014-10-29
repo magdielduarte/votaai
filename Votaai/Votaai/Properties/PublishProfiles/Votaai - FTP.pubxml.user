@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqizxdtA9r0yK/IOxeZAtdgAAAAACAAAAAAAQZgAAAAEAACAAAAAuPJXKzLIM+horAHwYRlDYEXrMUc8XgErfq34/FS6/zgAAAAAOgAAAAAIAACAAAADt6fVYGZGg2EDGRRmt0pojgt4TVl+5u9tbLKwP8zHQKIAAAAASZXq9UlZZBGfURvqlq/RMf+4j2Ti9WkrtsKCRVofPuCTYdiXqB2Q+NFeZ+sUZxe5W4bGXkUUMasS/EiU+ktg53MkeY355fkymBKPXX8h764KwtKy9+rE1ywoM8Ut/xuVkQeYEd5PxqM5fDMQnIOKd3xWyrPpfAgs+rtXRAP9XRkAAAAByL/FYi7OQRnY3ZuqqvSqZ6B3YW6pxgWx4WGxhP0NZlN/TNNLZ/ty+KjHozIDJBs/VnDweacGOHYM/2nsrfBZ5</EncryptedPassword>
+    <_PublishTargetUrl>ftp://waws-prod-cq1-001.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>12/14/2013 15:04:02</publishTime>
+    </File>
+    <File Include="bin/AjaxMin.dll">
+      <publishTime>12/04/2013 20:25:36</publishTime>
+    </File>
+    <File Include="bin/ClassesBanco.dll">
+      <publishTime>10/29/2014 01:34:22</publishTime>
+    </File>
+    <File Include="bin/ClassesConexao.dll">
+      <publishTime>10/29/2014 01:34:21</publishTime>
+    </File>
+    <File Include="bin/Votaai.dll">
+      <publishTime>10/29/2014 01:51:40</publishTime>
+    </File>
+    <File Include="Cadastros.aspx">
+      <publishTime>10/28/2014 21:02:57</publishTime>
+    </File>
+    <File Include="css/base-admin-responsive.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/bootstrap-responsive.min.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/bootstrap.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>10/24/2014 20:23:39</publishTime>
+    </File>
+    <File Include="css/font-awesome-ie7.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/font-awesome-ie7.min.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/font-awesome.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/font-awesome.min.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/pages/dashboard.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/pages/faq.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/pages/plans.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/pages/reports.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/pages/signin.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>10/24/2014 20:07:12</publishTime>
+    </File>
+    <File Include="font/fontawesome-webfont.eot">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="font/fontawesome-webfont.svg">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="font/fontawesome-webfont.svgz">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="font/fontawesome-webfont.ttf">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="font/fontawesome-webfont.woff">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="font/fontawesome-webfontd41d.eot">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="font/FontAwesome.otf">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/body-bg.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/glyphicons-halflings-white.html">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/glyphicons-halflings.html">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/icons-sa7c41345d9.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/message_avatar1.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/message_avatar2.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/signin/check.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/signin/fb_btn.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/signin/password.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/signin/twitter_btn.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="img/signin/user.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="Index.aspx">
+      <publishTime>10/28/2014 22:23:33</publishTime>
+    </File>
+    <File Include="js/base.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/bootstrap.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/chart.min.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/charts/area.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/charts/bar.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/charts/donut.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/charts/line.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/charts/pie.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/excanvas.min.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/faq.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/full-calendar/fullcalendar.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/full-calendar/fullcalendar.min.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/guidely/guidely-number.png">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/guidely/guidely.css">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/guidely/guidely.min.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/jquery-1.7.2.min.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="js/signin.js">
+      <publishTime>09/13/2014 16:51:33</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>10/28/2014 13:16:41</publishTime>
+    </File>
+    <File Include="Relatorio.aspx">
+      <publishTime>10/28/2014 22:23:32</publishTime>
+    </File>
+    <File Include="UserControl/Candidato.ascx">
+      <publishTime>10/28/2014 07:42:19</publishTime>
+    </File>
+    <File Include="UserControl/Partido.ascx">
+      <publishTime>10/28/2014 00:28:33</publishTime>
+    </File>
+    <File Include="UserControl/Usuario.ascx">
+      <publishTime>10/28/2014 21:28:49</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/29/2014 01:51:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
