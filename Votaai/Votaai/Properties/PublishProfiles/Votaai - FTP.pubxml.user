@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqizxdtA9r0yK/IOxeZAtdgAAAAACAAAAAAAQZgAAAAEAACAAAAAuPJXKzLIM+horAHwYRlDYEXrMUc8XgErfq34/FS6/zgAAAAAOgAAAAAIAACAAAADt6fVYGZGg2EDGRRmt0pojgt4TVl+5u9tbLKwP8zHQKIAAAAASZXq9UlZZBGfURvqlq/RMf+4j2Ti9WkrtsKCRVofPuCTYdiXqB2Q+NFeZ+sUZxe5W4bGXkUUMasS/EiU+ktg53MkeY355fkymBKPXX8h764KwtKy9+rE1ywoM8Ut/xuVkQeYEd5PxqM5fDMQnIOKd3xWyrPpfAgs+rtXRAP9XRkAAAAByL/FYi7OQRnY3ZuqqvSqZ6B3YW6pxgWx4WGxhP0NZlN/TNNLZ/ty+KjHozIDJBs/VnDweacGOHYM/2nsrfBZ5</EncryptedPassword>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqizxdtA9r0yK/IOxeZAtdgAAAAACAAAAAAAQZgAAAAEAACAAAABC91DurYd3HE1rWDSZj4Fhh0KYaqnZpHRgvtAlWwdD7wAAAAAOgAAAAAIAACAAAAAMorZ8VzjJJHq4bs2iArJuIRmNEwiDvcd82lM3Vei4syAAAADk0CYM7+hhHqnjgM6Z65XvRD3yJJ6xlB0EeK6/4MoLF0AAAACaYZmgWanDUZgy/9KSR8d5J2ecy2QUoK3OoLHd5SR48ABfCuREVv+ffQErLfR7oK9EjsURKQWrX3LUCUFdx1f8</EncryptedPassword>
     <_PublishTargetUrl>ftp://waws-prod-cq1-001.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
@@ -194,7 +194,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/28/2014 21:28:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/29/2014 01:51:48</publishTime>
+      <publishTime>10/29/2014 08:10:52</publishTime>
     </File>
   </ItemGroup>
 </Project>
