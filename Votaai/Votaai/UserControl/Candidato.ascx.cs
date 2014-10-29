@@ -643,7 +643,7 @@ namespace Votaai.UserControl
             {
                 this.FileFotoCand.SaveAs(fullpath);
 
-                Session["FolderFoto"] = string.Format("votaai.azurewebsites.net/ImagensCandidatos/{0}", FileFotoCand.FileName);
+                Session["FolderFoto"] = string.Format("http://votaai.azurewebsites.net/ImagensCandidatos/{0}", FileFotoCand.FileName);
 
             }
 
