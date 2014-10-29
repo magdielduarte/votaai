@@ -169,8 +169,9 @@
 
                     <div class="form-actions">
 
-                        <asp:Button runat="server" ID="BtnCadCand" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadCand_Click" />
                         <asp:Button runat="server" ID="BtnCanCand" CssClass="btn" Text="Cancelar" OnClick="BtnCanCand_Click"></asp:Button>
+                        <asp:Button runat="server" ID="BtnCadCand" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadCand_Click" />
+
                     </div>
                     <!-- /form-actions -->
                     <input type="hidden" runat="server" id="hiddencand" />

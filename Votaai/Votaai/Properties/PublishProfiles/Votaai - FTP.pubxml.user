@@ -17,13 +17,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2013 20:25:36</publishTime>
     </File>
     <File Include="bin/ClassesBanco.dll">
-      <publishTime>10/29/2014 07:56:33</publishTime>
+      <publishTime>10/29/2014 12:25:40</publishTime>
     </File>
     <File Include="bin/ClassesConexao.dll">
       <publishTime>10/29/2014 01:34:21</publishTime>
     </File>
     <File Include="bin/Votaai.dll">
-      <publishTime>10/29/2014 07:56:33</publishTime>
+      <publishTime>10/29/2014 12:25:40</publishTime>
     </File>
     <File Include="Cadastros.aspx">
       <publishTime>10/28/2014 21:02:57</publishTime>
@@ -182,10 +182,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/28/2014 13:16:41</publishTime>
     </File>
     <File Include="Relatorio.aspx">
-      <publishTime>10/29/2014 02:04:25</publishTime>
+      <publishTime>10/29/2014 12:20:14</publishTime>
     </File>
     <File Include="UserControl/Candidato.ascx">
-      <publishTime>10/29/2014 07:50:16</publishTime>
+      <publishTime>10/29/2014 09:23:43</publishTime>
     </File>
     <File Include="UserControl/Partido.ascx">
       <publishTime>10/28/2014 00:28:33</publishTime>
