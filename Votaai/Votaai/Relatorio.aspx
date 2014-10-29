@@ -113,7 +113,7 @@
                                 </div>
                                 <!-- /widget-header -->
 
-                                <div class="widget-content">
+                                <div class="widget-content" id="filtroEstado" runat="server">
 
                                     <div class="tabbable">
 

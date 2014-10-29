@@ -11,7 +11,16 @@ namespace Votaai
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Irá pegar o parâmetro passado pela URL
+            string parametro = Request.QueryString["filtro"];
 
+            //Faz um switch 
+            switch (parametro) 
+            { 
+                case "estado":
+
+                    break;
+            }
         }
 
         protected void BtnGerarRelatorio_Click(object sender, EventArgs e)
