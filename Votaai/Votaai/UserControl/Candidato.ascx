@@ -10,7 +10,37 @@
 
                         <label class="control-label" for="username">Número</label>
                         <div class="controls">
-                            <input type="text" class="span4 " style="width: 150px" id="pesnumero" name="pesnumero" runat="server" />
+                            <input type="text" maxlength="5" class="span4 " style="width: 150px" id="pesnumero" name="pesnumero" runat="server" />
+                            <asp:DropDownList CssClass="span4" runat="server" ID="selectestadopes" Width="250">
+
+                                <asp:ListItem Value="AC">Acre</asp:ListItem>
+                                <asp:ListItem Value="AL">Alagoas</asp:ListItem>
+                                <asp:ListItem Value="AM">Amazonas</asp:ListItem>
+                                <asp:ListItem Value="AP">Amapá</asp:ListItem>
+                                <asp:ListItem Value="BA">Bahia</asp:ListItem>
+                                <asp:ListItem Value="CE">Ceará</asp:ListItem>
+                                <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
+                                <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
+                                <asp:ListItem Value="GO">Goiás</asp:ListItem>
+                                <asp:ListItem Value="MA">Maranhão</asp:ListItem>
+                                <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
+                                <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
+                                <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
+                                <asp:ListItem Value="PA">Pará</asp:ListItem>
+                                <asp:ListItem Value="PB">Paraíba</asp:ListItem>
+                                <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
+                                <asp:ListItem Value="PI">Piauí</asp:ListItem>
+                                <asp:ListItem Value="PR">Paraná</asp:ListItem>
+                                <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
+                                <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
+                                <asp:ListItem Value="RO">Rondônia</asp:ListItem>
+                                <asp:ListItem Value="RR">Roraima</asp:ListItem>
+                                <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
+                                <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
+                                <asp:ListItem Value="SE">Sergipe</asp:ListItem>
+                                <asp:ListItem Value="SP">São Paulo</asp:ListItem>
+                                <asp:ListItem Value="TO">Tocantins</asp:ListItem>
+                            </asp:DropDownList>
                             <asp:Button Text="Pesquisar" CssClass="btn btn-success" ID="BtnPesquisar" runat="server" OnClick="BtnPesquisar_Click" />
                         </div>
                     </div>
@@ -120,7 +150,7 @@
                         <div class="controls">
                             <asp:TextBox MaxLength="2" Width="30" ReadOnly="true" Enabled="false" CausesValidation="false" runat="server" CssClass="span4" ID="numeropartido"></asp:TextBox>
                             <asp:TextBox MaxLength="3" Width="55" CausesValidation="false" runat="server" CssClass="span4" ID="numerocand"></asp:TextBox>
-                        
+
                         </div>
                         <!-- /controls -->
                     </div>
@@ -143,13 +173,13 @@
                         <asp:Button runat="server" ID="BtnCanCand" CssClass="btn" Text="Cancelar" OnClick="BtnCanCand_Click"></asp:Button>
                     </div>
                     <!-- /form-actions -->
-
+                    <input type="hidden" runat="server" id="hiddencand" />
                 </fieldset>
             </ContentTemplate>
         </asp:UpdatePanel>
 
 
-        <input type="hidden" runat="server" id="hiddencand" />
+
     </div>
 </div>
 
