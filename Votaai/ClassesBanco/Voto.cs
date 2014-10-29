@@ -134,5 +134,39 @@ namespace ClassesBanco
             return voto.BuscaParaGrafico(cargo, estado);
         }
 
+        /// <summary>
+        /// Função busca os dados para realizar uma busca pelos dados para montar relatórios
+        /// </summary>
+        /// <param name="estado">Estado desejado</param>
+        /// <param name="cargo">Cargo do político</param>
+        /// <param name="top">Quantos registros deseja buscar</param>
+        /// <returns>O dataset com os dados</returns>
+        public DataSet RelatorioPorEstado(string estado, int cargo, int top)
+        {
+            DataSet dados = new DataSet();
+
+            try
+            {
+                string sql = string.Format(@"select top {0}
+                                        candidato.nome as nome,
+                                        count(voto.candidatoid) as votos
+                                        from candidato
+                                        inner join voto
+                                        on candidato.candidatoid = voto.candidatoid
+                                        and candidato.cargo = {1}
+                                        and voto.estadoeleitor = '{2}'
+                                        group by candidato.nome", top, cargo, estado);
+
+                //Seta o sql como parametro, realiza a busca e retorna como dataset para o objeto 'dados'
+                dados = conexao.BuscaDados(sql);
+
+                return dados;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }
