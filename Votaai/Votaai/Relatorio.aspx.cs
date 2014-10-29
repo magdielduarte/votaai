@@ -65,9 +65,17 @@ namespace Votaai
                     break;
             }
 
+            
+
             for (int i = 1; i <= 5; i++)
             {
                 dados = votos.Relatorio(obj, i, parametro);
+
+                if (dados.Tables[0].Rows.Count == 0)
+                {
+                    vazio.Style["display"] = "block";
+                    return;
+                }
 
                 for (int j = 0; j < dados.Tables[0].Rows.Count; j++)
                 {

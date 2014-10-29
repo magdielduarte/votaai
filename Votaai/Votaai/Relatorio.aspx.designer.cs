@@ -184,6 +184,24 @@ namespace Votaai {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl erro;
         
         /// <summary>
+        /// vazio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl vazio;
+        
+        /// <summary>
+        /// nada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nada;
+        
+        /// <summary>
         /// resposta control.
         /// </summary>
         /// <remarks>

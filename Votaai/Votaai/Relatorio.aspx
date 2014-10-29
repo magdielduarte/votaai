@@ -134,7 +134,7 @@
                                         <div class="control-group" runat="server" id="zona">
                                              <label class="control-label" for="cargo">Zona Eleitoral: </label>
                                             <div class="controls">
-                                                <asp:TextBox ID="txtZona" runat="server" Width="250" />
+                                                <asp:TextBox ID="txtZona" runat="server" Width="250" MaxLength="3" />
                                             </div>
                                         </div>
 
@@ -145,7 +145,7 @@
                                         <div class="control-group" runat="server" id="secao">
                                              <label class="control-label" for="cargo">Seção Eleitoral: </label>
                                             <div class="controls">
-                                                <asp:TextBox ID="txtSecao" runat="server" Width="250" />
+                                                <asp:TextBox ID="txtSecao" runat="server" Width="250" MaxLength="4" />
                                             </div>
                                         </div>
 
@@ -195,6 +195,14 @@
 
                                         <div class="control-group" runat="server" id="erro">
                                              <label class="control-label" for="cargo">Filtro não encontrado! Tente novamente.</label>
+                                        </div>
+
+                                    </div>
+
+                                     <div class="tabbable" id="vazio" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="nada">
+                                             <label class="control-label" for="cargo">Dados não encontrados.</label>
                                         </div>
 
                                     </div>
