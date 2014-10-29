@@ -53,13 +53,13 @@ function retornaCandidato(numero) {
 		url: "http://apivotaai.azurewebsites.net/retornacandidato.php",
 		data: {
 			numero: numero,
-			uf: eleitor.estadoeleitor,
+			uf: eleitor.estadoeleitor,  
 			cargo: sessionStorage.getItem('cargoID')
 		},  
 		success: function(dados) {
-				console.log(dados.candidatoid);
+				console.log(dados);  
 				$('.imgperfil').attr('src', dados.foto);
-				$('.nomePerfil').text(dados.nome);
+				$('.nomePerfil').text(dados.nomecandidato);
 				$('.numeroPerfil').text(' - ' + dados.numero);
 				$('.partidoPerfil').text('Partido: ' + dados.sigla);  
 				$('.correto').attr('data-candidatoid', dados.candidatoid);

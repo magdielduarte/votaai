@@ -19,13 +19,13 @@ validaSenador.onclick = function() {
 		data: {
 			numero: senador.value,
 			estadocandidato: eleitor.estadoeleitor,
-			cargo: 3
+			cargo: 2
 		},  
 		success: function(dados) {
 			
 			if(dados.status) {
 				//Salvo na sessão o id do cargo para montar a query de retorno
-				sessionStorage.setItem('cargoID', 3);
+				sessionStorage.setItem('cargoID', 2);
 
 				//se o candidato existir os dados para montar o seu perfil
 				retornaCandidato(senador.value);

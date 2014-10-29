@@ -19,13 +19,13 @@ validaGovernador.onclick = function() {
 		data: {
 			numero: governador.value,
 			estadocandidato: eleitor.estadoeleitor,
-			cargo: 2
+			cargo: 3
 		},  
 		success: function(dados) {
 			
 			if(dados.status) {
 				//Salvo na sessão o id do cargo para montar a query de retorno
-				sessionStorage.setItem('cargoID', 2);
+				sessionStorage.setItem('cargoID', 3);
 
 				//se o candidato existir os dados para montar o seu perfil
 				retornaCandidato(governador.value);
