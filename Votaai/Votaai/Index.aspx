@@ -128,7 +128,7 @@
                             </div>
                             <!-- /widget -->
 
-                            <div class="widget">
+                            <%--                            <div class="widget">
                                 <div class="widget-header">
                                     <i class="icon-file"></i>
                                     <h3>Notificações</h3>
@@ -169,18 +169,18 @@
                                     </ul>
                                 </div>
                                 <!-- /widget-content -->
-                            </div>
+                            </div>--%>
                             <!-- /widget -->
                         </div>
                         <!-- /span6 -->
                         <div class="span6">
-                            <div class="widget" >
+                            <div class="widget">
                                 <div class="widget-header">
                                     <i class="icon-bookmark"></i>
                                     <h3>Relatórios</h3>
                                 </div>
                                 <!-- /widget-header -->
-                                <div class="widget-content" style="height:255px;width:568px;">
+                                <div class="widget-content" style="height: 255px; width: 568px;">
                                     <div class="shortcuts">
                                         <a href="Relatorio.aspx?filtro=estado" class="shortcut">
                                             <span class="shortcut-label">Votações por Estado</span>
@@ -200,6 +200,15 @@
                                 <!-- /widget-content -->
                             </div>
                             <!-- /widget -->
+
+                            <!-- /widget -->
+                        </div>
+
+                        <!-- /span6 -->
+                    </div>
+                    <!-- /row -->
+                    <div class="row">
+                        <div class="span12">
                             <div class="widget">
                                 <div class="widget-header">
                                     <i class="icon-bar-chart"></i>
@@ -209,8 +218,9 @@
 
 
                                 <div class="widget-content">
-                                    <asp:UpdatePanel runat="server">
-                                        <ContentTemplate>
+
+                                    <div class="row">
+                                        <div class="span4">
                                             <label class="control-label" for="email">Cargo</label>
 
                                             <asp:DropDownList runat="server" AutoPostBack="true" ID="selectcargo" CssClass="span4" OnSelectedIndexChanged="selectcargo_SelectedIndexChanged">
@@ -220,53 +230,54 @@
                                                 <asp:ListItem Value="4" Text="Deputado Federal"></asp:ListItem>
                                                 <asp:ListItem Value="5" Text="Deputado Estadual"></asp:ListItem>
                                             </asp:DropDownList>
-                                            <div runat="server" style="width: 300px;" id="divestado">
-                                                <label class="control-label">Estado</label>
-                                                <asp:DropDownList runat="server" ID="selectestado" CssClass="span4">
-                                                    <asp:ListItem Value="AC">Acre</asp:ListItem>
-                                                    <asp:ListItem Value="AL">Alagoas</asp:ListItem>
-                                                    <asp:ListItem Value="AM">Amazonas</asp:ListItem>
-                                                    <asp:ListItem Value="AP">Amapá</asp:ListItem>
-                                                    <asp:ListItem Value="BA">Bahia</asp:ListItem>
-                                                    <asp:ListItem Value="CE">Ceará</asp:ListItem>
-                                                    <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
-                                                    <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
-                                                    <asp:ListItem Value="GO">Goiás</asp:ListItem>
-                                                    <asp:ListItem Value="MA">Maranhão</asp:ListItem>
-                                                    <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
-                                                    <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
-                                                    <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
-                                                    <asp:ListItem Value="PA">Pará</asp:ListItem>
-                                                    <asp:ListItem Value="PB">Paraíba</asp:ListItem>
-                                                    <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
-                                                    <asp:ListItem Value="PI">Piauí</asp:ListItem>
-                                                    <asp:ListItem Value="PR">Paraná</asp:ListItem>
-                                                    <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
-                                                    <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
-                                                    <asp:ListItem Value="RO">Rondônia</asp:ListItem>
-                                                    <asp:ListItem Value="RR">Roraima</asp:ListItem>
-                                                    <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
-                                                    <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
-                                                    <asp:ListItem Value="SE">Sergipe</asp:ListItem>
-                                                    <asp:ListItem Value="SP">São Paulo</asp:ListItem>
-                                                    <asp:ListItem Value="TO">Tocantins</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                            <asp:Button Text="Atualizar Gráfico" runat="server" ID="BtnPesquisar" CssClass="btn-info" OnClick="BtnPesquisar_Click" />
 
-                                            <canvas id="bar_chart" class="chart-holder" runat="server" width="538" height="250"></canvas>
-                                            <!-- /bar-chart -->
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                        </div>
 
+                                        <div runat="server" class="span4" id="divestado">
+                                            <label class="control-label">Estado</label>
+                                            <asp:DropDownList runat="server" ID="selectestado" CssClass="span4">
+                                                <asp:ListItem Value="AC">Acre</asp:ListItem>
+                                                <asp:ListItem Value="AL">Alagoas</asp:ListItem>
+                                                <asp:ListItem Value="AM">Amazonas</asp:ListItem>
+                                                <asp:ListItem Value="AP">Amapá</asp:ListItem>
+                                                <asp:ListItem Value="BA">Bahia</asp:ListItem>
+                                                <asp:ListItem Value="CE">Ceará</asp:ListItem>
+                                                <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
+                                                <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
+                                                <asp:ListItem Value="GO">Goiás</asp:ListItem>
+                                                <asp:ListItem Value="MA">Maranhão</asp:ListItem>
+                                                <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
+                                                <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
+                                                <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
+                                                <asp:ListItem Value="PA">Pará</asp:ListItem>
+                                                <asp:ListItem Value="PB">Paraíba</asp:ListItem>
+                                                <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
+                                                <asp:ListItem Value="PI">Piauí</asp:ListItem>
+                                                <asp:ListItem Value="PR">Paraná</asp:ListItem>
+                                                <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
+                                                <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
+                                                <asp:ListItem Value="RO">Rondônia</asp:ListItem>
+                                                <asp:ListItem Value="RR">Roraima</asp:ListItem>
+                                                <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
+                                                <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
+                                                <asp:ListItem Value="SE">Sergipe</asp:ListItem>
+                                                <asp:ListItem Value="SP">São Paulo</asp:ListItem>
+                                                <asp:ListItem Value="TO">Tocantins</asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </div>
+                                        <div class="span2">
+                                            <asp:Button Style="margin-top: 20px" Text="Atualizar Gráfico" runat="server" ID="BtnPesquisar" CssClass="btn-info" OnClick="BtnPesquisar_Click" />
+                                        </div>
+                                    </div>
+
+                                    <canvas id="bar_chart" class="chart-holder" runat="server" style="width: 100%; height: 100%;"></canvas>
+                                    <!-- /bar-chart -->
                                 </div>
                                 <!-- /widget-content -->
                             </div>
-                            <!-- /widget -->
                         </div>
-                        <!-- /span6 -->
                     </div>
-                    <!-- /row -->
                 </div>
                 <!-- /container -->
             </div>
