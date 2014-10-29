@@ -42,6 +42,7 @@ namespace Votaai
         {
             DataSet dados = new DataSet();
             Voto votos = new Voto();
+            string obj = "";
 
             //Irá pegar o parâmetro passado pela URL
             string parametro = Request.QueryString["filtro"];
@@ -51,19 +52,31 @@ namespace Votaai
             switch (parametro)
             { 
                 case "estado":
-                    string uf = selectestado.SelectedItem.Value;
-                    //Retorna dados de presidente
-                    for (int i = 1; i < 5; i++)
-                    {
-                        dados = votos.RelatorioPorEstado(uf, i);
-
-                        for (int j = 0; j < dados.Tables[0].Rows.Count; j++)
-                        {
-                            campos[i - 1].Text += dados.Tables[0].Rows[j]["nome"].ToString() + ": " + dados.Tables[0].Rows[j]["votos"].ToString() + " Votos<br />";
-                        }
-                    }
-                    
+                   obj = selectestado.SelectedItem.Value;
                     break;
+                case "sexo":
+                    obj = selectsexo.SelectedItem.Value;
+                    break;
+                case "zona":
+                    obj = txtZona.Text;
+                    break;
+                case "secao":
+                    obj = txtSecao.Text;
+                    break;
+            }
+
+            for (int i = 1; i <= 5; i++)
+            {
+                dados = votos.Relatorio(obj, i, parametro);
+
+                for (int j = 0; j < dados.Tables[0].Rows.Count; j++)
+                {
+                    campos[i - 1].Text += dados.Tables[0].Rows[j]["nome"].ToString() + ": " + dados.Tables[0].Rows[j]["votos"].ToString() + " Votos";
+                    if(i != 1)
+                        campos[i - 1].Text += string.Format("- {0}", dados.Tables[0].Rows[j]["estado"].ToString());
+
+                    campos[i - 1].Text += "<br />";
+                }
             }
 
             resposta.Style["display"] = "block";

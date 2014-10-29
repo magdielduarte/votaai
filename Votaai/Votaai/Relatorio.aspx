@@ -203,26 +203,33 @@
                                     <div class="tabbable" id="resposta" runat="server" style="display: none">
 
                                         <div class="control-group" runat="server" id="busca">
-                                             Presidentes Eleitos:
+                                            <b>Presidentes:</b>
+                                            <br />
                                             <br />
                                             <asp:Label Text="" runat="server" ID="presidente" />
                                             <br />
-                                            Governadores:
+                                            <b>Governadores:</b>
+                                            <br />
                                             <br />
                                             <asp:Label Text="" runat="server" ID="governador" />
                                             <br />
-                                            Senadores:
+                                            <b>Senadores:</b>
+                                            <br />
                                             <br />
                                             <asp:Label Text="" runat="server" ID="senador" />
                                             <br />
-                                            Deputados Federais:
+                                            <b>Deputados Federais:</b>
+                                            <br />
                                             <br />
                                             <asp:Label Text="" runat="server" ID="federal" />
                                             <br />
-                                            Deputados Estaduais:
+                                            <b>Deputados Estaduais:</b>
+                                            <br />
                                             <br />
                                             <asp:Label Text="" runat="server" ID="estadual" />
                                             <br />
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="vencedor" />
                                         </div>
 
                                     </div>

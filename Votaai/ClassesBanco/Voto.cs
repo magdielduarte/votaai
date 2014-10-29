@@ -140,7 +140,7 @@ namespace ClassesBanco
         /// <param name="estado">Estado desejado</param>
         /// <param name="cargo">Cargo do político</param>
         /// <returns>O dataset com os dados</returns>
-        public DataSet RelatorioPorEstado(string estado, int cargo)
+        public DataSet Relatorio(string info, int cargo, string filtro)
         {
             DataSet dados = new DataSet();
             StringBuilder sql = new StringBuilder();
@@ -154,15 +154,23 @@ namespace ClassesBanco
 
                 sql.AppendLine(string.Format("SELECT TOP {0}", top));
                 sql.AppendLine("candidato.nome as nome,");
+                sql.AppendLine("candidato.estadocandidato as estado,");
                 sql.AppendLine("count(voto.candidatoid) as votos");
                 sql.AppendLine("from candidato");
                 sql.AppendLine("inner join voto");
                 sql.AppendLine("on candidato.candidatoid = voto.candidatoid");
                 sql.AppendLine(string.Format("and candidato.cargo = {0}", cargo));
-                sql.AppendLine(string.Format("and voto.estadoeleitor = '{0}'", estado));
-                if(cargo != 1)
-                    sql.AppendLine(string.Format("and candidato.estadocandidato = '{0}'", estado));
-                sql.AppendLine("group by candidato.nome");
+                if(filtro == "estado")
+                    sql.AppendLine(string.Format("and voto.estadoeleitor = '{0}'", info));
+                if (filtro == "sexo")
+                    sql.AppendLine(string.Format("and voto.sexoeleitor = '{0}'", info));
+                if (filtro == "zona")
+                    sql.AppendLine(string.Format("and voto.zonaeleitor = '{0}'", info));
+                if (filtro == "secao")
+                    sql.AppendLine(string.Format("and voto.secaoeleitor = '{0}'", info));
+                if(cargo != 1 && filtro == "estado")
+                    sql.AppendLine(string.Format("and candidato.estadocandidato = '{0}'", info));
+                sql.AppendLine("group by candidato.nome, candidato.estadocandidato");
                 sql.AppendLine("order by votos DESC");
 
                 //Seta o sql como parametro, realiza a busca e retorna como dataset para o objeto 'dados'
