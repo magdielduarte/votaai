@@ -23,7 +23,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2014 01:34:21</publishTime>
     </File>
     <File Include="bin/Votaai.dll">
-      <publishTime>10/29/2014 12:25:40</publishTime>
+      <publishTime>10/29/2014 13:09:28</publishTime>
     </File>
     <File Include="Cadastros.aspx">
       <publishTime>10/28/2014 21:02:57</publishTime>
@@ -182,16 +182,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/28/2014 13:16:41</publishTime>
     </File>
     <File Include="Relatorio.aspx">
-      <publishTime>10/29/2014 12:20:14</publishTime>
+      <publishTime>10/29/2014 13:08:32</publishTime>
     </File>
     <File Include="UserControl/Candidato.ascx">
-      <publishTime>10/29/2014 09:23:43</publishTime>
+      <publishTime>10/29/2014 12:37:39</publishTime>
     </File>
     <File Include="UserControl/Partido.ascx">
-      <publishTime>10/28/2014 00:28:33</publishTime>
+      <publishTime>10/29/2014 12:37:55</publishTime>
     </File>
     <File Include="UserControl/Usuario.ascx">
-      <publishTime>10/28/2014 21:28:49</publishTime>
+      <publishTime>10/29/2014 12:38:09</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>10/29/2014 08:10:52</publishTime>
