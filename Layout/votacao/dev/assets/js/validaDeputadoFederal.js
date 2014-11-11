@@ -31,8 +31,8 @@ validaDeputadoFederal.onclick = function() {
 				retornaCandidato(deputadoFederal.value);
 			}
 			else {
-				$('#alert').text('candidato não existe, deseja anular seu voto?');
-				$('#alert').trigger('openModal');
+				$('#alertnulo').text('candidato não existe, deseja anular seu voto?');
+				$('#alertnulo').trigger('openModal');
 				return false;
 			}
 		},

@@ -14,6 +14,7 @@ setTimeout(function(){
 */
 
 $('#alert').easyModal();
+$('#alertnulo').easyModal();
 
 /*
 	link para começar a votação
@@ -65,7 +66,6 @@ $('.correto').on('click', function(){
 		case '1':
 			var candidato1 = candidato;
 			sessionStorage.setItem('candidato1', candidato);
-			alert('passou aqui');
 			validaVoto();
 			break;
 		case '2':

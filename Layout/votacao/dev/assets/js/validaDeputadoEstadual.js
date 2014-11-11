@@ -56,11 +56,10 @@ function retornaCandidato(numero) {
 			uf: eleitor.estadoeleitor,  
 			cargo: sessionStorage.getItem('cargoID')
 		},  
-		success: function(dados) {
+		success: function(dados) {  
 				console.log(dados);  
 				$('.imgperfil').attr('src', dados.foto);
-				$('.nomePerfil').text(dados.nomecandidato);
-				$('.numeroPerfil').text(' - ' + dados.numero);
+				$('.numeroPerfil').text( dados.numero);
 				$('.partidoPerfil').text('Partido: ' + dados.sigla);  
 				$('.correto').attr('data-candidatoid', dados.candidatoid);
 				$('.correto').attr('data-cargo', sessionStorage.getItem('cargoID'));
