@@ -139,26 +139,42 @@ namespace ClassesBanco
         /// </summary>
         /// <param name="estado">Estado desejado</param>
         /// <param name="cargo">Cargo do político</param>
-        /// <param name="top">Quantos registros deseja buscar</param>
         /// <returns>O dataset com os dados</returns>
-        public DataSet RelatorioPorEstado(string estado, int cargo, int top)
+        public DataSet Relatorio(string info, int cargo, string filtro)
         {
             DataSet dados = new DataSet();
-
+            StringBuilder sql = new StringBuilder();
             try
             {
-                string sql = string.Format(@"select top {0}
-                                        candidato.nome as nome,
-                                        count(voto.candidatoid) as votos
-                                        from candidato
-                                        inner join voto
-                                        on candidato.candidatoid = voto.candidatoid
-                                        and candidato.cargo = {1}
-                                        and voto.estadoeleitor = '{2}'
-                                        group by candidato.nome", top, cargo, estado);
+                int top = 3;
+
+                if (cargo == 4 || cargo == 5)
+                    top = 10;
+                
+
+                sql.AppendLine(string.Format("SELECT TOP {0}", top));
+                sql.AppendLine("candidato.nome as nome,");
+                sql.AppendLine("candidato.estadocandidato as estado,");
+                sql.AppendLine("count(voto.candidatoid) as votos");
+                sql.AppendLine("from candidato");
+                sql.AppendLine("inner join voto");
+                sql.AppendLine("on candidato.candidatoid = voto.candidatoid");
+                sql.AppendLine(string.Format("and candidato.cargo = {0}", cargo));
+                if(filtro == "estado")
+                    sql.AppendLine(string.Format("and voto.estadoeleitor = '{0}'", info));
+                if (filtro == "sexo")
+                    sql.AppendLine(string.Format("and voto.sexoeleitor = '{0}'", info));
+                if (filtro == "zona")
+                    sql.AppendLine(string.Format("and voto.zonaeleitor = '{0}'", info));
+                if (filtro == "secao")
+                    sql.AppendLine(string.Format("and voto.secaoeleitor = '{0}'", info));
+                if(cargo != 1 && filtro == "estado")
+                    sql.AppendLine(string.Format("and candidato.estadocandidato = '{0}'", info));
+                sql.AppendLine("group by candidato.nome, candidato.estadocandidato");
+                sql.AppendLine("order by votos DESC");
 
                 //Seta o sql como parametro, realiza a busca e retorna como dataset para o objeto 'dados'
-                dados = conexao.BuscaDados(sql);
+                dados = conexao.BuscaDados(sql.ToString());
 
                 return dados;
             }

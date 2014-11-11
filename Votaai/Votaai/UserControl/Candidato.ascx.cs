@@ -38,6 +38,13 @@ namespace Votaai.UserControl
         {
             LimpaSessions();
             ValidaDivs();
+            ValidaCampoCargo();
+            this.numerocand.Text = "";
+            this.numerocand.DataBind();
+        }
+
+        private void ValidaCampoCargo()
+        {
             switch (selectcargo.SelectedValue)
             {
                 case "1":
@@ -74,10 +81,7 @@ namespace Votaai.UserControl
                     this.numerocand.Width = 45;
                     LimpaDadosSuplentes();
                     break;
-
             }
-            this.numerocand.Text = "";
-            this.numerocand.DataBind();
         }
 
         /// <summary>
@@ -312,7 +316,7 @@ namespace Votaai.UserControl
                 }
                 else
                 {
-                    if (Session["FolderFoto"]!=null)
+                    if (Session["FolderFoto"] != null)
                     {
                         cand.foto = Session["FolderFoto"].ToString();
                     }
@@ -370,17 +374,57 @@ namespace Votaai.UserControl
             try
             {
                 ClassesBanco.Candidato cand = new ClassesBanco.Candidato();
-                cand.numero = int.Parse(this.pesnumero.Value);
+                if (this.pesnumero.Value == "")
+                {
+                    throw new Exception("Favor inserir o número para pesquisa!");
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(this.pesnumero.Value, "^[0-9]"))
+                {
+                    throw new Exception("A busca poderá ser feita apenas com números!");
+                }
+                else
+                {
+                    cand.numero = int.Parse(this.pesnumero.Value);
+                }
+
+                cand.estadocandidato = this.selectestadopes.SelectedValue;
 
                 DataSet dados = cand.BuscarDados(cand);
+                if (dados.Tables[0].Rows.Count > 0)
+                {
+                    this.nomecandidato.Text = dados.Tables[0].Rows[0]["nome"].ToString();
+                    this.selectpartido.SelectedValue = dados.Tables[0].Rows[0]["partidoid"].ToString();
 
-                this.nomecandidato.Text = dados.Tables[0].Rows[0]["nome"].ToString();
-                this.selectpartido.SelectedValue = dados.Tables[0].Rows[0]["partidoid"].ToString();
-                this.numeropartido.Text = dados.Tables[0].Rows[0]["numero"].ToString().Substring(0, 2);
-                this.numerocand.Text = dados.Tables[0].Rows[0]["numero"].ToString().Substring(2, 5);
-                this.selectcargo.SelectedValue = dados.Tables[0].Rows[0]["cargo"].ToString();
-                this.selectestado.SelectedValue = dados.Tables[0].Rows[0]["estadocandidato"].ToString();
-                this.hiddencand.Value = dados.Tables[0].Rows[0]["candidatoid"].ToString();
+                    this.selectcargo.SelectedValue = dados.Tables[0].Rows[0]["cargo"].ToString();
+                    this.selectestado.SelectedValue = dados.Tables[0].Rows[0]["estadocandidato"].ToString();
+                    this.hiddencand.Value = dados.Tables[0].Rows[0]["candidatoid"].ToString();
+
+                    if (this.selectcargo.SelectedValue == "1" || this.selectcargo.SelectedValue == "3")
+                    {
+                        this.txtvice.Value = dados.Tables[0].Rows[0]["vice"].ToString();
+
+                        this.numeropartido.Text = dados.Tables[0].Rows[0]["numero"].ToString().Substring(0, 2);
+                    }
+                    else
+                    {
+                        if (this.selectcargo.SelectedValue == "2")
+                        {
+                            string[] suplentes = dados.Tables[0].Rows[0]["vice"].ToString().Split(';');
+                            this.txtsuplente1.Value = suplentes[0];
+                            this.txtsuplente2.Value = suplentes[1];
+                        }
+                        this.numeropartido.Text = dados.Tables[0].Rows[0]["numero"].ToString().Substring(0, 2);
+                        this.numerocand.Text = dados.Tables[0].Rows[0]["numero"].ToString().Substring(2, 5);
+                    }
+                    ValidaDivs();
+                    ValidaCampoCargo();
+
+                }
+                else
+                {
+
+                    throw new Exception("Registro Existente!");
+                }
 
             }
             catch (Exception ex)
@@ -598,7 +642,8 @@ namespace Votaai.UserControl
             if (!achouerro)
             {
                 this.FileFotoCand.SaveAs(fullpath);
-                Session["FolderFoto"] = fullpath;
+
+                Session["FolderFoto"] = string.Format("http://votaai.azurewebsites.net/ImagensCandidatos/{0}", FileFotoCand.FileName);
 
             }
 

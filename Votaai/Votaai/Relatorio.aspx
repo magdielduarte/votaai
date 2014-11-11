@@ -113,15 +113,50 @@
                                 </div>
                                 <!-- /widget-header -->
 
-                                <div class="widget-content" id="filtroEstado" runat="server">
+                                <div class="widget-content" >
 
-                                    <div class="tabbable">
+                                    <div class="tabbable" id="filtroSexo" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="sexo">
+                                             <label class="control-label" for="cargo">Sexo: </label>
+                                            <div class="controls">
+                                                <asp:DropDownList runat="server" ID="selectsexo" Width="250">
+                                                    <asp:ListItem Value="M">Masculino</asp:ListItem>
+                                                    <asp:ListItem Value="F">Feminino</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tabbable" id="filtroZona" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="zona">
+                                             <label class="control-label" for="cargo">Zona Eleitoral: </label>
+                                            <div class="controls">
+                                                <asp:TextBox ID="txtZona" runat="server" Width="250" MaxLength="3" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tabbable" id="filtroSecao" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="secao">
+                                             <label class="control-label" for="cargo">Seção Eleitoral: </label>
+                                            <div class="controls">
+                                                <asp:TextBox ID="txtSecao" runat="server" Width="250" MaxLength="4" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tabbable" id="filtroEstado" runat="server" style="display: none">
 
                                         <div class="control-group" runat="server" id="estado">
                                             <label class="control-label" for="cargo">Estado: </label>
                                             <div class="controls">
                                                 <asp:DropDownList runat="server" ID="selectestado" Width="250">
-                                                    <asp:ListItem Value=""></asp:ListItem>
                                                     <asp:ListItem Value="AC">Acre</asp:ListItem>
                                                     <asp:ListItem Value="AL">Alagoas</asp:ListItem>
                                                     <asp:ListItem Value="AM">Amazonas</asp:ListItem>
@@ -155,12 +190,64 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-sm-3">
+
+                                    <div class="tabbable" id="filtroErro" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="erro">
+                                             <label class="control-label" for="cargo">Filtro não encontrado! Tente novamente.</label>
+                                        </div>
+
+                                    </div>
+
+                                     <div class="tabbable" id="vazio" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="nada">
+                                             <label class="control-label" for="cargo">Dados não encontrados.</label>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="tabbable" id="resposta" runat="server" style="display: none">
+
+                                        <div class="control-group" runat="server" id="busca">
+                                            <b>Presidentes:</b>
+                                            <br />
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="presidente" />
+                                            <br />
+                                            <b>Governadores:</b>
+                                            <br />
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="governador" />
+                                            <br />
+                                            <b>Senadores:</b>
+                                            <br />
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="senador" />
+                                            <br />
+                                            <b>Deputados Federais:</b>
+                                            <br />
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="federal" />
+                                            <br />
+                                            <b>Deputados Estaduais:</b>
+                                            <br />
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="estadual" />
+                                            <br />
+                                            <br />
+                                            <asp:Label Text="" runat="server" ID="vencedor" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-3" id="confirma" runat="server">
                                         <asp:Button Text="Gerar Relatório" ID="BtnGerarRelatorio" CssClass="btn btn-success" runat="server" OnClick="BtnGerarRelatorio_Click"></asp:Button>
                                     </div>
                                 </div>
                                 <!-- /widget-content -->
-
+                                
                             </div>
                             <!-- /widget -->
                         </div>

@@ -45,8 +45,9 @@
                     <!-- /control-group -->
 
                     <div class="form-actions">
-                        <asp:Button runat="server" ID="BtnCadUsu" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadUsu_Click" />
                         <asp:Button runat="server" ID="BtnCanUsu" CssClass="btn" Text="Cancelar" OnClick="BtnCanUsu_Click"></asp:Button>
+                        <asp:Button runat="server" ID="BtnCadUsu" CssClass="btn btn-success" Text="Cadastrar" OnClick="BtnCadUsu_Click" />
+
                     </div>
                     <!-- /form-actions -->
                 </fieldset>
